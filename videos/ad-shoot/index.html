@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #0b0b0c;
+      }
+      #stage {
+        position: relative;
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        --bg: #0b0b0c;
+        --card: #1a1a1c;
+        --card-edge: rgba(255, 255, 255, 0.1);
+        --ink: #ffffff;
+        --muted: #a0a0a6;
+        --accent: #d0243a;
+        --glow: rgba(255, 59, 78, 0.5);
+        --dot: rgba(255, 255, 255, 0.07);
+
+        background:
+          radial-gradient(circle, var(--dot) 1.2px, transparent 1.6px) 0 0 /
+            24px 24px,
+          var(--bg);
+      }
+      #vignette {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        background: radial-gradient(
+          ellipse at 50% 40%,
+          transparent 55%,
+          rgba(0, 0, 0, 0.65) 100%
+        );
+      }
+      #stage > .clip {
+        z-index: 2;
+      }
+      #face {
+        position: absolute;
+        z-index: 3;
+        overflow: hidden;
+        background: #000;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7);
+      }
+      #face-inner {
+        position: absolute;
+      }
+      #face-zoom {
+        position: absolute;
+        inset: 0;
+        transform-origin: 50% 24%;
+      }
+      #aroll {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      #stage > #captions-host {
+        z-index: 4;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="stage"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="80.033"
+      data-width="1080"
+      data-height="1920"
+    >
+      <div id="vignette"></div>
+      <div
+        id="stage-hook"
+        class="clip"
+        data-composition-id="hook"
+        data-composition-src="compositions/hook.html"
+        data-start="0.000"
+        data-duration="7.667"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="stage-problem"
+        class="clip"
+        data-composition-id="problem"
+        data-composition-src="compositions/problem.html"
+        data-start="7.667"
+        data-duration="24.100"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="stage-shark"
+        class="clip"
+        data-composition-id="shark"
+        data-composition-src="compositions/shark.html"
+        data-start="31.767"
+        data-duration="12.866"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="stage-proof"
+        class="clip"
+        data-composition-id="proof"
+        data-composition-src="compositions/proof.html"
+        data-start="44.633"
+        data-duration="24.634"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div
+        id="stage-close"
+        class="clip"
+        data-composition-id="close"
+        data-composition-src="compositions/close.html"
+        data-start="69.267"
+        data-duration="10.766"
+        data-track-index="1"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <div id="face" data-layout-allow-overflow="true">
+        <div id="face-inner" data-layout-allow-overflow="true">
+          <div id="face-zoom">
+            <video
+              id="aroll"
+              class="clip"
+              src="assets/aroll.mp4"
+              data-start="0"
+              data-duration="80.033"
+              data-track-index="0"
+              muted
+              playsinline
+            ></video>
+          </div>
+        </div>
+      </div>
+      <div
+        id="captions-host"
+        class="clip"
+        data-composition-id="captions"
+        data-track-kind="captions"
+        data-composition-src="compositions/captions.html"
+        data-start="0"
+        data-duration="80.033"
+        data-track-index="2"
+        data-width="1080"
+        data-height="1920"
+      ></div>
+      <audio
+        id="vo"
+        src="assets/aroll.mp4"
+        data-start="0"
+        data-duration="80.033"
+        data-track-index="3"
+        data-volume="1"
+      ></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        0,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        0,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        6.2,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        6.2,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        7.667,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        7.667,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        14.5,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        14.5,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        16.2,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        16.2,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        27.45,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        27.45,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        29.44,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        29.44,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        42.75,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        42.75,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        44.633,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        44.633,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        49.1,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        49.1,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        50.7,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        50.7,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        61.55,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        61.55,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        63.8,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        63.8,
+      );
+      tl.set(
+        "#face",
+        { left: 0, top: 0, width: 1080, height: 1920, borderRadius: 0 },
+        73.0,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: 0, width: 1080, height: 1920 },
+        73.0,
+      );
+      tl.set(
+        "#face",
+        { left: 65, top: 1290, width: 950, height: 680, borderRadius: 36 },
+        74.8,
+      );
+      tl.set(
+        "#face-inner",
+        { left: 0, top: -110, width: 950, height: 1689 },
+        74.8,
+      );
+      tl.set("#face-zoom", { scale: 1 }, 0.0);
+      tl.set("#face-zoom", { scale: 1.12 }, 6.2);
+      tl.set("#face-zoom", { scale: 1 }, 7.167);
+      tl.set("#face-zoom", { scale: 1 }, 7.667);
+      tl.set("#face-zoom", { scale: 1 }, 14.5);
+      tl.set("#face-zoom", { scale: 1 }, 16.2);
+      tl.set("#face-zoom", { scale: 1 }, 18.1);
+      tl.set("#face-zoom", { scale: 1 }, 20.5);
+      tl.set("#face-zoom", { scale: 1 }, 23.2);
+      tl.set("#face-zoom", { scale: 1.12 }, 27.45);
+      tl.set("#face-zoom", { scale: 1 }, 29.44);
+      tl.set("#face-zoom", { scale: 1 }, 29.467);
+      tl.set("#face-zoom", { scale: 1 }, 31.767);
+      tl.set("#face-zoom", { scale: 1 }, 37.933);
+      tl.set("#face-zoom", { scale: 1 }, 41.333);
+      tl.set("#face-zoom", { scale: 1.12 }, 42.75);
+      tl.set("#face-zoom", { scale: 1 }, 44.633);
+      tl.set("#face-zoom", { scale: 1 }, 47.4);
+      tl.set("#face-zoom", { scale: 1 }, 49.1);
+      tl.set("#face-zoom", { scale: 1 }, 50.7);
+      tl.set("#face-zoom", { scale: 1 }, 54.133);
+      tl.set("#face-zoom", { scale: 1 }, 58.5);
+      tl.set("#face-zoom", { scale: 1 }, 61.55);
+      tl.set("#face-zoom", { scale: 1.12 }, 61.6);
+      tl.set("#face-zoom", { scale: 1 }, 63.8);
+      tl.set("#face-zoom", { scale: 1 }, 65.5);
+      tl.set("#face-zoom", { scale: 1 }, 69.267);
+      tl.set("#face-zoom", { scale: 1 }, 69.567);
+      tl.set("#face-zoom", { scale: 1.12 }, 73.0);
+      tl.set("#face-zoom", { scale: 1 }, 74.8);
+      tl.set("#face-zoom", { scale: 1 }, 78.033);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

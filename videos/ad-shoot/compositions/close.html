@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #close-root {
+          position: absolute;
+          inset: 0;
+          --bg: #0b0b0c;
+          --card: #1a1a1c;
+          --card-edge: rgba(255, 255, 255, 0.1);
+          --ink: #ffffff;
+          --muted: #a0a0a6;
+          --accent: #d0243a;
+          --glow: rgba(255, 59, 78, 0.5);
+          --dot: rgba(255, 255, 255, 0.07);
+        }
+        #close-root * {
+          box-sizing: border-box;
+          margin: 0;
+        }
+
+        @font-face {
+          font-family: "Instrument Serif";
+          font-style: italic;
+          font-weight: 400;
+          src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+          unicode-range:
+            U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193,
+            U+2212;
+        }
+        @font-face {
+          font-family: "Instrument Serif";
+          font-style: italic;
+          font-weight: 400;
+          src: url("assets/fonts/InstrumentSerif-Italic-ext.woff2")
+            format("woff2");
+          unicode-range: U+0100-02BA, U+20A0-20C0, U+2113;
+        }
+        .title {
+          position: absolute;
+          top: 150px;
+          left: 60px;
+          right: 60px;
+          text-align: center;
+          font-family: Inter, sans-serif;
+          color: var(--ink);
+          line-height: 1.08;
+          text-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+        }
+        .title .l1 {
+          display: block;
+          font-size: 58px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+        }
+        .title .l2 {
+          display: block;
+          font-size: 60px;
+          font-weight: 800;
+          letter-spacing: -0.02em;
+          margin-top: 6px;
+        }
+        .title .tw {
+          display: inline-block;
+        }
+        .serif {
+          font-family: "Instrument Serif", serif;
+          font-style: italic;
+          font-weight: 400;
+          font-size: 1.22em;
+          letter-spacing: 0;
+        }
+        .accent {
+          color: var(--accent);
+        }
+        .ul {
+          position: relative;
+          display: inline-block;
+        }
+        .ul::after {
+          content: "";
+          position: absolute;
+          left: 2%;
+          right: 2%;
+          bottom: -2px;
+          height: 5px;
+          background: var(--accent);
+          border-radius: 3px;
+          transform: scaleX(var(--u, 0));
+          transform-origin: left center;
+        }
+        .hl {
+          background: var(--accent);
+          color: #fff;
+          padding: 0 14px 4px;
+          border-radius: 10px;
+          text-shadow: none;
+        }
+        .stage {
+          position: absolute;
+          left: 0;
+          top: 330px;
+          width: 1080px;
+          height: 860px;
+        }
+        .cam {
+          position: absolute;
+          inset: 0;
+          transform-origin: 50% 50%;
+        }
+        .card {
+          position: absolute;
+          background: var(--card);
+          border: 1px solid var(--card-edge);
+          border-radius: 24px;
+          box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+          color: var(--ink);
+          font-family: Inter, sans-serif;
+        }
+        .chip {
+          position: absolute;
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          padding: 16px 28px;
+          border-radius: 999px;
+          background: var(--card);
+          border: 1px solid var(--card-edge);
+          color: var(--ink);
+          font-family: Inter, sans-serif;
+          font-weight: 800;
+          font-size: 36px;
+          letter-spacing: -0.01em;
+          white-space: nowrap;
+          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+        }
+        .chip.red {
+          background: var(--accent);
+          border-color: transparent;
+        }
+        .label {
+          font-family: Inter, sans-serif;
+          font-weight: 700;
+          font-size: 30px;
+          color: var(--muted);
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+        .big {
+          font-family: Inter, sans-serif;
+          font-weight: 900;
+          color: var(--ink);
+          letter-spacing: -0.04em;
+          line-height: 1;
+        }
+        .glow {
+          filter: drop-shadow(0 0 28px var(--glow));
+        }
+        .center-x {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .strike {
+          position: absolute;
+          left: -4%;
+          top: 50%;
+          height: 6px;
+          width: 108%;
+          background: var(--accent);
+          border-radius: 3px;
+          transform-origin: left center;
+        }
+        .tick {
+          color: var(--accent);
+          font-weight: 900;
+        }
+        .browser {
+          width: 620px;
+          height: 440px;
+        }
+        .browser .bar {
+          height: 54px;
+          border-bottom: 1px solid var(--card-edge);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 0 22px;
+        }
+        .browser .bar i {
+          width: 14px;
+          height: 14px;
+          border-radius: 50%;
+          background: #3a3a3e;
+        }
+        .browser .hero {
+          margin: 26px;
+          height: 170px;
+          border-radius: 16px;
+          background: linear-gradient(135deg, #2a2a2e, #1f1f22);
+        }
+        .browser .row {
+          margin: 0 26px 16px;
+          height: 22px;
+          border-radius: 11px;
+          background: #2a2a2e;
+        }
+        .browser .btn {
+          margin: 22px 26px;
+          width: 200px;
+          height: 52px;
+          border-radius: 14px;
+          background: var(--accent);
+        }
+      </style>
+      <div
+        id="close-root"
+        data-composition-id="close"
+        data-width="1080"
+        data-height="1920"
+      >
+        <div class="title" id="cl-title">
+          <span class="l1"
+            ><span class="tw">Take</span> <span class="tw">Your</span>
+            <span class="tw">Store</span></span
+          ><span class="l2"
+            ><span class="tw">To</span>
+            <span class="serif ul" id="cl-ul">Another Level</span></span
+          >
+        </div>
+        <div class="title" id="cl-title2">
+          <span class="l1"
+            ><span class="tw">Outperform</span> <span class="tw">Your</span>
+            <span class="tw">Current</span> <span class="tw">Store</span></span
+          ><span class="l2"
+            ><span class="tw">Or</span>
+            <span class="serif hl">Full Refund</span></span
+          >
+        </div>
+        <div class="stage">
+          <div class="cam" id="cl-cam">
+            <div id="cl-link-g">
+              <div
+                class="chip red center-x"
+                id="cl-link"
+                style="top: 60px; font-size: 64px; padding: 26px 56px"
+              >
+                Link Below
+              </div>
+              <div
+                class="big center-x accent glow"
+                id="cl-arrow"
+                style="position: absolute; top: 190px; font-size: 150px"
+              >
+                ↓
+              </div>
+              <div id="cl-steps">
+                <div
+                  class="card cl-step"
+                  style="left: 180px; top: 600px; width: 220px; height: 120px"
+                ></div>
+                <div
+                  class="card cl-step"
+                  style="left: 430px; top: 490px; width: 220px; height: 230px"
+                ></div>
+                <div
+                  class="card cl-step"
+                  style="
+                    left: 680px;
+                    top: 380px;
+                    width: 220px;
+                    height: 340px;
+                    border-color: rgba(208, 36, 58, 0.7);
+                  "
+                ></div>
+                <div
+                  class="chip red"
+                  id="cl-lvl"
+                  style="left: 640px; top: 300px; font-size: 30px"
+                >
+                  Next level
+                </div>
+              </div>
+            </div>
+            <div id="cl-guar-g">
+              <svg
+                id="cl-shield"
+                class="glow"
+                width="300"
+                height="340"
+                viewBox="0 0 300 340"
+                style="
+                  position: absolute;
+                  left: 390px;
+                  top: 30px;
+                  overflow: visible;
+                "
+              >
+                <path
+                  d="M150 12 L280 60 V160 C280 250 220 305 150 330 C80 305 20 250 20 160 V60 Z"
+                  fill="rgba(208,36,58,0.18)"
+                  stroke="#d0243a"
+                  stroke-width="12"
+                  stroke-linejoin="round"
+                />
+                <path
+                  id="cl-check"
+                  d="M90 170 L135 215 L215 125"
+                  fill="none"
+                  stroke="#fff"
+                  stroke-width="18"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  pathLength="1"
+                  stroke-dasharray="1"
+                  stroke-dashoffset="1"
+                />
+              </svg>
+              <div
+                class="big"
+                id="cl-refund"
+                style="
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 420px;
+                  text-align: center;
+                  font-size: 120px;
+                "
+              >
+                100% Refund
+              </div>
+              <div
+                id="cl-free"
+                style="
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 580px;
+                  text-align: center;
+                  font-family: Inter, sans-serif;
+                  font-size: 52px;
+                  font-weight: 700;
+                  color: #fff;
+                "
+              >
+                or we <span class="serif accent">work for free</span><br />until
+                it does
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const L = (g) => g - 69.267;
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo(
+            "#cl-title .tw, #cl-title .l2 > span",
+            { autoAlpha: 0, y: 10, filter: "blur(12px)" },
+            {
+              autoAlpha: 1,
+              y: 0,
+              filter: "blur(0px)",
+              duration: 0.27,
+              ease: "power2.out",
+              stagger: 0.066,
+            },
+            0.05,
+          );
+          tl.fromTo(
+            "#cl-ul",
+            { "--u": 0 },
+            { "--u": 1, duration: 0.5, ease: "power2.inOut" },
+            L(72.26),
+          );
+          tl.fromTo(
+            "#cl-cam",
+            { scale: 1 },
+            { scale: 1.03, duration: L(80.033), ease: "none" },
+            0,
+          );
+          tl.fromTo(
+            "#cl-link",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.3,
+              ease: "power3.out",
+            },
+            L(69.34),
+          );
+          tl.fromTo(
+            "#cl-arrow",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.25,
+              ease: "power3.out",
+            },
+            L(69.94),
+          );
+          tl.fromTo(
+            "#cl-arrow",
+            { y: 0 },
+            { y: 40, duration: 0.3, yoyo: true, repeat: 5, ease: "sine.inOut" },
+            L(70.2),
+          );
+          tl.fromTo(
+            ".cl-step",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.3,
+              ease: "power3.out",
+              stagger: 0.18,
+            },
+            L(71.14),
+          );
+          tl.fromTo(
+            "#cl-lvl",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.25,
+              ease: "power3.out",
+            },
+            L(72.26),
+          );
+          tl.to(
+            "#cl-link-g",
+            {
+              autoAlpha: 0,
+              filter: "blur(10px)",
+              scale: 0.96,
+              duration: 0.05,
+              ease: "power2.in",
+            },
+            L(72.95),
+          );
+          tl.to(
+            "#cl-title",
+            {
+              autoAlpha: 0,
+              filter: "blur(10px)",
+              scale: 0.96,
+              duration: 0.05,
+              ease: "power2.in",
+            },
+            L(72.95),
+          );
+          tl.fromTo(
+            "#cl-title2 .tw, #cl-title2 .l2 > span",
+            { autoAlpha: 0, y: 10, filter: "blur(12px)" },
+            {
+              autoAlpha: 1,
+              y: 0,
+              filter: "blur(0px)",
+              duration: 0.27,
+              ease: "power2.out",
+              stagger: 0.066,
+            },
+            L(74.8),
+          );
+          tl.fromTo(
+            "#cl-shield",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.35,
+              ease: "power3.out",
+            },
+            L(74.83),
+          );
+          tl.fromTo(
+            "#cl-check",
+            { strokeDashoffset: 1 },
+            { strokeDashoffset: 0, duration: 0.4, ease: "power2.out" },
+            L(75.3),
+          );
+          tl.fromTo(
+            "#cl-refund",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.3,
+              ease: "power3.out",
+            },
+            L(76.75),
+          );
+          tl.fromTo(
+            "#cl-free",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.3,
+              ease: "power3.out",
+            },
+            L(78.31),
+          );
+          window.__timelines = window.__timelines || {};
+          window.__timelines["close"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

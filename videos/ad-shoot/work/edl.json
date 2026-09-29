@@ -1,0 +1,1613 @@
+{
+ "pieces": [
+  {
+   "section": "hook",
+   "clip": "IMG_0846",
+   "in": 3.45,
+   "out": 9.648,
+   "at": 0,
+   "frames": 186
+  },
+  {
+   "section": "hook",
+   "clip": "IMG_0846",
+   "in": 9.829,
+   "out": 10.787,
+   "at": 6.2,
+   "frames": 29
+  },
+  {
+   "section": "hook",
+   "clip": "IMG_0846",
+   "in": 11.113,
+   "out": 11.61,
+   "at": 7.167,
+   "frames": 15
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 1.13,
+   "out": 7.975,
+   "at": 7.667,
+   "frames": 205
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 8.325,
+   "out": 11.937,
+   "at": 14.5,
+   "frames": 108
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 12.14,
+   "out": 14.529,
+   "at": 18.1,
+   "frames": 72
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 31.21,
+   "out": 33.896,
+   "at": 20.5,
+   "frames": 81
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 34.208,
+   "out": 40.468,
+   "at": 23.2,
+   "frames": 188
+  },
+  {
+   "section": "problem",
+   "clip": "IMG_0850",
+   "in": 40.607,
+   "out": 42.894,
+   "at": 29.467,
+   "frames": 69
+  },
+  {
+   "section": "shark",
+   "clip": "IMG_0857",
+   "in": 4.33,
+   "out": 10.482,
+   "at": 31.767,
+   "frames": 185
+  },
+  {
+   "section": "shark",
+   "clip": "IMG_0857",
+   "in": 10.928,
+   "out": 14.34,
+   "at": 37.933,
+   "frames": 102
+  },
+  {
+   "section": "shark",
+   "clip": "IMG_0857",
+   "in": 14.604,
+   "out": 17.902,
+   "at": 41.333,
+   "frames": 99
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0861",
+   "in": 5.85,
+   "out": 8.605,
+   "at": 44.633,
+   "frames": 83
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0861",
+   "in": 8.829,
+   "out": 10.527,
+   "at": 47.4,
+   "frames": 51
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0866",
+   "in": 4.49,
+   "out": 9.509,
+   "at": 49.1,
+   "frames": 151
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0866",
+   "in": 9.771,
+   "out": 14.108,
+   "at": 54.133,
+   "frames": 131
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0866",
+   "in": 14.48,
+   "out": 17.564,
+   "at": 58.5,
+   "frames": 93
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0866",
+   "in": 17.679,
+   "out": 21.547,
+   "at": 61.6,
+   "frames": 117
+  },
+  {
+   "section": "proof",
+   "clip": "IMG_0866",
+   "in": 21.853,
+   "out": 25.603,
+   "at": 65.5,
+   "frames": 113
+  },
+  {
+   "section": "cta",
+   "clip": "IMG_0872",
+   "in": 2.09,
+   "out": 2.387,
+   "at": 69.267,
+   "frames": 9
+  },
+  {
+   "section": "cta",
+   "clip": "IMG_0872",
+   "in": 2.504,
+   "out": 5.917,
+   "at": 69.567,
+   "frames": 103
+  },
+  {
+   "section": "guarantee",
+   "clip": "IMG_0873",
+   "in": 239.43,
+   "out": 244.459,
+   "at": 73.0,
+   "frames": 151
+  },
+  {
+   "section": "guarantee",
+   "clip": "IMG_0873",
+   "in": 244.904,
+   "out": 246.918,
+   "at": 78.033,
+   "frames": 60
+  }
+ ],
+ "words": [
+  {
+   "text": "D2C",
+   "start": 0.07,
+   "end": 0.79,
+   "section": "hook"
+  },
+  {
+   "text": "brand",
+   "start": 0.79,
+   "end": 1.03,
+   "section": "hook"
+  },
+  {
+   "text": "owners,",
+   "start": 1.03,
+   "end": 1.43,
+   "section": "hook"
+  },
+  {
+   "text": "your",
+   "start": 1.43,
+   "end": 1.59,
+   "section": "hook"
+  },
+  {
+   "text": "current",
+   "start": 1.59,
+   "end": 1.83,
+   "section": "hook"
+  },
+  {
+   "text": "funnel",
+   "start": 1.83,
+   "end": 2.23,
+   "section": "hook"
+  },
+  {
+   "text": "got",
+   "start": 2.23,
+   "end": 2.39,
+   "section": "hook"
+  },
+  {
+   "text": "you",
+   "start": 2.39,
+   "end": 2.47,
+   "section": "hook"
+  },
+  {
+   "text": "to",
+   "start": 2.47,
+   "end": 2.63,
+   "section": "hook"
+  },
+  {
+   "text": "5",
+   "start": 2.63,
+   "end": 2.87,
+   "section": "hook"
+  },
+  {
+   "text": "lakhs",
+   "start": 2.87,
+   "end": 3.19,
+   "section": "hook"
+  },
+  {
+   "text": "a",
+   "start": 3.19,
+   "end": 3.27,
+   "section": "hook"
+  },
+  {
+   "text": "month,",
+   "start": 3.27,
+   "end": 3.51,
+   "section": "hook"
+  },
+  {
+   "text": "and",
+   "start": 3.51,
+   "end": 3.67,
+   "section": "hook"
+  },
+  {
+   "text": "that's",
+   "start": 3.67,
+   "end": 3.91,
+   "section": "hook"
+  },
+  {
+   "text": "the",
+   "start": 3.91,
+   "end": 4.07,
+   "section": "hook"
+  },
+  {
+   "text": "exact",
+   "start": 4.07,
+   "end": 4.39,
+   "section": "hook"
+  },
+  {
+   "text": "reason",
+   "start": 4.39,
+   "end": 4.63,
+   "section": "hook"
+  },
+  {
+   "text": "why",
+   "start": 4.63,
+   "end": 4.87,
+   "section": "hook"
+  },
+  {
+   "text": "it",
+   "start": 4.87,
+   "end": 5.03,
+   "section": "hook"
+  },
+  {
+   "text": "can't",
+   "start": 5.03,
+   "end": 5.27,
+   "section": "hook"
+  },
+  {
+   "text": "get",
+   "start": 5.27,
+   "end": 5.43,
+   "section": "hook"
+  },
+  {
+   "text": "you",
+   "start": 5.43,
+   "end": 5.59,
+   "section": "hook"
+  },
+  {
+   "text": "to",
+   "start": 5.59,
+   "end": 5.75,
+   "section": "hook"
+  },
+  {
+   "text": "20.",
+   "start": 5.75,
+   "end": 6.198,
+   "section": "hook"
+  },
+  {
+   "text": "Now",
+   "start": 6.198,
+   "end": 6.371,
+   "section": "hook"
+  },
+  {
+   "text": "hear",
+   "start": 6.371,
+   "end": 6.771,
+   "section": "hook"
+  },
+  {
+   "text": "me",
+   "start": 6.771,
+   "end": 7.011,
+   "section": "hook"
+  },
+  {
+   "text": "out.",
+   "start": 7.011,
+   "end": 7.737,
+   "section": "hook"
+  },
+  {
+   "text": "There",
+   "start": 7.737,
+   "end": 8.057,
+   "section": "problem"
+  },
+  {
+   "text": "is",
+   "start": 8.057,
+   "end": 8.217,
+   "section": "problem"
+  },
+  {
+   "text": "a",
+   "start": 8.217,
+   "end": 8.297,
+   "section": "problem"
+  },
+  {
+   "text": "bottleneck",
+   "start": 8.297,
+   "end": 9.177,
+   "section": "problem"
+  },
+  {
+   "text": "that",
+   "start": 9.177,
+   "end": 9.337,
+   "section": "problem"
+  },
+  {
+   "text": "every",
+   "start": 9.337,
+   "end": 9.577,
+   "section": "problem"
+  },
+  {
+   "text": "brand",
+   "start": 9.577,
+   "end": 9.977,
+   "section": "problem"
+  },
+  {
+   "text": "faces",
+   "start": 9.977,
+   "end": 10.617,
+   "section": "problem"
+  },
+  {
+   "text": "and",
+   "start": 10.617,
+   "end": 10.857,
+   "section": "problem"
+  },
+  {
+   "text": "most",
+   "start": 10.857,
+   "end": 11.097,
+   "section": "problem"
+  },
+  {
+   "text": "of",
+   "start": 11.097,
+   "end": 11.257,
+   "section": "problem"
+  },
+  {
+   "text": "them",
+   "start": 11.257,
+   "end": 11.497,
+   "section": "problem"
+  },
+  {
+   "text": "never",
+   "start": 11.497,
+   "end": 11.817,
+   "section": "problem"
+  },
+  {
+   "text": "see",
+   "start": 11.817,
+   "end": 12.057,
+   "section": "problem"
+  },
+  {
+   "text": "it",
+   "start": 12.057,
+   "end": 12.217,
+   "section": "problem"
+  },
+  {
+   "text": "coming",
+   "start": 12.217,
+   "end": 12.617,
+   "section": "problem"
+  },
+  {
+   "text": "or",
+   "start": 12.617,
+   "end": 12.937,
+   "section": "problem"
+  },
+  {
+   "text": "find",
+   "start": 12.937,
+   "end": 13.257,
+   "section": "problem"
+  },
+  {
+   "text": "the",
+   "start": 13.257,
+   "end": 13.417,
+   "section": "problem"
+  },
+  {
+   "text": "exact",
+   "start": 13.417,
+   "end": 13.737,
+   "section": "problem"
+  },
+  {
+   "text": "reason",
+   "start": 13.737,
+   "end": 14.137,
+   "section": "problem"
+  },
+  {
+   "text": "of",
+   "start": 14.137,
+   "end": 14.377,
+   "section": "problem"
+  },
+  {
+   "text": "it.",
+   "start": 14.377,
+   "end": 14.588,
+   "section": "problem"
+  },
+  {
+   "text": "Because",
+   "start": 14.576,
+   "end": 15.136,
+   "section": "problem"
+  },
+  {
+   "text": "the",
+   "start": 15.136,
+   "end": 15.296,
+   "section": "problem"
+  },
+  {
+   "text": "numbers",
+   "start": 15.296,
+   "end": 15.776,
+   "section": "problem"
+  },
+  {
+   "text": "are",
+   "start": 15.776,
+   "end": 15.936,
+   "section": "problem"
+  },
+  {
+   "text": "good,",
+   "start": 15.936,
+   "end": 16.256,
+   "section": "problem"
+  },
+  {
+   "text": "so",
+   "start": 16.256,
+   "end": 16.496,
+   "section": "problem"
+  },
+  {
+   "text": "you",
+   "start": 16.496,
+   "end": 16.656,
+   "section": "problem"
+  },
+  {
+   "text": "keep",
+   "start": 16.656,
+   "end": 16.896,
+   "section": "problem"
+  },
+  {
+   "text": "testing",
+   "start": 16.896,
+   "end": 17.296,
+   "section": "problem"
+  },
+  {
+   "text": "new",
+   "start": 17.296,
+   "end": 17.536,
+   "section": "problem"
+  },
+  {
+   "text": "creatives,",
+   "start": 17.536,
+   "end": 18.132,
+   "section": "problem"
+  },
+  {
+   "text": "different",
+   "start": 18.12,
+   "end": 18.6,
+   "section": "problem"
+  },
+  {
+   "text": "audiences,",
+   "start": 18.6,
+   "end": 19.32,
+   "section": "problem"
+  },
+  {
+   "text": "and",
+   "start": 19.32,
+   "end": 19.64,
+   "section": "problem"
+  },
+  {
+   "text": "spend",
+   "start": 19.64,
+   "end": 20.28,
+   "section": "problem"
+  },
+  {
+   "text": "more.",
+   "start": 20.28,
+   "end": 20.57,
+   "section": "problem"
+  },
+  {
+   "text": "But",
+   "start": 20.57,
+   "end": 20.81,
+   "section": "problem"
+  },
+  {
+   "text": "on",
+   "start": 20.81,
+   "end": 20.97,
+   "section": "problem"
+  },
+  {
+   "text": "the",
+   "start": 20.97,
+   "end": 21.05,
+   "section": "problem"
+  },
+  {
+   "text": "other",
+   "start": 21.05,
+   "end": 21.29,
+   "section": "problem"
+  },
+  {
+   "text": "side,",
+   "start": 21.29,
+   "end": 21.69,
+   "section": "problem"
+  },
+  {
+   "text": "your",
+   "start": 21.69,
+   "end": 21.93,
+   "section": "problem"
+  },
+  {
+   "text": "website",
+   "start": 21.93,
+   "end": 22.49,
+   "section": "problem"
+  },
+  {
+   "text": "looks",
+   "start": 22.49,
+   "end": 22.89,
+   "section": "problem"
+  },
+  {
+   "text": "good,",
+   "start": 22.89,
+   "end": 23.186,
+   "section": "problem"
+  },
+  {
+   "text": "covers",
+   "start": 23.186,
+   "end": 23.632,
+   "section": "problem"
+  },
+  {
+   "text": "most",
+   "start": 23.632,
+   "end": 23.792,
+   "section": "problem"
+  },
+  {
+   "text": "of",
+   "start": 23.792,
+   "end": 23.952,
+   "section": "problem"
+  },
+  {
+   "text": "the",
+   "start": 23.952,
+   "end": 24.112,
+   "section": "problem"
+  },
+  {
+   "text": "points,",
+   "start": 24.112,
+   "end": 24.512,
+   "section": "problem"
+  },
+  {
+   "text": "so",
+   "start": 24.512,
+   "end": 24.672,
+   "section": "problem"
+  },
+  {
+   "text": "you",
+   "start": 24.672,
+   "end": 24.832,
+   "section": "problem"
+  },
+  {
+   "text": "think",
+   "start": 24.832,
+   "end": 25.152,
+   "section": "problem"
+  },
+  {
+   "text": "changing",
+   "start": 25.152,
+   "end": 25.472,
+   "section": "problem"
+  },
+  {
+   "text": "it",
+   "start": 25.472,
+   "end": 25.632,
+   "section": "problem"
+  },
+  {
+   "text": "won't",
+   "start": 25.632,
+   "end": 25.952,
+   "section": "problem"
+  },
+  {
+   "text": "make",
+   "start": 25.952,
+   "end": 26.112,
+   "section": "problem"
+  },
+  {
+   "text": "a",
+   "start": 26.112,
+   "end": 26.272,
+   "section": "problem"
+  },
+  {
+   "text": "significant",
+   "start": 26.272,
+   "end": 26.752,
+   "section": "problem"
+  },
+  {
+   "text": "difference.",
+   "start": 26.752,
+   "end": 27.472,
+   "section": "problem"
+  },
+  {
+   "text": "So",
+   "start": 27.472,
+   "end": 27.712,
+   "section": "problem"
+  },
+  {
+   "text": "you",
+   "start": 27.712,
+   "end": 27.872,
+   "section": "problem"
+  },
+  {
+   "text": "keep",
+   "start": 27.872,
+   "end": 28.112,
+   "section": "problem"
+  },
+  {
+   "text": "spending",
+   "start": 28.112,
+   "end": 28.592,
+   "section": "problem"
+  },
+  {
+   "text": "more",
+   "start": 28.592,
+   "end": 28.832,
+   "section": "problem"
+  },
+  {
+   "text": "and",
+   "start": 28.832,
+   "end": 28.992,
+   "section": "problem"
+  },
+  {
+   "text": "more,",
+   "start": 28.992,
+   "end": 29.46,
+   "section": "problem"
+  },
+  {
+   "text": "but",
+   "start": 29.46,
+   "end": 29.58,
+   "section": "problem"
+  },
+  {
+   "text": "your",
+   "start": 29.58,
+   "end": 29.9,
+   "section": "problem"
+  },
+  {
+   "text": "conversion",
+   "start": 29.9,
+   "end": 30.86,
+   "section": "problem"
+  },
+  {
+   "text": "stays",
+   "start": 30.86,
+   "end": 31.26,
+   "section": "problem"
+  },
+  {
+   "text": "the",
+   "start": 31.26,
+   "end": 31.58,
+   "section": "problem"
+  },
+  {
+   "text": "same.",
+   "start": 31.58,
+   "end": 31.837,
+   "section": "problem"
+  },
+  {
+   "text": "And",
+   "start": 31.837,
+   "end": 32.317,
+   "section": "shark"
+  },
+  {
+   "text": "this",
+   "start": 32.317,
+   "end": 32.637,
+   "section": "shark"
+  },
+  {
+   "text": "is",
+   "start": 32.637,
+   "end": 33.117,
+   "section": "shark"
+  },
+  {
+   "text": "exactly",
+   "start": 33.117,
+   "end": 33.917,
+   "section": "shark"
+  },
+  {
+   "text": "what",
+   "start": 33.917,
+   "end": 34.237,
+   "section": "shark"
+  },
+  {
+   "text": "Shark",
+   "start": 34.237,
+   "end": 34.877,
+   "section": "shark"
+  },
+  {
+   "text": "Tank",
+   "start": 34.877,
+   "end": 35.277,
+   "section": "shark"
+  },
+  {
+   "text": "featured",
+   "start": 35.277,
+   "end": 35.677,
+   "section": "shark"
+  },
+  {
+   "text": "and",
+   "start": 35.677,
+   "end": 35.837,
+   "section": "shark"
+  },
+  {
+   "text": "every",
+   "start": 35.837,
+   "end": 36.077,
+   "section": "shark"
+  },
+  {
+   "text": "D2C",
+   "start": 36.077,
+   "end": 36.797,
+   "section": "shark"
+  },
+  {
+   "text": "brand",
+   "start": 36.797,
+   "end": 37.117,
+   "section": "shark"
+  },
+  {
+   "text": "already",
+   "start": 37.117,
+   "end": 37.517,
+   "section": "shark"
+  },
+  {
+   "text": "knows.",
+   "start": 37.517,
+   "end": 37.919,
+   "section": "shark"
+  },
+  {
+   "text": "Sending",
+   "start": 37.919,
+   "end": 38.445,
+   "section": "shark"
+  },
+  {
+   "text": "more",
+   "start": 38.445,
+   "end": 38.685,
+   "section": "shark"
+  },
+  {
+   "text": "traffic",
+   "start": 38.685,
+   "end": 39.165,
+   "section": "shark"
+  },
+  {
+   "text": "to",
+   "start": 39.165,
+   "end": 39.325,
+   "section": "shark"
+  },
+  {
+   "text": "your",
+   "start": 39.325,
+   "end": 39.565,
+   "section": "shark"
+  },
+  {
+   "text": "store",
+   "start": 39.565,
+   "end": 40.125,
+   "section": "shark"
+  },
+  {
+   "text": "doesn't",
+   "start": 40.125,
+   "end": 40.685,
+   "section": "shark"
+  },
+  {
+   "text": "assure",
+   "start": 40.685,
+   "end": 41.344,
+   "section": "shark"
+  },
+  {
+   "text": "growth",
+   "start": 41.344,
+   "end": 41.78,
+   "section": "shark"
+  },
+  {
+   "text": "and",
+   "start": 41.769,
+   "end": 42.009,
+   "section": "shark"
+  },
+  {
+   "text": "revenue.",
+   "start": 42.009,
+   "end": 42.809,
+   "section": "shark"
+  },
+  {
+   "text": "It",
+   "start": 42.809,
+   "end": 43.129,
+   "section": "shark"
+  },
+  {
+   "text": "drains",
+   "start": 43.129,
+   "end": 43.609,
+   "section": "shark"
+  },
+  {
+   "text": "the",
+   "start": 43.609,
+   "end": 43.769,
+   "section": "shark"
+  },
+  {
+   "text": "real",
+   "start": 43.769,
+   "end": 44.089,
+   "section": "shark"
+  },
+  {
+   "text": "potential.",
+   "start": 44.089,
+   "end": 44.703,
+   "section": "shark"
+  },
+  {
+   "text": "Here's",
+   "start": 44.703,
+   "end": 45.183,
+   "section": "proof"
+  },
+  {
+   "text": "a",
+   "start": 45.183,
+   "end": 45.343,
+   "section": "proof"
+  },
+  {
+   "text": "brand",
+   "start": 45.343,
+   "end": 45.743,
+   "section": "proof"
+  },
+  {
+   "text": "that",
+   "start": 45.743,
+   "end": 45.983,
+   "section": "proof"
+  },
+  {
+   "text": "already",
+   "start": 45.983,
+   "end": 46.303,
+   "section": "proof"
+  },
+  {
+   "text": "had",
+   "start": 46.303,
+   "end": 46.543,
+   "section": "proof"
+  },
+  {
+   "text": "a",
+   "start": 46.543,
+   "end": 46.623,
+   "section": "proof"
+  },
+  {
+   "text": "good",
+   "start": 46.623,
+   "end": 46.783,
+   "section": "proof"
+  },
+  {
+   "text": "website,",
+   "start": 46.783,
+   "end": 47.388,
+   "section": "proof"
+  },
+  {
+   "text": "better",
+   "start": 47.388,
+   "end": 47.692,
+   "section": "proof"
+  },
+  {
+   "text": "than",
+   "start": 47.692,
+   "end": 47.852,
+   "section": "proof"
+  },
+  {
+   "text": "most",
+   "start": 47.852,
+   "end": 48.092,
+   "section": "proof"
+  },
+  {
+   "text": "of",
+   "start": 48.092,
+   "end": 48.252,
+   "section": "proof"
+  },
+  {
+   "text": "the",
+   "start": 48.252,
+   "end": 48.332,
+   "section": "proof"
+  },
+  {
+   "text": "competitors.",
+   "start": 48.332,
+   "end": 49.17,
+   "section": "proof"
+  },
+  {
+   "text": "After",
+   "start": 49.17,
+   "end": 49.73,
+   "section": "proof"
+  },
+  {
+   "text": "a",
+   "start": 49.73,
+   "end": 49.89,
+   "section": "proof"
+  },
+  {
+   "text": "redesign,",
+   "start": 49.89,
+   "end": 50.77,
+   "section": "proof"
+  },
+  {
+   "text": "conversion",
+   "start": 50.77,
+   "end": 51.49,
+   "section": "proof"
+  },
+  {
+   "text": "went",
+   "start": 51.49,
+   "end": 51.73,
+   "section": "proof"
+  },
+  {
+   "text": "from",
+   "start": 51.73,
+   "end": 51.89,
+   "section": "proof"
+  },
+  {
+   "text": "2%",
+   "start": 51.89,
+   "end": 52.61,
+   "section": "proof"
+  },
+  {
+   "text": "to",
+   "start": 52.61,
+   "end": 52.77,
+   "section": "proof"
+  },
+  {
+   "text": "3.5%.",
+   "start": 52.77,
+   "end": 54.119,
+   "section": "proof"
+  },
+  {
+   "text": "Add",
+   "start": 54.119,
+   "end": 54.281,
+   "section": "proof"
+  },
+  {
+   "text": "to",
+   "start": 54.281,
+   "end": 54.361,
+   "section": "proof"
+  },
+  {
+   "text": "cart",
+   "start": 54.361,
+   "end": 54.601,
+   "section": "proof"
+  },
+  {
+   "text": "to",
+   "start": 54.601,
+   "end": 55.001,
+   "section": "proof"
+  },
+  {
+   "text": "checkout",
+   "start": 55.001,
+   "end": 55.481,
+   "section": "proof"
+  },
+  {
+   "text": "ratio",
+   "start": 55.481,
+   "end": 55.961,
+   "section": "proof"
+  },
+  {
+   "text": "went",
+   "start": 55.961,
+   "end": 56.201,
+   "section": "proof"
+  },
+  {
+   "text": "from",
+   "start": 56.201,
+   "end": 56.441,
+   "section": "proof"
+  },
+  {
+   "text": "5%",
+   "start": 56.441,
+   "end": 57.161,
+   "section": "proof"
+  },
+  {
+   "text": "to",
+   "start": 57.161,
+   "end": 57.401,
+   "section": "proof"
+  },
+  {
+   "text": "15%,",
+   "start": 57.401,
+   "end": 58.469,
+   "section": "proof"
+  },
+  {
+   "text": "and",
+   "start": 58.469,
+   "end": 58.58,
+   "section": "proof"
+  },
+  {
+   "text": "that's",
+   "start": 58.58,
+   "end": 58.9,
+   "section": "proof"
+  },
+  {
+   "text": "a",
+   "start": 58.9,
+   "end": 59.06,
+   "section": "proof"
+  },
+  {
+   "text": "75%",
+   "start": 59.06,
+   "end": 60.26,
+   "section": "proof"
+  },
+  {
+   "text": "increase",
+   "start": 60.26,
+   "end": 60.66,
+   "section": "proof"
+  },
+  {
+   "text": "in",
+   "start": 60.66,
+   "end": 60.82,
+   "section": "proof"
+  },
+  {
+   "text": "their",
+   "start": 60.82,
+   "end": 60.98,
+   "section": "proof"
+  },
+  {
+   "text": "revenue.",
+   "start": 60.98,
+   "end": 61.584,
+   "section": "proof"
+  },
+  {
+   "text": "And",
+   "start": 61.584,
+   "end": 61.761,
+   "section": "proof"
+  },
+  {
+   "text": "none",
+   "start": 61.761,
+   "end": 61.921,
+   "section": "proof"
+  },
+  {
+   "text": "of",
+   "start": 61.921,
+   "end": 62.241,
+   "section": "proof"
+  },
+  {
+   "text": "it",
+   "start": 62.241,
+   "end": 62.401,
+   "section": "proof"
+  },
+  {
+   "text": "was",
+   "start": 62.401,
+   "end": 62.561,
+   "section": "proof"
+  },
+  {
+   "text": "by",
+   "start": 62.561,
+   "end": 62.801,
+   "section": "proof"
+  },
+  {
+   "text": "fixing",
+   "start": 62.801,
+   "end": 63.201,
+   "section": "proof"
+  },
+  {
+   "text": "their",
+   "start": 63.201,
+   "end": 63.361,
+   "section": "proof"
+  },
+  {
+   "text": "ads",
+   "start": 63.361,
+   "end": 63.841,
+   "section": "proof"
+  },
+  {
+   "text": "or",
+   "start": 63.841,
+   "end": 64.081,
+   "section": "proof"
+  },
+  {
+   "text": "increasing",
+   "start": 64.081,
+   "end": 64.641,
+   "section": "proof"
+  },
+  {
+   "text": "ad",
+   "start": 64.641,
+   "end": 65.041,
+   "section": "proof"
+  },
+  {
+   "text": "spend,",
+   "start": 65.041,
+   "end": 65.567,
+   "section": "proof"
+  },
+  {
+   "text": "just",
+   "start": 65.567,
+   "end": 65.887,
+   "section": "proof"
+  },
+  {
+   "text": "by",
+   "start": 65.887,
+   "end": 66.127,
+   "section": "proof"
+  },
+  {
+   "text": "improving",
+   "start": 66.127,
+   "end": 66.607,
+   "section": "proof"
+  },
+  {
+   "text": "their",
+   "start": 66.607,
+   "end": 66.847,
+   "section": "proof"
+  },
+  {
+   "text": "visual",
+   "start": 66.847,
+   "end": 67.247,
+   "section": "proof"
+  },
+  {
+   "text": "communication",
+   "start": 67.247,
+   "end": 67.887,
+   "section": "proof"
+  },
+  {
+   "text": "and",
+   "start": 67.887,
+   "end": 68.047,
+   "section": "proof"
+  },
+  {
+   "text": "conversion",
+   "start": 68.047,
+   "end": 68.767,
+   "section": "proof"
+  },
+  {
+   "text": "strategy.",
+   "start": 68.767,
+   "end": 69.337,
+   "section": "proof"
+  },
+  {
+   "text": "Click",
+   "start": 69.337,
+   "end": 69.783,
+   "section": "cta"
+  },
+  {
+   "text": "the",
+   "start": 69.783,
+   "end": 69.943,
+   "section": "cta"
+  },
+  {
+   "text": "link",
+   "start": 69.943,
+   "end": 70.183,
+   "section": "cta"
+  },
+  {
+   "text": "below",
+   "start": 70.183,
+   "end": 70.503,
+   "section": "cta"
+  },
+  {
+   "text": "if",
+   "start": 70.503,
+   "end": 70.743,
+   "section": "cta"
+  },
+  {
+   "text": "you",
+   "start": 70.743,
+   "end": 70.823,
+   "section": "cta"
+  },
+  {
+   "text": "want",
+   "start": 70.823,
+   "end": 70.983,
+   "section": "cta"
+  },
+  {
+   "text": "to",
+   "start": 70.983,
+   "end": 71.143,
+   "section": "cta"
+  },
+  {
+   "text": "take",
+   "start": 71.143,
+   "end": 71.383,
+   "section": "cta"
+  },
+  {
+   "text": "your",
+   "start": 71.383,
+   "end": 71.623,
+   "section": "cta"
+  },
+  {
+   "text": "store",
+   "start": 71.623,
+   "end": 72.103,
+   "section": "cta"
+  },
+  {
+   "text": "to",
+   "start": 72.103,
+   "end": 72.263,
+   "section": "cta"
+  },
+  {
+   "text": "another",
+   "start": 72.263,
+   "end": 72.663,
+   "section": "cta"
+  },
+  {
+   "text": "level.",
+   "start": 72.663,
+   "end": 73.07,
+   "section": "cta"
+  },
+  {
+   "text": "And",
+   "start": 73.07,
+   "end": 73.31,
+   "section": "guarantee"
+  },
+  {
+   "text": "if",
+   "start": 73.31,
+   "end": 73.55,
+   "section": "guarantee"
+  },
+  {
+   "text": "the",
+   "start": 73.55,
+   "end": 73.71,
+   "section": "guarantee"
+  },
+  {
+   "text": "new",
+   "start": 73.71,
+   "end": 73.95,
+   "section": "guarantee"
+  },
+  {
+   "text": "store",
+   "start": 73.95,
+   "end": 74.51,
+   "section": "guarantee"
+  },
+  {
+   "text": "doesn't",
+   "start": 74.51,
+   "end": 74.83,
+   "section": "guarantee"
+  },
+  {
+   "text": "outperform",
+   "start": 74.83,
+   "end": 75.47,
+   "section": "guarantee"
+  },
+  {
+   "text": "the",
+   "start": 75.47,
+   "end": 75.63,
+   "section": "guarantee"
+  },
+  {
+   "text": "current",
+   "start": 75.63,
+   "end": 75.87,
+   "section": "guarantee"
+  },
+  {
+   "text": "one,",
+   "start": 75.87,
+   "end": 76.19,
+   "section": "guarantee"
+  },
+  {
+   "text": "we're",
+   "start": 76.19,
+   "end": 76.43,
+   "section": "guarantee"
+  },
+  {
+   "text": "gonna",
+   "start": 76.43,
+   "end": 76.75,
+   "section": "guarantee"
+  },
+  {
+   "text": "refund",
+   "start": 76.75,
+   "end": 77.23,
+   "section": "guarantee"
+  },
+  {
+   "text": "the",
+   "start": 77.23,
+   "end": 77.39,
+   "section": "guarantee"
+  },
+  {
+   "text": "full",
+   "start": 77.39,
+   "end": 77.71,
+   "section": "guarantee"
+  },
+  {
+   "text": "amount",
+   "start": 77.71,
+   "end": 78.029,
+   "section": "guarantee"
+  },
+  {
+   "text": "or",
+   "start": 78.029,
+   "end": 78.309,
+   "section": "guarantee"
+  },
+  {
+   "text": "work",
+   "start": 78.309,
+   "end": 78.629,
+   "section": "guarantee"
+  },
+  {
+   "text": "for",
+   "start": 78.629,
+   "end": 78.789,
+   "section": "guarantee"
+  },
+  {
+   "text": "free",
+   "start": 78.789,
+   "end": 79.109,
+   "section": "guarantee"
+  },
+  {
+   "text": "until",
+   "start": 79.109,
+   "end": 79.509,
+   "section": "guarantee"
+  },
+  {
+   "text": "it",
+   "start": 79.509,
+   "end": 79.749,
+   "section": "guarantee"
+  },
+  {
+   "text": "does.",
+   "start": 79.749,
+   "end": 80.047,
+   "section": "guarantee"
+  }
+ ],
+ "duration": 80.033
+}

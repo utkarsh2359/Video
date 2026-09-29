@@ -1,0 +1,1100 @@
+[
+  {
+    "id": "w0",
+    "text": "Now",
+    "start": 5.44,
+    "end": 5.76
+  },
+  {
+    "id": "w1",
+    "text": "here",
+    "start": 5.92,
+    "end": 6.08
+  },
+  {
+    "id": "w2",
+    "text": "is",
+    "start": 6.24,
+    "end": 6.4
+  },
+  {
+    "id": "w3",
+    "text": "a",
+    "start": 6.4,
+    "end": 6.56
+  },
+  {
+    "id": "w4",
+    "text": "brand",
+    "start": 6.56,
+    "end": 6.96
+  },
+  {
+    "id": "w5",
+    "text": "that",
+    "start": 6.96,
+    "end": 7.2
+  },
+  {
+    "id": "w6",
+    "text": "already",
+    "start": 7.2,
+    "end": 7.52
+  },
+  {
+    "id": "w7",
+    "text": "had",
+    "start": 7.52,
+    "end": 7.76
+  },
+  {
+    "id": "w8",
+    "text": "a",
+    "start": 7.76,
+    "end": 7.84
+  },
+  {
+    "id": "w9",
+    "text": "good",
+    "start": 7.84,
+    "end": 8
+  },
+  {
+    "id": "w10",
+    "text": "website,",
+    "start": 8,
+    "end": 8.8
+  },
+  {
+    "id": "w11",
+    "text": "better",
+    "start": 8.8,
+    "end": 9.12
+  },
+  {
+    "id": "w12",
+    "text": "than",
+    "start": 9.12,
+    "end": 9.28
+  },
+  {
+    "id": "w13",
+    "text": "most",
+    "start": 9.28,
+    "end": 9.52
+  },
+  {
+    "id": "w14",
+    "text": "of",
+    "start": 9.52,
+    "end": 9.68
+  },
+  {
+    "id": "w15",
+    "text": "the",
+    "start": 9.68,
+    "end": 9.76
+  },
+  {
+    "id": "w16",
+    "text": "competitors.",
+    "start": 9.76,
+    "end": 10.72
+  },
+  {
+    "id": "w17",
+    "text": "Articulation",
+    "start": 16.4,
+    "end": 17.12
+  },
+  {
+    "id": "w18",
+    "text": "to",
+    "start": 17.36,
+    "end": 17.44
+  },
+  {
+    "id": "w19",
+    "text": "the",
+    "start": 17.52,
+    "end": 17.6
+  },
+  {
+    "id": "w20",
+    "text": "gather.",
+    "start": 17.72,
+    "end": 18.84
+  },
+  {
+    "id": "w21",
+    "text": "Articulation.",
+    "start": 18.92,
+    "end": 20.2
+  },
+  {
+    "id": "w22",
+    "text": "Aver",
+    "start": 26.12,
+    "end": 26.36
+  },
+  {
+    "id": "w23",
+    "text": "one.",
+    "start": 26.6,
+    "end": 27.8
+  },
+  {
+    "id": "w24",
+    "text": "Aver",
+    "start": 30.2,
+    "end": 30.44
+  },
+  {
+    "id": "w25",
+    "text": "chalazu.",
+    "start": 30.68,
+    "end": 33.56
+  },
+  {
+    "id": "w26",
+    "text": "Here",
+    "start": 33.76,
+    "end": 34.08
+  },
+  {
+    "id": "w27",
+    "text": "is",
+    "start": 34.08,
+    "end": 34.24
+  },
+  {
+    "id": "w28",
+    "text": "a",
+    "start": 34.24,
+    "end": 34.4
+  },
+  {
+    "id": "w29",
+    "text": "brand",
+    "start": 34.4,
+    "end": 34.8
+  },
+  {
+    "id": "w30",
+    "text": "that",
+    "start": 34.8,
+    "end": 35.04
+  },
+  {
+    "id": "w31",
+    "text": "already",
+    "start": 35.04,
+    "end": 35.36
+  },
+  {
+    "id": "w32",
+    "text": "had",
+    "start": 35.36,
+    "end": 35.6
+  },
+  {
+    "id": "w33",
+    "text": "a",
+    "start": 35.6,
+    "end": 35.68
+  },
+  {
+    "id": "w34",
+    "text": "good",
+    "start": 35.68,
+    "end": 35.92
+  },
+  {
+    "id": "w35",
+    "text": "website,",
+    "start": 35.92,
+    "end": 36.64
+  },
+  {
+    "id": "w36",
+    "text": "better",
+    "start": 36.64,
+    "end": 36.96
+  },
+  {
+    "id": "w37",
+    "text": "than",
+    "start": 36.96,
+    "end": 37.2
+  },
+  {
+    "id": "w38",
+    "text": "most",
+    "start": 37.2,
+    "end": 37.44
+  },
+  {
+    "id": "w39",
+    "text": "of",
+    "start": 37.44,
+    "end": 37.6
+  },
+  {
+    "id": "w40",
+    "text": "their",
+    "start": 37.6,
+    "end": 37.76
+  },
+  {
+    "id": "w41",
+    "text": "competitors.",
+    "start": 37.76,
+    "end": 38.64
+  },
+  {
+    "id": "w42",
+    "text": "After",
+    "start": 38.64,
+    "end": 39.04
+  },
+  {
+    "id": "w43",
+    "text": "a",
+    "start": 39.04,
+    "end": 39.2
+  },
+  {
+    "id": "w44",
+    "text": "redesign,",
+    "start": 39.2,
+    "end": 40
+  },
+  {
+    "id": "w45",
+    "text": "conversion",
+    "start": 40,
+    "end": 40.56
+  },
+  {
+    "id": "w46",
+    "text": "went",
+    "start": 40.72,
+    "end": 40.88
+  },
+  {
+    "id": "w47",
+    "text": "from",
+    "start": 40.88,
+    "end": 41.12
+  },
+  {
+    "id": "w48",
+    "text": "2%",
+    "start": 41.12,
+    "end": 41.52
+  },
+  {
+    "id": "w49",
+    "text": "to",
+    "start": 41.76,
+    "end": 41.92
+  },
+  {
+    "id": "w50",
+    "text": "3.5%.",
+    "start": 41.92,
+    "end": 43.44
+  },
+  {
+    "id": "w51",
+    "text": "Add",
+    "start": 43.44,
+    "end": 43.84
+  },
+  {
+    "id": "w52",
+    "text": "to",
+    "start": 43.84,
+    "end": 44
+  },
+  {
+    "id": "w53",
+    "text": "cart",
+    "start": 44.08,
+    "end": 44.4
+  },
+  {
+    "id": "w54",
+    "text": "to",
+    "start": 44.64,
+    "end": 44.88
+  },
+  {
+    "id": "w55",
+    "text": "checkout",
+    "start": 44.88,
+    "end": 45.36
+  },
+  {
+    "id": "w56",
+    "text": "ratio",
+    "start": 45.36,
+    "end": 45.68
+  },
+  {
+    "id": "w57",
+    "text": "went",
+    "start": 45.84,
+    "end": 46
+  },
+  {
+    "id": "w58",
+    "text": "from",
+    "start": 46,
+    "end": 46.24
+  },
+  {
+    "id": "w59",
+    "text": "5%",
+    "start": 46.24,
+    "end": 46.64
+  },
+  {
+    "id": "w60",
+    "text": "to",
+    "start": 46.88,
+    "end": 47.04
+  },
+  {
+    "id": "w61",
+    "text": "15%.",
+    "start": 47.04,
+    "end": 48.32
+  },
+  {
+    "id": "w62",
+    "text": "And",
+    "start": 48.32,
+    "end": 48.56
+  },
+  {
+    "id": "w63",
+    "text": "that's",
+    "start": 48.56,
+    "end": 48.88
+  },
+  {
+    "id": "w64",
+    "text": "a",
+    "start": 48.88,
+    "end": 49.04
+  },
+  {
+    "id": "w65",
+    "text": "75%",
+    "start": 49.04,
+    "end": 49.84
+  },
+  {
+    "id": "w66",
+    "text": "increase",
+    "start": 50,
+    "end": 50.56
+  },
+  {
+    "id": "w67",
+    "text": "in",
+    "start": 50.56,
+    "end": 50.72
+  },
+  {
+    "id": "w68",
+    "text": "the",
+    "start": 50.72,
+    "end": 50.88
+  },
+  {
+    "id": "w69",
+    "text": "revenue.",
+    "start": 50.88,
+    "end": 51.84
+  },
+  {
+    "id": "w70",
+    "text": "And",
+    "start": 51.84,
+    "end": 52.08
+  },
+  {
+    "id": "w71",
+    "text": "none",
+    "start": 52.08,
+    "end": 52.4
+  },
+  {
+    "id": "w72",
+    "text": "of",
+    "start": 52.4,
+    "end": 52.56
+  },
+  {
+    "id": "w73",
+    "text": "it",
+    "start": 52.56,
+    "end": 52.8
+  },
+  {
+    "id": "w74",
+    "text": "was",
+    "start": 52.8,
+    "end": 53.04
+  },
+  {
+    "id": "w75",
+    "text": "by",
+    "start": 53.04,
+    "end": 53.36
+  },
+  {
+    "id": "w76",
+    "text": "the",
+    "start": 53.36,
+    "end": 53.6
+  },
+  {
+    "id": "w77",
+    "text": "fixing",
+    "start": 53.6,
+    "end": 54.08
+  },
+  {
+    "id": "w78",
+    "text": "their",
+    "start": 54.08,
+    "end": 54.32
+  },
+  {
+    "id": "w79",
+    "text": "ads",
+    "start": 54.32,
+    "end": 54.88
+  },
+  {
+    "id": "w80",
+    "text": "or",
+    "start": 54.88,
+    "end": 55.12
+  },
+  {
+    "id": "w81",
+    "text": "increasing",
+    "start": 55.12,
+    "end": 55.6
+  },
+  {
+    "id": "w82",
+    "text": "ad",
+    "start": 55.6,
+    "end": 55.84
+  },
+  {
+    "id": "w83",
+    "text": "spend.",
+    "start": 56,
+    "end": 56.48
+  },
+  {
+    "id": "w84",
+    "text": "Just",
+    "start": 56.79,
+    "end": 57.03
+  },
+  {
+    "id": "w85",
+    "text": "by",
+    "start": 57.03,
+    "end": 57.27
+  },
+  {
+    "id": "w86",
+    "text": "improving",
+    "start": 57.27,
+    "end": 57.75
+  },
+  {
+    "id": "w87",
+    "text": "their",
+    "start": 57.75,
+    "end": 57.91
+  },
+  {
+    "id": "w88",
+    "text": "visual",
+    "start": 57.91,
+    "end": 58.31
+  },
+  {
+    "id": "w89",
+    "text": "communications",
+    "start": 58.31,
+    "end": 58.87
+  },
+  {
+    "id": "w90",
+    "text": "and",
+    "start": 58.87,
+    "end": 59.03
+  },
+  {
+    "id": "w91",
+    "text": "conversion",
+    "start": 59.03,
+    "end": 59.59
+  },
+  {
+    "id": "w92",
+    "text": "strategies.",
+    "start": 59.75,
+    "end": 60.79
+  },
+  {
+    "id": "w93",
+    "text": "After",
+    "start": 71.51,
+    "end": 71.99
+  },
+  {
+    "id": "w94",
+    "text": "a",
+    "start": 71.99,
+    "end": 72.23
+  },
+  {
+    "id": "w95",
+    "text": "redesign,",
+    "start": 72.23,
+    "end": 73.11
+  },
+  {
+    "id": "w96",
+    "text": "conversion",
+    "start": 73.11,
+    "end": 73.75
+  },
+  {
+    "id": "w97",
+    "text": "went",
+    "start": 73.75,
+    "end": 74.07
+  },
+  {
+    "id": "w98",
+    "text": "from",
+    "start": 74.07,
+    "end": 74.31
+  },
+  {
+    "id": "w99",
+    "text": "2%",
+    "start": 74.31,
+    "end": 74.71
+  },
+  {
+    "id": "w100",
+    "text": "to",
+    "start": 74.95,
+    "end": 75.11
+  },
+  {
+    "id": "w101",
+    "text": "3.5%.",
+    "start": 75.11,
+    "end": 76.95
+  },
+  {
+    "id": "w102",
+    "text": "After",
+    "start": 78.63,
+    "end": 79.11
+  },
+  {
+    "id": "w103",
+    "text": "a",
+    "start": 79.11,
+    "end": 79.35
+  },
+  {
+    "id": "w104",
+    "text": "redesign",
+    "start": 79.35,
+    "end": 79.99
+  },
+  {
+    "id": "w105",
+    "text": "conversion",
+    "start": 80.23,
+    "end": 80.87
+  },
+  {
+    "id": "w106",
+    "text": "went",
+    "start": 80.87,
+    "end": 81.19
+  },
+  {
+    "id": "w107",
+    "text": "from",
+    "start": 81.19,
+    "end": 81.43
+  },
+  {
+    "id": "w108",
+    "text": "2%",
+    "start": 81.43,
+    "end": 81.91
+  },
+  {
+    "id": "w109",
+    "text": "to",
+    "start": 82.15,
+    "end": 82.39
+  },
+  {
+    "id": "w110",
+    "text": "3.5%.",
+    "start": 82.39,
+    "end": 84.07
+  },
+  {
+    "id": "w111",
+    "text": "Add",
+    "start": 84.07,
+    "end": 84.47
+  },
+  {
+    "id": "w112",
+    "text": "to",
+    "start": 84.47,
+    "end": 84.55
+  },
+  {
+    "id": "w113",
+    "text": "card",
+    "start": 84.71,
+    "end": 85.03
+  },
+  {
+    "id": "w114",
+    "text": "to",
+    "start": 85.03,
+    "end": 85.19
+  },
+  {
+    "id": "w115",
+    "text": "check",
+    "start": 85.19,
+    "end": 85.35
+  },
+  {
+    "id": "w116",
+    "text": "out",
+    "start": 85.35,
+    "end": 85.43
+  },
+  {
+    "id": "w117",
+    "text": "ratio",
+    "start": 85.59,
+    "end": 85.99
+  },
+  {
+    "id": "w118",
+    "text": "went",
+    "start": 85.99,
+    "end": 86.39
+  },
+  {
+    "id": "w119",
+    "text": "from",
+    "start": 86.39,
+    "end": 86.71
+  },
+  {
+    "id": "w120",
+    "text": "5%",
+    "start": 86.87,
+    "end": 87.51
+  },
+  {
+    "id": "w121",
+    "text": "to",
+    "start": 87.67,
+    "end": 87.91
+  },
+  {
+    "id": "w122",
+    "text": "15%.",
+    "start": 87.91,
+    "end": 88.87
+  },
+  {
+    "id": "w123",
+    "text": "And",
+    "start": 88.87,
+    "end": 89.03
+  },
+  {
+    "id": "w124",
+    "text": "that's",
+    "start": 89.03,
+    "end": 89.43
+  },
+  {
+    "id": "w125",
+    "text": "a",
+    "start": 89.43,
+    "end": 89.59
+  },
+  {
+    "id": "w126",
+    "text": "75%",
+    "start": 89.59,
+    "end": 90.39
+  },
+  {
+    "id": "w127",
+    "text": "increase",
+    "start": 90.55,
+    "end": 91.03
+  },
+  {
+    "id": "w128",
+    "text": "in",
+    "start": 91.03,
+    "end": 91.27
+  },
+  {
+    "id": "w129",
+    "text": "their",
+    "start": 91.27,
+    "end": 91.59
+  },
+  {
+    "id": "w130",
+    "text": "revenue.",
+    "start": 91.59,
+    "end": 92.55
+  },
+  {
+    "id": "w131",
+    "text": "And",
+    "start": 92.55,
+    "end": 92.79
+  },
+  {
+    "id": "w132",
+    "text": "none",
+    "start": 92.79,
+    "end": 93.11
+  },
+  {
+    "id": "w133",
+    "text": "of",
+    "start": 93.11,
+    "end": 93.27
+  },
+  {
+    "id": "w134",
+    "text": "it",
+    "start": 93.27,
+    "end": 93.51
+  },
+  {
+    "id": "w135",
+    "text": "was",
+    "start": 93.51,
+    "end": 93.75
+  },
+  {
+    "id": "w136",
+    "text": "by",
+    "start": 93.75,
+    "end": 93.99
+  },
+  {
+    "id": "w137",
+    "text": "fixing",
+    "start": 93.99,
+    "end": 94.47
+  },
+  {
+    "id": "w138",
+    "text": "their",
+    "start": 94.47,
+    "end": 94.71
+  },
+  {
+    "id": "w139",
+    "text": "ads",
+    "start": 94.71,
+    "end": 95.11
+  },
+  {
+    "id": "w140",
+    "text": "or",
+    "start": 95.11,
+    "end": 95.35
+  },
+  {
+    "id": "w141",
+    "text": "increasing",
+    "start": 95.35,
+    "end": 95.83
+  },
+  {
+    "id": "w142",
+    "text": "their",
+    "start": 95.83,
+    "end": 96.07
+  },
+  {
+    "id": "w143",
+    "text": "ad",
+    "start": 96.23,
+    "end": 96.31
+  },
+  {
+    "id": "w144",
+    "text": "spend.",
+    "start": 96.47,
+    "end": 97.27
+  },
+  {
+    "id": "w145",
+    "text": "Conversion",
+    "start": 101.03,
+    "end": 101.67
+  },
+  {
+    "id": "w146",
+    "text": "went",
+    "start": 101.67,
+    "end": 101.91
+  },
+  {
+    "id": "w147",
+    "text": "from",
+    "start": 101.91,
+    "end": 102.15
+  },
+  {
+    "id": "w148",
+    "text": "2%",
+    "start": 102.15,
+    "end": 102.63
+  },
+  {
+    "id": "w149",
+    "text": "to",
+    "start": 102.87,
+    "end": 103.19
+  },
+  {
+    "id": "w150",
+    "text": "3.5%.",
+    "start": 103.19,
+    "end": 104.63
+  },
+  {
+    "id": "w151",
+    "text": "That's",
+    "start": 110.07,
+    "end": 110.47
+  },
+  {
+    "id": "w152",
+    "text": "a",
+    "start": 110.47,
+    "end": 110.63
+  },
+  {
+    "id": "w153",
+    "text": "75%.",
+    "start": 110.63,
+    "end": 111.67
+  },
+  {
+    "id": "w154",
+    "text": "Thing",
+    "start": 111.79,
+    "end": 111.95
+  },
+  {
+    "id": "w155",
+    "text": "here",
+    "start": 112.11,
+    "end": 112.19
+  },
+  {
+    "id": "w156",
+    "text": "here",
+    "start": 112.51,
+    "end": 112.67
+  },
+  {
+    "id": "w157",
+    "text": "is",
+    "start": 112.83,
+    "end": 112.99
+  },
+  {
+    "id": "w158",
+    "text": "a",
+    "start": 112.99,
+    "end": 113.07
+  },
+  {
+    "id": "w159",
+    "text": "brand",
+    "start": 113.39,
+    "end": 113.71
+  },
+  {
+    "id": "w160",
+    "text": "that",
+    "start": 113.71,
+    "end": 113.95
+  },
+  {
+    "id": "w161",
+    "text": "already",
+    "start": 113.95,
+    "end": 114.27
+  },
+  {
+    "id": "w162",
+    "text": "had",
+    "start": 114.27,
+    "end": 114.35
+  },
+  {
+    "id": "w163",
+    "text": "got",
+    "start": 114.51,
+    "end": 114.59
+  },
+  {
+    "id": "w164",
+    "text": "website",
+    "start": 114.83,
+    "end": 115.15
+  },
+  {
+    "id": "w165",
+    "text": "you",
+    "start": 115.23,
+    "end": 115.31
+  },
+  {
+    "id": "w166",
+    "text": "too.",
+    "start": 115.39,
+    "end": 115.63
+  },
+  {
+    "id": "w167",
+    "text": "The",
+    "start": 115.86,
+    "end": 115.94
+  },
+  {
+    "id": "w168",
+    "text": "Khana",
+    "start": 116.02,
+    "end": 116.26
+  },
+  {
+    "id": "w169",
+    "text": "Puri",
+    "start": 116.5,
+    "end": 116.66
+  },
+  {
+    "id": "w170",
+    "text": "website",
+    "start": 116.82,
+    "end": 117.06
+  },
+  {
+    "id": "w171",
+    "text": "Joe.",
+    "start": 117.14,
+    "end": 117.54
+  },
+  {
+    "id": "w172",
+    "text": "Ah,",
+    "start": 117.58,
+    "end": 117.74
+  },
+  {
+    "id": "w173",
+    "text": "dime",
+    "start": 117.74,
+    "end": 117.9
+  },
+  {
+    "id": "w174",
+    "text": "que",
+    "start": 117.98,
+    "end": 118.06
+  },
+  {
+    "id": "w175",
+    "text": "It's",
+    "start": 118.82,
+    "end": 118.98
+  },
+  {
+    "id": "w176",
+    "text": "me.",
+    "start": 118.98,
+    "end": 119.7
+  },
+  {
+    "id": "w177",
+    "text": "Conversion",
+    "start": 125.86,
+    "end": 126.58
+  },
+  {
+    "id": "w178",
+    "text": "went",
+    "start": 126.58,
+    "end": 126.82
+  },
+  {
+    "id": "w179",
+    "text": "from",
+    "start": 126.82,
+    "end": 127.06
+  },
+  {
+    "id": "w180",
+    "text": "2%",
+    "start": 127.06,
+    "end": 127.54
+  },
+  {
+    "id": "w181",
+    "text": "to",
+    "start": 127.7,
+    "end": 127.94
+  },
+  {
+    "id": "w182",
+    "text": "3.5%.",
+    "start": 127.94,
+    "end": 128.82
+  }
+]
