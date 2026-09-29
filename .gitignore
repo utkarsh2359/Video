@@ -5,3 +5,4 @@ node_modules/
 videos/*/renders/
 videos/*/snapshots/
 videos/*/.hyperframes/
+videos/*/footage/
