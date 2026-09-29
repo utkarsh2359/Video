@@ -8,12 +8,12 @@ refund-or-work-free guarantee. Footage review and cut list: [footage-review.md](
 The six selected clips are "Copy of IMG_08xx.MOV" files in the "Ad shoot" Drive folder,
 shared as "Anyone with the link". Drive's connector caps downloads at 10 MB and the network
 policy blocks drive.google.com, so download through the Drive API (www.googleapis.com is
-reachable) with the `GOOGLE_API_KEY` environment variable:
+reachable) with the `GDRIVE_API_KEY` environment variable:
 
 ```bash
 mkdir -p footage
 curl -sSL -o footage/IMG_0846.MOV \
-  "https://www.googleapis.com/drive/v3/files/<copy_id>?alt=media&key=$GOOGLE_API_KEY"
+  "https://www.googleapis.com/drive/v3/files/<copy_id>?alt=media&key=$GDRIVE_API_KEY"
 ```
 
 Copy IDs are in the `cut` array of footage-review.md. Keep raw footage out of git (`footage/` is ignored).
