@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+
+# HyperFrames outputs (regenerate with `npx hyperframes render` / `snapshot`)
+videos/*/renders/
+videos/*/snapshots/
+videos/*/.hyperframes/

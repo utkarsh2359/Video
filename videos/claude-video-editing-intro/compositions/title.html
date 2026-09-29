@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #root * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        #root {
+          box-sizing: border-box;
+          --bg: #141413;
+          --ink: #faf9f5;
+          --muted: #a8a59b;
+          --accent: #d97757;
+          --chip: #262624;
+          --chip-edge: #3a3935;
+          position: absolute;
+          inset: 0;
+          background: var(--bg);
+          font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+          color: var(--ink);
+        }
+        .scene-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          padding: 120px 160px;
+          gap: 40px;
+        }
+        .title {
+          display: flex;
+          align-items: baseline;
+          gap: 36px;
+          font-size: 150px;
+          font-weight: 800;
+          letter-spacing: -0.045em;
+          line-height: 1;
+        }
+        .word {
+          display: inline-block;
+        }
+        #plus {
+          color: var(--accent);
+        }
+        #rule {
+          width: 1100px;
+          height: 6px;
+          border-radius: 3px;
+          background: var(--accent);
+          transform-origin: left center;
+        }
+        #tagline {
+          font-size: 48px;
+          font-weight: 400;
+          color: var(--muted);
+          letter-spacing: -0.01em;
+        }
+        .chips {
+          display: flex;
+          gap: 24px;
+        }
+        .chip {
+          font-family: "JetBrains Mono", ui-monospace, monospace;
+          font-size: 32px;
+          font-weight: 500;
+          color: var(--ink);
+          background: var(--chip);
+          border: 2px solid var(--chip-edge);
+          border-radius: 999px;
+          padding: 14px 32px;
+        }
+      </style>
+      <div
+        id="root"
+        data-composition-id="title"
+        data-width="1920"
+        data-height="1080"
+      >
+        <div class="scene-content">
+          <h1 class="title">
+            <span id="w-claude" class="word">Claude</span>
+            <span id="plus" class="word">+</span>
+            <span id="w-video" class="word">Video</span>
+            <span id="w-editing" class="word">Editing</span>
+          </h1>
+          <div id="rule"></div>
+          <p id="tagline">Motion graphics, generated from a prompt.</p>
+          <div class="chips">
+            <span id="c1" class="chip">HyperFrames</span>
+            <span id="c2" class="chip">Whisper</span>
+            <span id="c3" class="chip">ffmpeg</span>
+            <span id="c4" class="chip">ffprobe</span>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        const tl = gsap.timeline({ paused: true });
+
+        // Hook: title words slam in one after another.
+        tl.fromTo(
+          "#w-claude",
+          { autoAlpha: 0, y: 90, filter: "blur(12px)" },
+          {
+            autoAlpha: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.6,
+            ease: "expo.out",
+          },
+          0.2,
+        );
+        tl.fromTo(
+          "#plus",
+          { autoAlpha: 0, scale: 0, rotation: -180 },
+          {
+            autoAlpha: 1,
+            scale: 1,
+            rotation: 0,
+            duration: 0.6,
+            ease: "back.out(2.2)",
+          },
+          0.55,
+        );
+        tl.fromTo(
+          ["#w-video", "#w-editing"],
+          { autoAlpha: 0, y: 90, filter: "blur(12px)" },
+          {
+            autoAlpha: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.6,
+            ease: "expo.out",
+            stagger: 0.15,
+          },
+          0.8,
+        );
+
+        // Build: accent rule draws, tagline rises.
+        tl.fromTo(
+          "#rule",
+          { scaleX: 0 },
+          { scaleX: 1, duration: 0.8, ease: "power3.inOut" },
+          1.5,
+        );
+        tl.fromTo(
+          "#tagline",
+          { autoAlpha: 0, y: 30 },
+          { autoAlpha: 1, y: 0, duration: 0.6, ease: "power3.out" },
+          2.0,
+        );
+
+        // Punch: tool chips pop in, plus sign pulses on the beat.
+        tl.fromTo(
+          "#root .chip",
+          { autoAlpha: 0, y: 24, scale: 0.85 },
+          {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.45,
+            ease: "back.out(1.8)",
+            stagger: 0.12,
+          },
+          2.6,
+        );
+        tl.to(
+          "#plus",
+          { scale: 1.25, duration: 0.18, ease: "power2.out" },
+          3.4,
+        );
+        tl.to(
+          "#plus",
+          { scale: 1, duration: 0.35, ease: "power2.inOut" },
+          3.58,
+        );
+
+        // Resolve: hold, then everything eases out together.
+        tl.to(
+          "#root .scene-content > *",
+          {
+            autoAlpha: 0,
+            y: -30,
+            duration: 0.6,
+            ease: "power2.in",
+            stagger: 0.06,
+          },
+          5.1,
+        );
+
+        window.__timelines = window.__timelines || {};
+        window.__timelines["title"] = tl;
+      </script>
+    </template>
+  </body>
+</html>
