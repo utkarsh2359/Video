@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0b0b0c; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; 
+  --bg: #0b0b0c;
+  --card: #1a1a1c;
+  --card2: #232326;
+  --card-edge: rgba(255, 255, 255, 0.1);
+  --ink: #ffffff;
+  --muted: #a0a0a6;
+  --dim: #3a3a3e;
+  --accent: #d0243a;
+  --glow: rgba(255, 59, 78, 0.5);
+  --dot: rgba(255, 255, 255, 0.07);
+
+        background: radial-gradient(circle, var(--dot) 1.2px, transparent 1.6px) 0 0 / 24px 24px, var(--bg); }
+      #bgglow { position: absolute; left: -300px; top: 100px; width: 1100px; height: 1100px; z-index: 0;
+        background: radial-gradient(circle, rgba(208, 36, 58, 0.16), transparent 65%); pointer-events: none; }
+      #vignette { position: absolute; inset: 0; pointer-events: none; z-index: 1;
+        background: radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.65) 100%); }
+      #root > .clip { z-index: 2; }
+      #root > #voice-host { z-index: 3; }
+      #root > #full-host { z-index: 4; }
+      #root > #captions-host { z-index: 5; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="184.633"
+         data-width="1080" data-height="1920">
+      <div id="bgglow"></div>
+      <div id="vignette"></div>
+      <div id="hook-host" class="clip" data-composition-id="hook" data-composition-src="compositions/hook.html" data-start="0.000" data-duration="11.572" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="case-host" class="clip" data-composition-id="case" data-composition-src="compositions/case.html" data-start="11.572" data-duration="33.154" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="problem-host" class="clip" data-composition-id="problem" data-composition-src="compositions/problem.html" data-start="44.726" data-duration="19.347" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="about-host" class="clip" data-composition-id="about" data-composition-src="compositions/about.html" data-start="64.073" data-duration="25.522" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="proof-host" class="clip" data-composition-id="proof" data-composition-src="compositions/proof.html" data-start="89.595" data-duration="31.840" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="promise-host" class="clip" data-composition-id="promise" data-composition-src="compositions/promise.html" data-start="121.435" data-duration="14.163" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="call-host" class="clip" data-composition-id="call" data-composition-src="compositions/call.html" data-start="135.598" data-duration="33.321" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="prep-host" class="clip" data-composition-id="prep" data-composition-src="compositions/prep.html" data-start="168.919" data-duration="15.714" data-track-index="1" data-width="1080" data-height="1920"></div>
+      <div id="voice-host" class="clip" data-composition-id="voice" data-composition-src="compositions/voice.html" data-start="0.000" data-duration="184.633" data-track-index="2" data-width="1080" data-height="1920"></div>
+      <div id="full-host" class="clip" data-composition-id="full" data-composition-src="compositions/full.html" data-start="0.000" data-duration="184.633" data-track-index="3" data-width="1080" data-height="1920"></div>
+      <div id="captions-host" class="clip" data-composition-id="captions" data-composition-src="compositions/captions.html" data-start="0.000" data-duration="184.633" data-track-index="4" data-width="1080" data-height="1920" data-track-kind="captions"></div>
+      <audio id="vo" src="assets/vo.wav" data-start="0" data-duration="184.633" data-track-index="5" data-volume="1"></audio>
+      <audio id="sfx00" src="assets/sfx/whoosh.wav" data-start="7.549" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx01" src="assets/sfx/whoosh.wav" data-start="11.282" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx10" src="assets/sfx/whoosh.wav" data-start="23.264" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx11" src="assets/sfx/whoosh.wav" data-start="25.915" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx20" src="assets/sfx/whoosh.wav" data-start="53.933" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx21" src="assets/sfx/whoosh.wav" data-start="55.751" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx30" src="assets/sfx/whoosh.wav" data-start="71.237" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx31" src="assets/sfx/whoosh.wav" data-start="74.753" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx40" src="assets/sfx/whoosh.wav" data-start="115.727" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx41" src="assets/sfx/whoosh.wav" data-start="121.145" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx50" src="assets/sfx/whoosh.wav" data-start="121.485" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx51" src="assets/sfx/whoosh.wav" data-start="125.352" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx60" src="assets/sfx/whoosh.wav" data-start="143.556" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx61" src="assets/sfx/whoosh.wav" data-start="145.097" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+      <audio id="sfx70" src="assets/sfx/whoosh.wav" data-start="165.621" data-duration="0.45" data-track-index="6" data-volume="0.35"></audio>
+      <audio id="sfx71" src="assets/sfx/whoosh.wav" data-start="168.629" data-duration="0.45" data-track-index="7" data-volume="0.35"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#bgglow", {x: 0, y: 0}, {x: 500, y: 300, duration: 30.772, ease: "sine.inOut", yoyo: true, repeat: 5}, 0);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

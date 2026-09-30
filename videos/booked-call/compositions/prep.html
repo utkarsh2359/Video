@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #prep-root { position: absolute; inset: 0; 
+  --bg: #0b0b0c;
+  --card: #1a1a1c;
+  --card2: #232326;
+  --card-edge: rgba(255, 255, 255, 0.1);
+  --ink: #ffffff;
+  --muted: #a0a0a6;
+  --dim: #3a3a3e;
+  --accent: #d0243a;
+  --glow: rgba(255, 59, 78, 0.5);
+  --dot: rgba(255, 255, 255, 0.07);
+ }
+        #prep-root * { box-sizing: border-box; margin: 0; }
+        
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+20A0-20C0, U+2113; }
+
+        
+.title { position: absolute; top: 150px; left: 50px; right: 50px; text-align: center;
+  font-family: Inter, sans-serif; color: var(--ink); line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255,255,255,0.25); }
+.title .l1, .title .l2 { display: block; font-size: 58px; font-weight: 800; letter-spacing: -0.02em; }
+.title .l2 { margin-top: 4px; }
+.tw { display: inline-block; }
+.serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400;
+  font-size: 1.24em; letter-spacing: 0; }
+.red { color: var(--accent); }
+.ul { position: relative; display: inline-block; }
+.ul::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: 0; height: 5px;
+  background: var(--accent); border-radius: 3px; transform: scaleX(var(--u, 0));
+  transform-origin: left center; }
+.hl { display: inline-block; background: var(--accent); color: #fff; padding: 0 16px 6px;
+  border-radius: 12px; text-shadow: none; }
+.stage { position: absolute; left: 0; top: 330px; width: 1080px; height: 850px; }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.grp { position: absolute; inset: 0; }
+.row { position: absolute; left: 0; right: 0; display: flex; justify-content: center;
+  align-items: center; gap: 22px; }
+.card { position: absolute; background: var(--card); border: 1px solid var(--card-edge);
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.55); color: var(--ink);
+  font-family: Inter, sans-serif; }
+.row > .card, .row > .chip { position: relative; }
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 28px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--card-edge); color: var(--ink); font-family: Inter, sans-serif;
+  font-weight: 800; font-size: 34px; letter-spacing: -0.01em; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.chip.redc { background: var(--accent); border-color: transparent; }
+.chip svg { width: 38px; height: 38px; }
+.label { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase; }
+.big { font-family: Inter, sans-serif; font-weight: 900; color: var(--ink);
+  letter-spacing: -0.04em; line-height: 1; }
+.glow { filter: drop-shadow(0 0 28px var(--glow)); }
+.tglow { text-shadow: 0 0 40px var(--glow); }
+.muted { color: var(--muted); }
+.stat { padding: 34px 40px; }
+.stat .label { display: block; }
+.stat .big { display: block; margin-top: 16px; }
+.stat .sub { display: block; font-family: Inter, sans-serif; font-weight: 700; font-size: 30px;
+  color: var(--muted); margin-top: 14px; }
+.bar { position: absolute; bottom: 0; border-radius: 16px 16px 6px 6px; transform-origin: 50% 100%; }
+.strike { position: absolute; left: -4%; top: 52%; height: 6px; width: 108%;
+  background: var(--accent); border-radius: 3px; transform-origin: left center; transform: scaleX(0); }
+.phone { position: absolute; width: 360px; height: 720px; border-radius: 52px; background: #000;
+  border: 10px solid #2a2a2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.phone .scr { position: absolute; inset: 0; border-radius: 42px; overflow: hidden; background: #f4f2ee; }
+.phone .notch { position: absolute; top: 12px; left: 50%; width: 100px; height: 28px; margin-left: -50px;
+  border-radius: 20px; background: #000; z-index: 3; }
+.pdp { position: absolute; inset: 0; padding: 58px 20px 20px; font-family: Inter, sans-serif; color: #1c1c1e; }
+.pdp .nav { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; margin-bottom: 14px; }
+.pdp .img { height: 290px; border-radius: 14px; background: linear-gradient(135deg, #e6d9cf, #c7ad9b); }
+.pdp .ln { height: 15px; border-radius: 8px; background: #d9d5ce; margin-top: 13px; }
+.pdp .price { font-weight: 900; font-size: 30px; margin-top: 14px; }
+.pdp .btn { margin-top: 16px; height: 56px; border-radius: 12px; background: #1c1c1e; color: #fff;
+  font-weight: 800; font-size: 21px; display: flex; align-items: center; justify-content: center; }
+.bubble { position: absolute; padding: 16px 24px; border-radius: 22px; background: #fff; color: #111;
+  font-family: Inter, sans-serif; font-weight: 800; font-size: 28px; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.bubble.q::before { content: "?"; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; margin-right: 12px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 24px; vertical-align: 2px; }
+.icon { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icon .r { stroke: var(--accent); }
+.pp { position: absolute; color: #ffffff; }
+.num { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px;
+  border-radius: 20px; background: var(--accent); color: #fff; font-family: Inter, sans-serif;
+  font-weight: 900; font-size: 40px; flex: none; }
+
+      </style>
+      <div id="prep-root" data-composition-id="prep" data-width="1080" data-height="1920">
+        <div class="title" id="prep-t0"><span class="l1"><span class="tw">Before</span> <span class="tw">The</span> <span class="tw">Call,</span> <span class="tw">Keep</span></span><span class="l2"><span class="tw">These</span> <span class="tw"><span class="serif hl">3 Numbers</span></span> <span class="tw">Ready</span></span></div>
+        <div class="stage"><div class="cam" id="prep-cam">
+        <div class="grp" id="pr-g1">
+      <div class="row" style="top:10px"><div class="chip" id="pr-shop"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path d="M12 22 H52 L48 56 H16 Z"/><path class="r" d="M24 22 V16 A8 8 0 0 1 40 16 V22"/></svg> Shopify</div>
+        <div class="chip redc" id="pr-30">Last 30 days</div></div>
+      <div class="card" id="pr-c0" style="left:90px; top:150px; width:900px; height:140px; display:flex; align-items:center; gap:30px; padding:0 36px"><span class="num">1</span><svg class="icon " width="72" height="72" viewBox="0 0 64 64"><path d="M4 32 C16 12 48 12 60 32 C48 52 16 52 4 32 Z"/><circle class="r" cx="32" cy="32" r="8"/></svg><span class="big" style="font-size:52px; letter-spacing:-0.02em">Sessions</span><span class="big muted" style="font-size:52px; margin-left:auto">—</span></div><div class="card" id="pr-c1" style="left:90px; top:320px; width:900px; height:140px; display:flex; align-items:center; gap:30px; padding:0 36px"><span class="num">2</span><svg class="icon " width="72" height="72" viewBox="0 0 64 64"><circle cx="18" cy="18" r="7"/><circle class="r" cx="46" cy="46" r="7"/><path d="M50 12 L14 52"/></svg><span class="big" style="font-size:52px; letter-spacing:-0.02em">Conversion rate</span><span class="big muted" style="font-size:52px; margin-left:auto">—</span></div><div class="card" id="pr-c2" style="left:90px; top:490px; width:900px; height:140px; display:flex; align-items:center; gap:30px; padding:0 36px"><span class="num">3</span><svg class="icon " width="72" height="72" viewBox="0 0 64 64"><path d="M12 22 H52 L48 56 H16 Z"/><path class="r" d="M24 22 V16 A8 8 0 0 1 40 16 V22"/></svg><span class="big" style="font-size:52px; letter-spacing:-0.02em">Avg. order value</span><span class="big muted" style="font-size:52px; margin-left:auto">—</span></div>
+      <div class="row" style="top:690px"><div class="chip" id="pr-grow"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path class="r" d="M8 50 L26 32 L36 42 L56 18"/><path class="r" d="M42 18 H56 V32"/></svg> We’ll show you how to grow</div></div></div>
+<div class="grp" id="pr-g2">
+      <div class="row" style="top:170px">
+        <svg width="260" height="260" viewBox="0 0 64 64" class="icon glow" id="pr-cal"><rect x="8" y="12" width="48" height="44" rx="8"/><path d="M8 26 H56 M20 6 V16 M44 6 V16"/><path class="r" d="M22 40 L29 47 L43 34"/></svg></div>
+      <div class="row" style="top:470px"><span class="big" id="pr-see" style="font-size:96px">See you on the call.</span></div></div>
+        </div></div>
+        <div id="prep-sweep" style="position:absolute; left:0; top:0; width:420px; height:1250px; pointer-events:none;
+             background: linear-gradient(90deg, transparent, rgba(208,36,58,0.5), rgba(255,255,255,0.3), transparent);
+             transform: skewX(-18deg); opacity: 0"></div>
+      </div>
+      <script>
+        (() => {
+        const L = (g) => g - 168.919;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#prep-sweep", {x: -700, opacity: 1}, {x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut"}, 0);
+        tl.set("#prep-sweep", {opacity: 0}, 0.46);
+        tl.fromTo("#prep-cam", {scale: 1}, {scale: 1.03, duration: 15.714, ease: "none"}, 0);
+        tl.fromTo("#prep-t0 .tw", {autoAlpha: 0, y: 10, filter: "blur(12px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.27, ease: "power2.out", stagger: 0.066}, L(168.919));
+        tl.set("#pr-g1", {autoAlpha: 0}, 0);
+        tl.fromTo("#pr-g1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(168.919));
+        tl.to("#pr-g1", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(182.553));
+        tl.fromTo("#pr-shop", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(172.260));
+        tl.fromTo("#pr-30", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(173.950));
+        tl.fromTo("#pr-c0", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(174.552));
+        tl.fromTo("#pr-c1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(175.431));
+        tl.fromTo("#pr-c2", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(176.661));
+        tl.fromTo("#pr-grow", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(181.427));
+        tl.set("#pr-g2", {autoAlpha: 0}, 0);
+        tl.fromTo("#pr-g2", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(182.753));
+        tl.fromTo("#pr-cal", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(2)"}, L(182.753));
+        tl.fromTo("#pr-see", {autoAlpha: 0, y: 30, filter: "blur(10px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(182.853));
+        
+        window.__timelines = window.__timelines || {};
+        window.__timelines["prep"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

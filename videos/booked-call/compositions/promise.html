@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #promise-root { position: absolute; inset: 0; 
+  --bg: #0b0b0c;
+  --card: #1a1a1c;
+  --card2: #232326;
+  --card-edge: rgba(255, 255, 255, 0.1);
+  --ink: #ffffff;
+  --muted: #a0a0a6;
+  --dim: #3a3a3e;
+  --accent: #d0243a;
+  --glow: rgba(255, 59, 78, 0.5);
+  --dot: rgba(255, 255, 255, 0.07);
+ }
+        #promise-root * { box-sizing: border-box; margin: 0; }
+        
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+20A0-20C0, U+2113; }
+
+        
+.title { position: absolute; top: 150px; left: 50px; right: 50px; text-align: center;
+  font-family: Inter, sans-serif; color: var(--ink); line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255,255,255,0.25); }
+.title .l1, .title .l2 { display: block; font-size: 58px; font-weight: 800; letter-spacing: -0.02em; }
+.title .l2 { margin-top: 4px; }
+.tw { display: inline-block; }
+.serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400;
+  font-size: 1.24em; letter-spacing: 0; }
+.red { color: var(--accent); }
+.ul { position: relative; display: inline-block; }
+.ul::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: 0; height: 5px;
+  background: var(--accent); border-radius: 3px; transform: scaleX(var(--u, 0));
+  transform-origin: left center; }
+.hl { display: inline-block; background: var(--accent); color: #fff; padding: 0 16px 6px;
+  border-radius: 12px; text-shadow: none; }
+.stage { position: absolute; left: 0; top: 330px; width: 1080px; height: 850px; }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.grp { position: absolute; inset: 0; }
+.row { position: absolute; left: 0; right: 0; display: flex; justify-content: center;
+  align-items: center; gap: 22px; }
+.card { position: absolute; background: var(--card); border: 1px solid var(--card-edge);
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.55); color: var(--ink);
+  font-family: Inter, sans-serif; }
+.row > .card, .row > .chip { position: relative; }
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 28px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--card-edge); color: var(--ink); font-family: Inter, sans-serif;
+  font-weight: 800; font-size: 34px; letter-spacing: -0.01em; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.chip.redc { background: var(--accent); border-color: transparent; }
+.chip svg { width: 38px; height: 38px; }
+.label { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase; }
+.big { font-family: Inter, sans-serif; font-weight: 900; color: var(--ink);
+  letter-spacing: -0.04em; line-height: 1; }
+.glow { filter: drop-shadow(0 0 28px var(--glow)); }
+.tglow { text-shadow: 0 0 40px var(--glow); }
+.muted { color: var(--muted); }
+.stat { padding: 34px 40px; }
+.stat .label { display: block; }
+.stat .big { display: block; margin-top: 16px; }
+.stat .sub { display: block; font-family: Inter, sans-serif; font-weight: 700; font-size: 30px;
+  color: var(--muted); margin-top: 14px; }
+.bar { position: absolute; bottom: 0; border-radius: 16px 16px 6px 6px; transform-origin: 50% 100%; }
+.strike { position: absolute; left: -4%; top: 52%; height: 6px; width: 108%;
+  background: var(--accent); border-radius: 3px; transform-origin: left center; transform: scaleX(0); }
+.phone { position: absolute; width: 360px; height: 720px; border-radius: 52px; background: #000;
+  border: 10px solid #2a2a2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.phone .scr { position: absolute; inset: 0; border-radius: 42px; overflow: hidden; background: #f4f2ee; }
+.phone .notch { position: absolute; top: 12px; left: 50%; width: 100px; height: 28px; margin-left: -50px;
+  border-radius: 20px; background: #000; z-index: 3; }
+.pdp { position: absolute; inset: 0; padding: 58px 20px 20px; font-family: Inter, sans-serif; color: #1c1c1e; }
+.pdp .nav { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; margin-bottom: 14px; }
+.pdp .img { height: 290px; border-radius: 14px; background: linear-gradient(135deg, #e6d9cf, #c7ad9b); }
+.pdp .ln { height: 15px; border-radius: 8px; background: #d9d5ce; margin-top: 13px; }
+.pdp .price { font-weight: 900; font-size: 30px; margin-top: 14px; }
+.pdp .btn { margin-top: 16px; height: 56px; border-radius: 12px; background: #1c1c1e; color: #fff;
+  font-weight: 800; font-size: 21px; display: flex; align-items: center; justify-content: center; }
+.bubble { position: absolute; padding: 16px 24px; border-radius: 22px; background: #fff; color: #111;
+  font-family: Inter, sans-serif; font-weight: 800; font-size: 28px; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.bubble.q::before { content: "?"; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; margin-right: 12px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 24px; vertical-align: 2px; }
+.icon { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icon .r { stroke: var(--accent); }
+.pp { position: absolute; color: #ffffff; }
+.num { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px;
+  border-radius: 20px; background: var(--accent); color: #fff; font-family: Inter, sans-serif;
+  font-weight: 900; font-size: 40px; flex: none; }
+
+      </style>
+      <div id="promise-root" data-composition-id="promise" data-width="1080" data-height="1920">
+        <div class="title" id="promise-t0"><span class="l1"><span class="tw">The</span> <span class="tw">Average</span> <span class="tw">Indian</span> <span class="tw">Store</span></span><span class="l2"><span class="tw">Converts</span> <span class="tw">At</span> <span class="tw"><span class="serif hl">1.8%</span></span></span></div>
+        <div class="stage"><div class="cam" id="promise-cam">
+        <style>#promise-root .dot { position: absolute; width: 36px; height: 36px; border-radius: 50%; background: #3a3a3e; }</style>
+<div class="grp" id="pm-g1">
+      <div class="row" style="top:0"><div class="chip" id="pm-note" style="font-size:28px; color:var(--muted)">Results vary by brand</div></div>
+      <div id="pm-grid" style="position:absolute; left:234px; top:110px; width:612px; height:560px"><div class="dot" id="pm-d0" style="left:0px; top:0px"></div><div class="dot" id="pm-d1" style="left:64px; top:0px"></div><div class="dot" id="pm-d2" style="left:128px; top:0px"></div><div class="dot" id="pm-d3" style="left:192px; top:0px"></div><div class="dot" id="pm-d4" style="left:256px; top:0px"></div><div class="dot" id="pm-d5" style="left:320px; top:0px"></div><div class="dot" id="pm-d6" style="left:384px; top:0px"></div><div class="dot" id="pm-d7" style="left:448px; top:0px"></div><div class="dot" id="pm-d8" style="left:512px; top:0px"></div><div class="dot" id="pm-d9" style="left:576px; top:0px"></div><div class="dot" id="pm-d10" style="left:0px; top:56px"></div><div class="dot" id="pm-d11" style="left:64px; top:56px"></div><div class="dot" id="pm-d12" style="left:128px; top:56px"></div><div class="dot" id="pm-d13" style="left:192px; top:56px"></div><div class="dot" id="pm-d14" style="left:256px; top:56px"></div><div class="dot" id="pm-d15" style="left:320px; top:56px"></div><div class="dot" id="pm-d16" style="left:384px; top:56px"></div><div class="dot" id="pm-d17" style="left:448px; top:56px"></div><div class="dot" id="pm-d18" style="left:512px; top:56px"></div><div class="dot" id="pm-d19" style="left:576px; top:56px"></div><div class="dot" id="pm-d20" style="left:0px; top:112px"></div><div class="dot" id="pm-d21" style="left:64px; top:112px"></div><div class="dot" id="pm-d22" style="left:128px; top:112px"></div><div class="dot" id="pm-d23" style="left:192px; top:112px"></div><div class="dot" id="pm-d24" style="left:256px; top:112px"></div><div class="dot" id="pm-d25" style="left:320px; top:112px"></div><div class="dot" id="pm-d26" style="left:384px; top:112px"></div><div class="dot" id="pm-d27" style="left:448px; top:112px"></div><div class="dot" id="pm-d28" style="left:512px; top:112px"></div><div class="dot" id="pm-d29" style="left:576px; top:112px"></div><div class="dot" id="pm-d30" style="left:0px; top:168px"></div><div class="dot" id="pm-d31" style="left:64px; top:168px"></div><div class="dot" id="pm-d32" style="left:128px; top:168px"></div><div class="dot" id="pm-d33" style="left:192px; top:168px"></div><div class="dot" id="pm-d34" style="left:256px; top:168px"></div><div class="dot" id="pm-d35" style="left:320px; top:168px"></div><div class="dot" id="pm-d36" style="left:384px; top:168px"></div><div class="dot" id="pm-d37" style="left:448px; top:168px"></div><div class="dot" id="pm-d38" style="left:512px; top:168px"></div><div class="dot" id="pm-d39" style="left:576px; top:168px"></div><div class="dot" id="pm-d40" style="left:0px; top:224px"></div><div class="dot" id="pm-d41" style="left:64px; top:224px"></div><div class="dot" id="pm-d42" style="left:128px; top:224px"></div><div class="dot" id="pm-d43" style="left:192px; top:224px"></div><div class="dot" id="pm-d44" style="left:256px; top:224px"></div><div class="dot" id="pm-d45" style="left:320px; top:224px"></div><div class="dot" id="pm-d46" style="left:384px; top:224px"></div><div class="dot" id="pm-d47" style="left:448px; top:224px"></div><div class="dot" id="pm-d48" style="left:512px; top:224px"></div><div class="dot" id="pm-d49" style="left:576px; top:224px"></div><div class="dot" id="pm-d50" style="left:0px; top:280px"></div><div class="dot" id="pm-d51" style="left:64px; top:280px"></div><div class="dot" id="pm-d52" style="left:128px; top:280px"></div><div class="dot" id="pm-d53" style="left:192px; top:280px"></div><div class="dot" id="pm-d54" style="left:256px; top:280px"></div><div class="dot" id="pm-d55" style="left:320px; top:280px"></div><div class="dot" id="pm-d56" style="left:384px; top:280px"></div><div class="dot" id="pm-d57" style="left:448px; top:280px"></div><div class="dot" id="pm-d58" style="left:512px; top:280px"></div><div class="dot" id="pm-d59" style="left:576px; top:280px"></div><div class="dot" id="pm-d60" style="left:0px; top:336px"></div><div class="dot" id="pm-d61" style="left:64px; top:336px"></div><div class="dot" id="pm-d62" style="left:128px; top:336px"></div><div class="dot" id="pm-d63" style="left:192px; top:336px"></div><div class="dot" id="pm-d64" style="left:256px; top:336px"></div><div class="dot" id="pm-d65" style="left:320px; top:336px"></div><div class="dot" id="pm-d66" style="left:384px; top:336px"></div><div class="dot" id="pm-d67" style="left:448px; top:336px"></div><div class="dot" id="pm-d68" style="left:512px; top:336px"></div><div class="dot" id="pm-d69" style="left:576px; top:336px"></div><div class="dot" id="pm-d70" style="left:0px; top:392px"></div><div class="dot" id="pm-d71" style="left:64px; top:392px"></div><div class="dot" id="pm-d72" style="left:128px; top:392px"></div><div class="dot" id="pm-d73" style="left:192px; top:392px"></div><div class="dot" id="pm-d74" style="left:256px; top:392px"></div><div class="dot" id="pm-d75" style="left:320px; top:392px"></div><div class="dot" id="pm-d76" style="left:384px; top:392px"></div><div class="dot" id="pm-d77" style="left:448px; top:392px"></div><div class="dot" id="pm-d78" style="left:512px; top:392px"></div><div class="dot" id="pm-d79" style="left:576px; top:392px"></div><div class="dot" id="pm-d80" style="left:0px; top:448px"></div><div class="dot" id="pm-d81" style="left:64px; top:448px"></div><div class="dot" id="pm-d82" style="left:128px; top:448px"></div><div class="dot" id="pm-d83" style="left:192px; top:448px"></div><div class="dot" id="pm-d84" style="left:256px; top:448px"></div><div class="dot" id="pm-d85" style="left:320px; top:448px"></div><div class="dot" id="pm-d86" style="left:384px; top:448px"></div><div class="dot" id="pm-d87" style="left:448px; top:448px"></div><div class="dot" id="pm-d88" style="left:512px; top:448px"></div><div class="dot" id="pm-d89" style="left:576px; top:448px"></div><div class="dot" id="pm-d90" style="left:0px; top:504px"></div><div class="dot" id="pm-d91" style="left:64px; top:504px"></div><div class="dot" id="pm-d92" style="left:128px; top:504px"></div><div class="dot" id="pm-d93" style="left:192px; top:504px"></div><div class="dot" id="pm-d94" style="left:256px; top:504px"></div><div class="dot" id="pm-d95" style="left:320px; top:504px"></div><div class="dot" id="pm-d96" style="left:384px; top:504px"></div><div class="dot" id="pm-d97" style="left:448px; top:504px"></div><div class="dot" id="pm-d98" style="left:512px; top:504px"></div><div class="dot" id="pm-d99" style="left:576px; top:504px"></div></div>
+      <div class="row" style="top:710px"><span class="big" style="font-size:44px; letter-spacing:-0.02em">
+        <span class="red">1.8</span> of every <span id="pm-100">100</span> visitors buy</span></div>
+      <div class="chip redc" id="pm-room" style="left:310px; top:320px; font-size:52px; padding:22px 40px"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path class="r" d="M8 50 L26 32 L36 42 L56 18"/><path class="r" d="M42 18 H56 V32"/></svg> Room to grow</div></div>
+        </div></div>
+        <div id="promise-sweep" style="position:absolute; left:0; top:0; width:420px; height:1250px; pointer-events:none;
+             background: linear-gradient(90deg, transparent, rgba(208,36,58,0.5), rgba(255,255,255,0.3), transparent);
+             transform: skewX(-18deg); opacity: 0"></div>
+      </div>
+      <script>
+        (() => {
+        const L = (g) => g - 121.435;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#promise-sweep", {x: -700, opacity: 1}, {x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut"}, 0);
+        tl.set("#promise-sweep", {opacity: 0}, 0.46);
+        tl.fromTo("#promise-cam", {scale: 1}, {scale: 1.03, duration: 14.163, ease: "none"}, 0);
+        tl.fromTo("#promise-t0 .tw", {autoAlpha: 0, y: 10, filter: "blur(12px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.27, ease: "power2.out", stagger: 0.066}, L(121.435));
+        tl.set("#pm-g1", {autoAlpha: 0}, 0);
+        tl.fromTo("#pm-g1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(128.413));
+        tl.fromTo("#pm-note", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(128.513));
+        tl.fromTo("#pm-grid .dot", {autoAlpha: 0, scale: 0}, {autoAlpha: 1, scale: 1, duration: 0.2, stagger: {each: 0.006, grid: [10, 10], from: "start"}}, L(130.243));
+        tl.to("#pm-d44, #pm-d45", {background: "#d0243a", boxShadow: "0 0 24px rgba(255,59,78,0.8)", scale: 1.25, duration: 0.25}, L(132.178));
+        tl.to("#pm-d45", {clipPath: "inset(0 20% 0 0)", duration: 0.2}, L(132.178));
+        tl.to("#pm-grid .dot:not(#pm-d44):not(#pm-d45)", {background: "#ffffff", opacity: 0.8, duration: 0.3, stagger: {each: 0.004, from: "center", grid: [10, 10]}}, L(134.305));
+        tl.fromTo("#pm-room", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)"}, L(134.605));
+        tl.set("#promise-root > *", {opacity: 0}, L(121.605)); tl.set("#promise-root > *", {opacity: 1}, L(125.472));
+        window.__timelines = window.__timelines || {};
+        window.__timelines["promise"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

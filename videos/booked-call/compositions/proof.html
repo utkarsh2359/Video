@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #proof-root { position: absolute; inset: 0; 
+  --bg: #0b0b0c;
+  --card: #1a1a1c;
+  --card2: #232326;
+  --card-edge: rgba(255, 255, 255, 0.1);
+  --ink: #ffffff;
+  --muted: #a0a0a6;
+  --dim: #3a3a3e;
+  --accent: #d0243a;
+  --glow: rgba(255, 59, 78, 0.5);
+  --dot: rgba(255, 255, 255, 0.07);
+ }
+        #proof-root * { box-sizing: border-box; margin: 0; }
+        
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+20A0-20C0, U+2113; }
+
+        
+.title { position: absolute; top: 150px; left: 50px; right: 50px; text-align: center;
+  font-family: Inter, sans-serif; color: var(--ink); line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255,255,255,0.25); }
+.title .l1, .title .l2 { display: block; font-size: 58px; font-weight: 800; letter-spacing: -0.02em; }
+.title .l2 { margin-top: 4px; }
+.tw { display: inline-block; }
+.serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400;
+  font-size: 1.24em; letter-spacing: 0; }
+.red { color: var(--accent); }
+.ul { position: relative; display: inline-block; }
+.ul::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: 0; height: 5px;
+  background: var(--accent); border-radius: 3px; transform: scaleX(var(--u, 0));
+  transform-origin: left center; }
+.hl { display: inline-block; background: var(--accent); color: #fff; padding: 0 16px 6px;
+  border-radius: 12px; text-shadow: none; }
+.stage { position: absolute; left: 0; top: 330px; width: 1080px; height: 850px; }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.grp { position: absolute; inset: 0; }
+.row { position: absolute; left: 0; right: 0; display: flex; justify-content: center;
+  align-items: center; gap: 22px; }
+.card { position: absolute; background: var(--card); border: 1px solid var(--card-edge);
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.55); color: var(--ink);
+  font-family: Inter, sans-serif; }
+.row > .card, .row > .chip { position: relative; }
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 28px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--card-edge); color: var(--ink); font-family: Inter, sans-serif;
+  font-weight: 800; font-size: 34px; letter-spacing: -0.01em; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.chip.redc { background: var(--accent); border-color: transparent; }
+.chip svg { width: 38px; height: 38px; }
+.label { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase; }
+.big { font-family: Inter, sans-serif; font-weight: 900; color: var(--ink);
+  letter-spacing: -0.04em; line-height: 1; }
+.glow { filter: drop-shadow(0 0 28px var(--glow)); }
+.tglow { text-shadow: 0 0 40px var(--glow); }
+.muted { color: var(--muted); }
+.stat { padding: 34px 40px; }
+.stat .label { display: block; }
+.stat .big { display: block; margin-top: 16px; }
+.stat .sub { display: block; font-family: Inter, sans-serif; font-weight: 700; font-size: 30px;
+  color: var(--muted); margin-top: 14px; }
+.bar { position: absolute; bottom: 0; border-radius: 16px 16px 6px 6px; transform-origin: 50% 100%; }
+.strike { position: absolute; left: -4%; top: 52%; height: 6px; width: 108%;
+  background: var(--accent); border-radius: 3px; transform-origin: left center; transform: scaleX(0); }
+.phone { position: absolute; width: 360px; height: 720px; border-radius: 52px; background: #000;
+  border: 10px solid #2a2a2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.phone .scr { position: absolute; inset: 0; border-radius: 42px; overflow: hidden; background: #f4f2ee; }
+.phone .notch { position: absolute; top: 12px; left: 50%; width: 100px; height: 28px; margin-left: -50px;
+  border-radius: 20px; background: #000; z-index: 3; }
+.pdp { position: absolute; inset: 0; padding: 58px 20px 20px; font-family: Inter, sans-serif; color: #1c1c1e; }
+.pdp .nav { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; margin-bottom: 14px; }
+.pdp .img { height: 290px; border-radius: 14px; background: linear-gradient(135deg, #e6d9cf, #c7ad9b); }
+.pdp .ln { height: 15px; border-radius: 8px; background: #d9d5ce; margin-top: 13px; }
+.pdp .price { font-weight: 900; font-size: 30px; margin-top: 14px; }
+.pdp .btn { margin-top: 16px; height: 56px; border-radius: 12px; background: #1c1c1e; color: #fff;
+  font-weight: 800; font-size: 21px; display: flex; align-items: center; justify-content: center; }
+.bubble { position: absolute; padding: 16px 24px; border-radius: 22px; background: #fff; color: #111;
+  font-family: Inter, sans-serif; font-weight: 800; font-size: 28px; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.bubble.q::before { content: "?"; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; margin-right: 12px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 24px; vertical-align: 2px; }
+.icon { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icon .r { stroke: var(--accent); }
+.pp { position: absolute; color: #ffffff; }
+.num { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px;
+  border-radius: 20px; background: var(--accent); color: #fff; font-family: Inter, sans-serif;
+  font-weight: 900; font-size: 40px; flex: none; }
+
+      </style>
+      <div id="proof-root" data-composition-id="proof" data-width="1080" data-height="1920">
+        <div class="title" id="proof-t0"><span class="l1"><span class="tw">It’s</span> <span class="tw">Not</span> <span class="tw">Just</span></span><span class="l2"><span class="tw"><span class="serif ul">One Brand</span></span></span></div>
+<div class="title" id="proof-t1"><span class="l1"><span class="tw">Kids’</span> <span class="tw">Toys</span> <span class="tw">Brand:</span></span><span class="l2"><span class="tw">Conversion</span> <span class="tw"><span class="serif hl">2% → 3.5%</span></span></span></div>
+        <div class="stage"><div class="cam" id="proof-cam">
+        <div class="grp" id="pf-g1">
+      <div class="card" id="pf-ff" style="left:120px; top:40px; width:840px; height:560px; text-align:center">
+        <div style="margin-top:60px"><span class="big" style="font-size:120px; letter-spacing:-0.05em">FitFeast</span></div>
+        <div style="margin-top:34px; display:flex; justify-content:center"><div class="chip" id="pf-shark" style="position:relative"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><rect x="6" y="14" width="52" height="34" rx="6"/><path d="M22 56 H42"/><path class="r" d="M26 24 L40 31 L26 38 Z"/></svg> As seen on Shark Tank India</div></div>
+        <div style="margin-top:44px"><span class="big tglow" id="pf-2cr" style="font-size:110px; color:#ff3b4e">₹2Cr+</span>
+          <span class="label" style="font-size:30px">&nbsp;/ month</span></div>
+      </div>
+      <div class="row" style="top:650px"><div class="chip redc" id="pf-trust"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path class="r" d="M12 34 L26 48 L52 18"/></svg> Trusts us with their product pages</div></div></div>
+<div class="grp" id="pf-g2">
+      <div class="row" style="top:30px"><div class="chip" id="pf-kid"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><rect x="8" y="34" width="22" height="22" rx="3"/><rect x="34" y="34" width="22" height="22" rx="3"/><rect class="r" x="21" y="8" width="22" height="22" rx="3"/></svg> Kids’ toys brand</div></div>
+      <div class="card stat" id="pf-stuck" style="left:190px; top:170px; width:700px; height:400px; text-align:center">
+        <span class="label">Conversion rate</span><span class="big" style="font-size:180px">2%</span>
+        <svg width="560" height="60" style="margin-top:10px"><path id="pf-flat" d="M0 30 H560" stroke="#8a8a90" stroke-width="6"
+          stroke-dasharray="14 12" fill="none"/></svg></div>
+      <div class="row" style="top:620px"><div class="chip" id="pf-r1"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><rect x="12" y="6" width="40" height="52" rx="6"/><path d="M20 18 H44 M20 28 H44"/><path class="r" d="M20 40 H34"/></svg> Product page rebuilt</div>
+        <div class="chip" id="pf-r2"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path d="M6 10 H14 L20 42 H50 L56 20 H17"/><circle cx="24" cy="52" r="4"/><circle class="r" cx="46" cy="52" r="4"/></svg> Cart rebuilt</div></div></div>
+<div class="grp" id="pf-g3">
+      <div style="position:absolute; left:80px; top:60px; width:440px; height:620px"><div class="label" style="text-align:center">Add to cart</div><div style="position:absolute; left:40px; top:120px; width:360px; height:440px"><div class="bar" id="pf-atc-a" style="left:0; width:150px; height:138px; background:#4a4a50"></div><div class="bar glow" id="pf-atc-b" style="left:210px; width:150px; height:412px; background:var(--accent)"></div><div class="big" style="position:absolute; left:0; width:150px; text-align:center; bottom:152px; font-size:52px">5%</div><div class="big" id="pf-atc-v" style="position:absolute; left:180px; width:210px; text-align:center; bottom:426px; font-size:64px">5%</div></div></div>
+      <div style="position:absolute; left:560px; top:60px; width:440px; height:620px"><div class="label" style="text-align:center">Conversion</div><div style="position:absolute; left:40px; top:120px; width:360px; height:440px"><div class="bar" id="pf-cr-a" style="left:0; width:150px; height:220px; background:#4a4a50"></div><div class="bar glow" id="pf-cr-b" style="left:210px; width:150px; height:385px; background:var(--accent)"></div><div class="big" style="position:absolute; left:0; width:150px; text-align:center; bottom:234px; font-size:52px">2%</div><div class="big" id="pf-cr-v" style="position:absolute; left:180px; width:210px; text-align:center; bottom:399px; font-size:64px">2%</div></div></div>
+      <div style="position:absolute; left:620px; right:30px; top:422px; border-top:4px dashed #ffffff;"
+        id="pf-avg"><span class="label" style="position:absolute; right:0; top:-34px; font-size:20px; color:#fff">Avg</span></div>
+      <div class="row" style="top:720px"><div class="chip redc" id="pf-double">≈ 2× the Indian average of 1.8%</div></div></div>
+        </div></div>
+        <div id="proof-sweep" style="position:absolute; left:0; top:0; width:420px; height:1250px; pointer-events:none;
+             background: linear-gradient(90deg, transparent, rgba(208,36,58,0.5), rgba(255,255,255,0.3), transparent);
+             transform: skewX(-18deg); opacity: 0"></div>
+      </div>
+      <script>
+        (() => {
+        const L = (g) => g - 89.595;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#proof-sweep", {x: -700, opacity: 1}, {x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut"}, 0);
+        tl.set("#proof-sweep", {opacity: 0}, 0.46);
+        tl.fromTo("#proof-cam", {scale: 1}, {scale: 1.03, duration: 31.840, ease: "none"}, 0);
+        tl.fromTo("#proof-t1 .tw", {autoAlpha: 0, y: 10, filter: "blur(12px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.27, ease: "power2.out", stagger: 0.066}, L(99.945));
+        tl.fromTo("#proof-t0 .tw", {autoAlpha: 0, y: 10, filter: "blur(12px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.27, ease: "power2.out", stagger: 0.066}, L(89.595));
+        tl.fromTo("#proof-t0 .ul", {"--u": 0}, {"--u": 1, duration: 0.5, ease: "power2.inOut"}, L(89.595) + 0.45);
+        tl.to("#proof-t0", {autoAlpha: 0, filter: "blur(10px)", duration: 0.18, ease: "power2.in"}, L(99.945) - 0.18);
+        tl.set("#pf-g1", {autoAlpha: 0}, 0);
+        tl.fromTo("#pf-g1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(91.210));
+        tl.to("#pf-g1", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(99.745));
+        tl.fromTo("#pf-ff", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(92.206));
+        tl.fromTo("#pf-shark", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(93.287));
+        tl.fromTo("#pf-2cr", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(95.117));
+        (() => { const el = document.querySelector("#pf-2cr"); const p = {v: 0}; tl.fromTo(p, {v: 0}, {v: 2, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = "₹" + Math.round(p.v) + "Cr+"; } }, L(95.117)); })();
+        tl.fromTo("#pf-trust", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(96.501));
+        tl.set("#pf-g2", {autoAlpha: 0}, 0);
+        tl.fromTo("#pf-g2", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(99.945));
+        tl.to("#pf-g2", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(106.339));
+        tl.fromTo("#pf-kid", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(99.945));
+        tl.fromTo("#pf-stuck", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(102.249));
+        tl.fromTo("#pf-r1", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(104.336));
+        tl.fromTo("#pf-r2", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(104.686));
+        tl.set("#pf-g3", {autoAlpha: 0}, 0);
+        tl.fromTo("#pf-g3", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(106.539));
+        tl.fromTo("#pf-atc-a", {scaleY: 0}, {scaleY: 1, duration: 0.4, ease: "power3.out"}, L(108.039));
+        tl.fromTo("#pf-atc-b", {scaleY: 0.3333333333333333}, {scaleY: 1, duration: 0.6, ease: "power3.out"}, L(108.974));
+        tl.fromTo("#pf-atc-v", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(108.974));
+        (() => { const el = document.querySelector("#pf-atc-v"); const p = {v: 5}; tl.fromTo(p, {v: 5}, {v: 15, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = Math.round(p.v) + "%"; } }, L(108.974)); })();
+        tl.fromTo("#pf-cr-a, #pf-cr-b, #pf-cr-v", {autoAlpha: 0}, {autoAlpha: 1, duration: 0.01}, L(110.246));
+        tl.set("#pf-cr-a, #pf-cr-b, #pf-cr-v", {autoAlpha: 0}, 0);
+        tl.fromTo("#pf-cr-a", {scaleY: 0}, {scaleY: 1, duration: 0.4, ease: "power3.out"}, L(111.486));
+        tl.fromTo("#pf-cr-b", {scaleY: 0.5714285714285714}, {scaleY: 1, duration: 0.6, ease: "power3.out"}, L(112.366));
+        (() => { const el = document.querySelector("#pf-cr-v"); const p = {v: 2}; tl.fromTo(p, {v: 2}, {v: 3.5, duration: 0.6, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = p.v.toFixed(1) + "%"; } }, L(112.366)); })();
+        tl.fromTo("#pf-avg", {scaleX: 0}, {scaleX: 1, duration: 0.5, ease: "power3.out", transformOrigin: "0% 50%"}, L(113.860));
+        tl.fromTo("#pf-double", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(114.360));
+        tl.set("#proof-root > *", {opacity: 0}, L(115.847)); tl.set("#proof-root > *", {opacity: 1}, L(121.265));
+        window.__timelines = window.__timelines || {};
+        window.__timelines["proof"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

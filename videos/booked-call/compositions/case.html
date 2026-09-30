@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <template>
+      <style>
+        #case-root { position: absolute; inset: 0; 
+  --bg: #0b0b0c;
+  --card: #1a1a1c;
+  --card2: #232326;
+  --card-edge: rgba(255, 255, 255, 0.1);
+  --ink: #ffffff;
+  --muted: #a0a0a6;
+  --dim: #3a3a3e;
+  --accent: #d0243a;
+  --glow: rgba(255, 59, 78, 0.5);
+  --dot: rgba(255, 255, 255, 0.07);
+ }
+        #case-root * { box-sizing: border-box; margin: 0; }
+        
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400;
+  src: url("assets/fonts/InstrumentSerif-Italic-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+20A0-20C0, U+2113; }
+
+        
+.title { position: absolute; top: 150px; left: 50px; right: 50px; text-align: center;
+  font-family: Inter, sans-serif; color: var(--ink); line-height: 1.1;
+  text-shadow: 0 0 20px rgba(255,255,255,0.25); }
+.title .l1, .title .l2 { display: block; font-size: 58px; font-weight: 800; letter-spacing: -0.02em; }
+.title .l2 { margin-top: 4px; }
+.tw { display: inline-block; }
+.serif { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400;
+  font-size: 1.24em; letter-spacing: 0; }
+.red { color: var(--accent); }
+.ul { position: relative; display: inline-block; }
+.ul::after { content: ""; position: absolute; left: 2%; right: 2%; bottom: 0; height: 5px;
+  background: var(--accent); border-radius: 3px; transform: scaleX(var(--u, 0));
+  transform-origin: left center; }
+.hl { display: inline-block; background: var(--accent); color: #fff; padding: 0 16px 6px;
+  border-radius: 12px; text-shadow: none; }
+.stage { position: absolute; left: 0; top: 330px; width: 1080px; height: 850px; }
+.cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
+.grp { position: absolute; inset: 0; }
+.row { position: absolute; left: 0; right: 0; display: flex; justify-content: center;
+  align-items: center; gap: 22px; }
+.card { position: absolute; background: var(--card); border: 1px solid var(--card-edge);
+  border-radius: 24px; box-shadow: 0 24px 60px rgba(0,0,0,0.55); color: var(--ink);
+  font-family: Inter, sans-serif; }
+.row > .card, .row > .chip { position: relative; }
+.chip { position: absolute; display: inline-flex; align-items: center; gap: 14px;
+  padding: 16px 28px; border-radius: 999px; background: var(--card);
+  border: 1px solid var(--card-edge); color: var(--ink); font-family: Inter, sans-serif;
+  font-weight: 800; font-size: 34px; letter-spacing: -0.01em; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.chip.redc { background: var(--accent); border-color: transparent; }
+.chip svg { width: 38px; height: 38px; }
+.label { font-family: Inter, sans-serif; font-weight: 700; font-size: 28px; color: var(--muted);
+  letter-spacing: 0.08em; text-transform: uppercase; }
+.big { font-family: Inter, sans-serif; font-weight: 900; color: var(--ink);
+  letter-spacing: -0.04em; line-height: 1; }
+.glow { filter: drop-shadow(0 0 28px var(--glow)); }
+.tglow { text-shadow: 0 0 40px var(--glow); }
+.muted { color: var(--muted); }
+.stat { padding: 34px 40px; }
+.stat .label { display: block; }
+.stat .big { display: block; margin-top: 16px; }
+.stat .sub { display: block; font-family: Inter, sans-serif; font-weight: 700; font-size: 30px;
+  color: var(--muted); margin-top: 14px; }
+.bar { position: absolute; bottom: 0; border-radius: 16px 16px 6px 6px; transform-origin: 50% 100%; }
+.strike { position: absolute; left: -4%; top: 52%; height: 6px; width: 108%;
+  background: var(--accent); border-radius: 3px; transform-origin: left center; transform: scaleX(0); }
+.phone { position: absolute; width: 360px; height: 720px; border-radius: 52px; background: #000;
+  border: 10px solid #2a2a2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.phone .scr { position: absolute; inset: 0; border-radius: 42px; overflow: hidden; background: #f4f2ee; }
+.phone .notch { position: absolute; top: 12px; left: 50%; width: 100px; height: 28px; margin-left: -50px;
+  border-radius: 20px; background: #000; z-index: 3; }
+.pdp { position: absolute; inset: 0; padding: 58px 20px 20px; font-family: Inter, sans-serif; color: #1c1c1e; }
+.pdp .nav { font-weight: 800; font-size: 20px; letter-spacing: 0.04em; margin-bottom: 14px; }
+.pdp .img { height: 290px; border-radius: 14px; background: linear-gradient(135deg, #e6d9cf, #c7ad9b); }
+.pdp .ln { height: 15px; border-radius: 8px; background: #d9d5ce; margin-top: 13px; }
+.pdp .price { font-weight: 900; font-size: 30px; margin-top: 14px; }
+.pdp .btn { margin-top: 16px; height: 56px; border-radius: 12px; background: #1c1c1e; color: #fff;
+  font-weight: 800; font-size: 21px; display: flex; align-items: center; justify-content: center; }
+.bubble { position: absolute; padding: 16px 24px; border-radius: 22px; background: #fff; color: #111;
+  font-family: Inter, sans-serif; font-weight: 800; font-size: 28px; white-space: nowrap;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5); }
+.bubble.q::before { content: "?"; display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; margin-right: 12px; border-radius: 50%; background: var(--accent);
+  color: #fff; font-size: 24px; vertical-align: 2px; }
+.icon { stroke: #fff; stroke-width: 6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.icon .r { stroke: var(--accent); }
+.pp { position: absolute; color: #ffffff; }
+.num { display: inline-flex; align-items: center; justify-content: center; width: 72px; height: 72px;
+  border-radius: 20px; background: var(--accent); color: #fff; font-family: Inter, sans-serif;
+  font-weight: 900; font-size: 40px; flex: none; }
+
+      </style>
+      <div id="case-root" data-composition-id="case" data-width="1080" data-height="1920">
+        <div class="title" id="case-t0"><span class="l1"><span class="tw">One</span> <span class="tw">D2C</span> <span class="tw">Brand.</span> <span class="tw">30</span> <span class="tw">Days.</span></span><span class="l2"><span class="tw">₹53.7L</span> <span class="tw">→</span> <span class="tw"><span class="serif hl">₹73.7L</span></span></span></div>
+        <div class="stage"><div class="cam" id="case-cam">
+        <div class="grp" id="cs-g1">
+      <div class="row" style="top:40px">
+        <div class="chip" id="cs-d2c"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path d="M12 22 H52 L48 56 H16 Z"/><path class="r" d="M24 22 V16 A8 8 0 0 1 40 16 V22"/></svg> D2C Brand</div>
+        <div class="chip redc" id="cs-cro">CRO Redesign</div>
+      </div>
+      <svg id="cs-ring" width="440" height="440" viewBox="0 0 440 440" style="position:absolute; left:320px; top:220px">
+        <circle cx="220" cy="220" r="190" stroke="#2a2a2e" stroke-width="26" fill="none"/>
+        <circle id="cs-ring-arc" cx="220" cy="220" r="190" stroke="#d0243a" stroke-width="26" fill="none"
+          stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+          transform="rotate(-90 220 220)" class="glow"/>
+      </svg>
+      <div style="position:absolute; left:320px; top:220px; width:440px; height:440px; display:flex;
+          flex-direction:column; align-items:center; justify-content:center">
+        <span class="big" id="cs-days" style="font-size:170px">0</span>
+        <span class="label">days</span></div></div>
+<div class="grp" id="cs-g2">
+      <div class="card" style="left:60px; top:20px; width:960px; height:790px">
+        <div style="position:absolute; left:50px; top:40px"><span class="label">Monthly sales</span></div>
+        <div class="big" id="cs-total" style="position:absolute; left:50px; top:92px; font-size:120px">₹53.7L</div>
+        <div class="chip redc" id="cs-plus" style="position:absolute; right:50px; top:106px; font-size:44px">+₹20L</div>
+        <div style="position:absolute; left:50px; top:250px; font-family:Inter; font-weight:700; font-size:26px; color:var(--muted)">
+          <span style="color:#fff">━</span> Month before &nbsp;&nbsp; <span style="color:#d0243a">━</span> After redesign</div>
+        <svg width="840" height="320" viewBox="0 -10 840 320" style="position:absolute; left:60px; top:330px; overflow:visible">
+          <line x1="0" x2="840" y1="0" y2="0" stroke="#2a2a2e" stroke-width="2"/><line x1="0" x2="840" y1="75" y2="75" stroke="#2a2a2e" stroke-width="2"/><line x1="0" x2="840" y1="150" y2="150" stroke="#2a2a2e" stroke-width="2"/><line x1="0" x2="840" y1="225" y2="225" stroke="#2a2a2e" stroke-width="2"/><line x1="0" x2="840" y1="300" y2="300" stroke="#2a2a2e" stroke-width="2"/>
+          <path id="cs-aug" d="M0.0 171.0 C14.0 171.0, 14.0 253.5, 28.0 253.5 C42.0 253.5, 42.0 258.8, 56.0 258.8 C70.0 258.8, 70.0 176.2, 84.0 176.2 C98.0 176.2, 98.0 178.5, 112.0 178.5 C126.0 178.5, 126.0 159.0, 140.0 159.0 C154.0 159.0, 154.0 155.2, 168.0 155.2 C182.0 155.2, 182.0 131.2, 196.0 131.2 C210.0 131.2, 210.0 126.0, 224.0 126.0 C238.0 126.0, 238.0 171.0, 252.0 171.0 C266.0 171.0, 266.0 150.0, 280.0 150.0 C294.0 150.0, 294.0 187.5, 308.0 187.5 C322.0 187.5, 322.0 180.0, 336.0 180.0 C350.0 180.0, 350.0 120.0, 364.0 120.0 C378.0 120.0, 378.0 96.0, 392.0 96.0 C406.0 96.0, 406.0 206.2, 420.0 206.2 C434.0 206.2, 434.0 236.2, 448.0 236.2 C462.0 236.2, 462.0 238.5, 476.0 238.5 C490.0 238.5, 490.0 231.0, 504.0 231.0 C518.0 231.0, 518.0 206.2, 532.0 206.2 C546.0 206.2, 546.0 165.0, 560.0 165.0 C574.0 165.0, 574.0 155.2, 588.0 155.2 C602.0 155.2, 602.0 138.8, 616.0 138.8 C630.0 138.8, 630.0 132.8, 644.0 132.8 C658.0 132.8, 658.0 180.0, 672.0 180.0 C686.0 180.0, 686.0 151.5, 700.0 151.5 C714.0 151.5, 714.0 168.8, 728.0 168.8 C742.0 168.8, 742.0 183.8, 756.0 183.8 C770.0 183.8, 770.0 131.2, 784.0 131.2 C798.0 131.2, 798.0 108.8, 812.0 108.8 C826.0 108.8, 826.0 131.2, 840.0 131.2" stroke="#8a8a90" stroke-width="5" fill="none" pathLength="1"
+            stroke-dasharray="1" stroke-dashoffset="1"/>
+          <path id="cs-sep" d="M0.0 122.2 C14.0 122.2, 14.0 136.5, 28.0 136.5 C42.0 136.5, 42.0 129.0, 56.0 129.0 C70.0 129.0, 70.0 103.5, 84.0 103.5 C98.0 103.5, 98.0 129.0, 112.0 129.0 C126.0 129.0, 126.0 75.0, 140.0 75.0 C154.0 75.0, 154.0 106.5, 168.0 106.5 C182.0 106.5, 182.0 31.5, 196.0 31.5 C210.0 31.5, 210.0 56.2, 224.0 56.2 C238.0 56.2, 238.0 63.0, 252.0 63.0 C266.0 63.0, 266.0 71.2, 280.0 71.2 C294.0 71.2, 294.0 90.0, 308.0 90.0 C322.0 90.0, 322.0 48.8, 336.0 48.8 C350.0 48.8, 350.0 69.0, 364.0 69.0 C378.0 69.0, 378.0 133.5, 392.0 133.5 C406.0 133.5, 406.0 135.0, 420.0 135.0 C434.0 135.0, 434.0 168.8, 448.0 168.8 C462.0 168.8, 462.0 176.2, 476.0 176.2 C490.0 176.2, 490.0 171.0, 504.0 171.0 C518.0 171.0, 518.0 163.5, 532.0 163.5 C546.0 163.5, 546.0 157.5, 560.0 157.5 C574.0 157.5, 574.0 168.8, 588.0 168.8 C602.0 168.8, 602.0 120.0, 616.0 120.0 C630.0 120.0, 630.0 101.2, 644.0 101.2 C658.0 101.2, 658.0 151.5, 672.0 151.5 C686.0 151.5, 686.0 114.0, 700.0 114.0 C714.0 114.0, 714.0 51.0, 728.0 51.0 C742.0 51.0, 742.0 39.0, 756.0 39.0 C770.0 39.0, 770.0 106.5, 784.0 106.5" stroke="#d0243a" stroke-width="7" fill="none" pathLength="1"
+            stroke-dasharray="1" stroke-dashoffset="1" class="glow"/>
+        </svg>
+        <div style="position:absolute; left:60px; right:60px; top:680px; display:flex; justify-content:space-between;
+          font-family:Inter; font-weight:700; font-size:24px; color:var(--muted)"><span>Day 1</span><span>Day 15</span><span>Day 30</span></div>
+      </div></div>
+<div class="grp" id="cs-g3">
+      <div class="row" style="top:20px"><span class="label" style="font-size:34px">Sales per day</span></div>
+      <div style="position:absolute; left:180px; top:110px; width:720px; height:560px">
+        <div class="bar" id="cs-bar1" style="left:40px; width:260px; height:366px; background:#3a3a3e"></div>
+        <div class="bar glow" id="cs-bar2" style="left:420px; width:260px; height:538px; background:var(--accent)"></div>
+        <div class="big" id="cs-v1" style="position:absolute; left:40px; width:260px; text-align:center; bottom:386px; font-size:76px">₹1.7L</div>
+        <div class="big" id="cs-v2" style="position:absolute; left:420px; width:260px; text-align:center; bottom:558px; font-size:76px">₹1.7L</div>
+      </div>
+      <div style="position:absolute; left:180px; top:690px; width:720px; display:flex; font-family:Inter; font-weight:800;
+        font-size:30px; color:var(--muted); text-transform:uppercase; letter-spacing:0.06em">
+        <span style="margin-left:40px; width:260px; text-align:center">Before</span>
+        <span style="margin-left:120px; width:260px; text-align:center; color:#fff">After</span></div></div>
+<div class="grp" id="cs-g4">
+      <div class="row" style="top:10px"><span class="label" style="font-size:34px">Every day, after the redesign</span></div>
+      <div style="position:absolute; left:105px; top:160px; width:870px; height:560px">
+        <div style="position:absolute; left:0; right:0; bottom:455px; border-top:4px dashed rgba(208,36,58,0.8)"></div>
+        <div class="bar dbar" id="cs-d0" style="left:0px; width:24px; height:308px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d1" style="left:30px; width:24px; height:283px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d2" style="left:60px; width:24px; height:296px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d3" style="left:90px; width:24px; height:341px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d4" style="left:120px; width:24px; height:296px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d5" style="left:150px; width:24px; height:390px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d6" style="left:180px; width:24px; height:335px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d7" style="left:210px; width:24px; height:465px; background:#d0243a; border-radius:6px"></div><div class="bar dbar" id="cs-d8" style="left:240px; width:24px; height:422px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d9" style="left:270px; width:24px; height:411px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d10" style="left:300px; width:24px; height:396px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d11" style="left:330px; width:24px; height:364px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d12" style="left:360px; width:24px; height:436px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d13" style="left:390px; width:24px; height:400px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d14" style="left:420px; width:24px; height:289px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d15" style="left:450px; width:24px; height:286px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d16" style="left:480px; width:24px; height:228px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d17" style="left:510px; width:24px; height:214px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d18" style="left:540px; width:24px; height:224px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d19" style="left:570px; width:24px; height:237px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d20" style="left:600px; width:24px; height:247px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d21" style="left:630px; width:24px; height:228px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d22" style="left:660px; width:24px; height:312px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d23" style="left:690px; width:24px; height:344px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d24" style="left:720px; width:24px; height:257px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d25" style="left:750px; width:24px; height:322px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d26" style="left:780px; width:24px; height:432px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d27" style="left:810px; width:24px; height:452px; background:#4a4a50; border-radius:6px"></div><div class="bar dbar" id="cs-d28" style="left:840px; width:24px; height:335px; background:#4a4a50; border-radius:6px"></div></div>
+      <div class="chip redc" id="cs-bestchip" style="left:145px; top:95px; font-size:36px">Best day ₹3.5L+</div></div>
+<div class="grp" id="cs-g5">
+      <div class="row" style="top:60px"><div class="chip" id="cs-house"><svg class="icon " width="64" height="64" viewBox="0 0 64 64"><path d="M10 30 L32 12 L54 30"/><path d="M16 26 V52 H48 V26"/><path class="r" d="M27 52 V38 H37 V52"/></svg> Regular household brand</div></div>
+      <div class="row" style="top:230px">
+        <svg width="220" height="220" viewBox="0 0 64 64" class="icon glow" id="cs-up"><path class="r" d="M8 50 L26 32 L36 42 L56 18"/><path class="r" d="M42 18 H56 V32"/></svg>
+        <span class="big tglow" id="cs-jump" style="font-size:230px">+37%</span></div>
+      <div class="row" style="top:560px"><span class="label" style="font-size:34px">Month-on-month sales</span></div></div>
+<div class="grp" id="cs-g6">
+      <div class="card stat" id="cs-aovcard" style="left:140px; top:60px; width:800px; height:600px; text-align:center">
+        <span class="label" style="font-size:32px">Average order value</span>
+        <div style="margin-top:70px"><span class="big muted" id="cs-aovold" style="font-size:96px; position:relative">₹1,559<span class="strike" id="cs-aovstrike"></span></span></div>
+        <div style="margin-top:40px"><span class="big tglow" id="cs-aovnew" style="font-size:170px; color:#ff3b4e">₹1,559</span></div>
+      </div>
+      <div class="row" style="top:700px"><div class="chip redc" id="cs-aovpct">+11% per order</div></div></div>
+        </div></div>
+        <div id="case-sweep" style="position:absolute; left:0; top:0; width:420px; height:1250px; pointer-events:none;
+             background: linear-gradient(90deg, transparent, rgba(208,36,58,0.5), rgba(255,255,255,0.3), transparent);
+             transform: skewX(-18deg); opacity: 0"></div>
+      </div>
+      <script>
+        (() => {
+        const L = (g) => g - 11.572;
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo("#case-sweep", {x: -700, opacity: 1}, {x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut"}, 0);
+        tl.set("#case-sweep", {opacity: 0}, 0.46);
+        tl.fromTo("#case-cam", {scale: 1}, {scale: 1.03, duration: 33.154, ease: "none"}, 0);
+        tl.fromTo("#case-t0 .tw", {autoAlpha: 0, y: 10, filter: "blur(12px)"}, {autoAlpha: 1, y: 0, filter: "blur(0px)", duration: 0.27, ease: "power2.out", stagger: 0.066}, L(11.572));
+        tl.set("#cs-g1", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(11.572));
+        tl.to("#cs-g1", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(19.304));
+        tl.fromTo("#cs-d2c", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(12.812));
+        tl.fromTo("#cs-cro", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(14.952));
+        tl.fromTo("#cs-ring-arc", {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 1.0, ease: "power2.out"}, L(16.716));
+        (() => { const el = document.querySelector("#cs-days"); const p = {v: 0}; tl.fromTo(p, {v: 0}, {v: 30, duration: 1.0, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = Math.round(p.v).toString(); } }, L(16.716)); })();
+        tl.set("#cs-g2", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g2", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(19.504));
+        tl.to("#cs-g2", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(26.540));
+        tl.fromTo("#cs-aug", {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut"}, L(19.504));
+        tl.fromTo("#cs-sep", {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 1.0, ease: "power2.inOut"}, L(21.229));
+        (() => { const el = document.querySelector("#cs-total"); const p = {v: 53.7}; tl.fromTo(p, {v: 53.7}, {v: 73.7, duration: 1.0, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = "₹" + p.v.toFixed(1) + "L"; } }, L(21.329)); })();
+        tl.to("#cs-total", {color: "#ff3b4e", duration: 0.2}, L(22.329));
+        tl.fromTo("#cs-plus", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.3, ease: "back.out(2)"}, L(22.329));
+        tl.set("#cs-g3", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g3", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(26.740));
+        tl.to("#cs-g3", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(31.041));
+        tl.fromTo("#cs-bar1", {scaleY: 0}, {scaleY: 1, duration: 0.5, ease: "power3.out"}, L(26.740));
+        tl.fromTo("#cs-v1", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(26.940));
+        tl.fromTo("#cs-bar2", {scaleY: 0.6799999999999999}, {scaleY: 1, duration: 0.7, ease: "power3.out"}, L(28.930));
+        tl.fromTo("#cs-v2", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(28.930));
+        (() => { const el = document.querySelector("#cs-v2"); const p = {v: 1.7}; tl.fromTo(p, {v: 1.7}, {v: 2.5, duration: 0.7, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = "₹" + p.v.toFixed(1) + "L"; } }, L(28.930)); })();
+        tl.set("#cs-g4", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g4", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(31.241));
+        tl.to("#cs-g4", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(34.424));
+        tl.fromTo("#cs-g4 .dbar", {scaleY: 0}, {scaleY: 1, duration: 0.4, ease: "power3.out", stagger: 0.025}, L(31.241));
+        tl.fromTo("#cs-bestchip", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(32.096));
+        tl.fromTo("#cs-d7", {filter: "brightness(1)"}, {filter: "brightness(1.6)", duration: 0.25, yoyo: true, repeat: 1}, L(32.096));
+        tl.set("#cs-g5", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g5", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(34.624));
+        tl.to("#cs-g5", {autoAlpha: 0, filter: "blur(10px)", scale: 0.96, duration: 0.2, ease: "power2.in"}, L(40.462));
+        tl.fromTo("#cs-house", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(34.624));
+        tl.fromTo("#cs-up", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(36.730));
+        (() => { const el = document.querySelector("#cs-jump"); const p = {v: 0}; tl.fromTo(p, {v: 0}, {v: 37, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = "+" + Math.round(p.v) + "%"; } }, L(36.730)); })();
+        tl.set("#cs-g6", {autoAlpha: 0}, 0);
+        tl.fromTo("#cs-g6", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(40.662));
+        tl.fromTo("#cs-aovold", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(41.987));
+        tl.fromTo("#cs-aovnew", {autoAlpha: 0, scale: 0.9, filter: "blur(10px)"}, {autoAlpha: 1, scale: 1, filter: "blur(0px)", duration: 0.3, ease: "power3.out"}, L(43.092));
+        (() => { const el = document.querySelector("#cs-aovnew"); const p = {v: 1559}; tl.fromTo(p, {v: 1559}, {v: 1731, duration: 0.8, ease: "power2.out", immediateRender: false, onUpdate: () => { el.textContent = "₹" + Math.round(p.v).toLocaleString("en-IN"); } }, L(43.092)); })();
+        tl.fromTo("#cs-aovstrike", {scaleX: 0}, {scaleX: 1, duration: 0.3, ease: "power3.out"}, L(43.592));
+        tl.fromTo("#cs-aovpct", {autoAlpha: 0, scale: 0.6}, {autoAlpha: 1, scale: 1, duration: 0.25, ease: "back.out(2)"}, L(43.892));
+        tl.set("#case-root > *", {opacity: 0}, L(23.384)); tl.set("#case-root > *", {opacity: 1}, L(26.035));
+        window.__timelines = window.__timelines || {};
+        window.__timelines["case"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

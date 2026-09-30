@@ -1,0 +1,63 @@
+# Narration for the booked-call video.
+#
+# One sentence per line. "## id" starts a section; a line starting with "> " is
+# a FULL insert (full-screen punch card). Tokens:
+#   display|spoken_words   caption shows `display`, the voice says `spoken words`
+#   word@beat              names a beat at that word's start (used by build.py)
+
+## hook
+You're@b_you spending lakhs@b_lakhs on ads@b_ads every month to bring people@b_people to your store.@b_store
+What if more@b_more of those same people actually bought@b_bought your product?
+> Let me show you what happens when you optimize@b_opt your store the right way.
+
+## case
+There's a D2C|D_2_C brand@b_brand that came to us for a CRO|C_R_O redesign.@b_redesign
+In just 30|thirty days,@b_days their monthly sales went from ₹53.7|fifty-three_point_seven@b_from lakh|laakh to ₹73.7|seventy-three_point_seven@b_to lakh.|laakh.
+> That's ₹20|twenty@b_20 lakh|laakh more in a single month.
+From about ₹1.7|one_point_seven@b_day1 lakh|laakh a day to almost ₹2.5|two_point_five@b_day2 lakh|laakh a day.
+And their best@b_best day crossed ₹3.5|three_point_five@b_35 lakh.|laakh.
+And this is a regular household@b_household brand, and it still saw a massive@b_jump jump like this.
+On top of that, their average order value@b_aov went up from ₹1,559|fifteen_fifty-nine@b_aov1 to ₹1,731.|seventeen_thirty-one.@b_aov2
+
+## problem
+But when they came to us, things looked very different.@b_diff
+Sales had dropped@b_drop 7%|seven_percent@b_7 the month before.
+Their ads@b_ads were running.
+People@b_visit were visiting.
+> They just weren't@b_buy buying enough.
+And this is what we see in most of the stores we audit.@b_audit
+The product page@b_pdp doesn't answer the buyer's questions,@b_q so they leave@b_leave to "think|"think about it."|it."
+
+## about
+At Softwarelance,|Software_lance,@b_sl we've worked with 32+|thirty-two_plus@b_32 D2C|D_2_C brands and added over ₹46|forty-six@b_46 crore in revenue.
+> We work on one thing only: what happens after@b_after the click.@b_click
+We go through your store the way your customer@b_cust does, on a phone.@b_phone
+We find exactly where people drop@b_drop off.
+Then we redesign@b_redesign your product page,@b_pdp cart@b_cart and checkout@b_checkout to fix those drop-offs,@b_fix so the flow is smoother@b_smooth and more visitors turn into orders.@b_orders
+
+## proof
+And it's not just one brand.@b_one
+Even FitFeast,@b_ff the Shark@b_shark Tank India brand doing over ₹2|two@b_2cr crore a month, now trusts@b_trust us with their product pages.
+Another one, a kids'@b_kids toys brand, came to us stuck at a 2%|two_percent@b_2 conversion rate.
+We rebuilt@b_rebuilt their product page and cart.
+Their add@b_atc to cart jumped from 5%|five_percent@b_5 to 15%,|fifteen_percent,@b_15 and conversion@b_cr went from 2%|two_percent@b_cr2 to 3.5%,|three_point_five_percent,@b_cr35 almost double@b_double the Indian average.
+> Then they handed@b_handed us their complete website to rebuild so we can push their conversion even higher.@b_higher
+
+## promise
+> Just imagine@b_imagine that kind of growth for your brand in just 30|thirty days.
+Now, I'm not saying every brand will see these exact@b_exact numbers.
+But the average Indian@b_avg store converts at 1.8%,|one_point_eight_percent,@b_18 so there's almost always room@b_room to grow.
+
+## call
+All right.@b_ok So finally, if you're doing ₹5|five@b_5l lakh|laakh a month or more@b_more and you want more sales from the traffic@b_traffic you already have,
+> you're in the right@b_right place.
+You've already booked@b_booked a call with us, so before we talk, our team will go through your store,@b_store just like your customer would.
+On the call,@b_call we'll show you exactly where your store is losing@b_losing sales and how we'd fix@b_fix it.
+With the work we've done on product pages,@b_work carts and checkouts, you can feel confident@b_conf about the growth we can bring to your store,
+> and take your conversions beyond@b_beyond your wildest dreams.
+
+## prep
+To make the most of our time, keep 3|three@b_3 numbers from Shopify@b_shopify ready for the last 30|thirty days:@b_30
+sessions,@b_sess conversion@b_cr rate and average@b_aov order value.
+We'd love to talk to you and show you how these systems can grow@b_grow your brand.
+See@b_see you on the call.@b_end
