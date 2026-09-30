@@ -215,6 +215,226 @@
           border-radius: 14px;
           background: var(--accent);
         }
+
+        .phone {
+          position: absolute;
+          width: 400px;
+          height: 800px;
+          border-radius: 56px;
+          background: #000;
+          border: 10px solid #2a2a2e;
+          box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .phone .scr {
+          position: absolute;
+          inset: 0;
+          border-radius: 46px;
+          overflow: hidden;
+          background: #f4f2ee;
+        }
+        .phone .scr.after {
+          clip-path: inset(0 100% 0 0);
+        }
+        .phone .notch {
+          position: absolute;
+          top: 12px;
+          left: 50%;
+          width: 110px;
+          height: 30px;
+          margin-left: -55px;
+          border-radius: 20px;
+          background: #000;
+          z-index: 3;
+        }
+        .wipe {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 6px;
+          left: 0;
+          background: var(--accent);
+          box-shadow: 0 0 24px var(--glow);
+          z-index: 2;
+          opacity: 0;
+        }
+        .shot {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          display: block;
+        }
+        .ph {
+          padding: 64px 22px 22px;
+          font-family: Inter, sans-serif;
+          color: #1c1c1e;
+          height: 1300px;
+        }
+        .ph-nav {
+          font-weight: 800;
+          font-size: 22px;
+          letter-spacing: 0.02em;
+          margin-bottom: 16px;
+        }
+        .ph-img {
+          height: 330px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, #d9d5cd, #bdb7ab);
+        }
+        .ph-img.small {
+          height: 200px;
+          margin-top: 14px;
+        }
+        .ph-line {
+          height: 16px;
+          border-radius: 8px;
+          background: #d6d3cc;
+          margin-top: 14px;
+        }
+        .ph-price {
+          font-weight: 800;
+          font-size: 30px;
+          margin-top: 16px;
+        }
+        .ph-btn {
+          margin-top: 18px;
+          height: 58px;
+          border-radius: 12px;
+          background: #8a8a8e;
+          color: #fff;
+          font-weight: 700;
+          font-size: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .ph.rich .ph-btn {
+          background: #d0243a;
+        }
+        .ph.rich .ph-img {
+          background: linear-gradient(135deg, #f1c9c2, #d77a6d);
+        }
+        .ph-stars {
+          margin-top: 12px;
+          color: #d0243a;
+          font-size: 20px;
+          font-weight: 800;
+        }
+        .ph-stars span {
+          color: #555;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .ph-badges {
+          display: flex;
+          gap: 8px;
+          margin-top: 12px;
+        }
+        .ph-badges i {
+          font-style: normal;
+          font-size: 14px;
+          font-weight: 700;
+          padding: 6px 10px;
+          border-radius: 8px;
+          background: #ece9e3;
+        }
+        .ph-tag {
+          position: absolute;
+          left: 14px;
+          right: 14px;
+          top: 300px;
+          padding: 10px;
+          border-radius: 10px;
+          background: rgba(208, 36, 58, 0.92);
+          color: #fff;
+          font-size: 17px;
+          font-weight: 700;
+          text-align: center;
+        }
+        .phone-label {
+          position: absolute;
+          font-family: Inter, sans-serif;
+          font-weight: 800;
+          font-size: 26px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--muted);
+        }
+        .brand-chip {
+          position: absolute;
+        }
+        .stat2 {
+          position: absolute;
+          left: 540px;
+          width: 460px;
+        }
+        .stat2 .label {
+          display: block;
+        }
+        .stat2 .big {
+          display: block;
+          font-size: 120px;
+          margin-top: 14px;
+          margin-bottom: 18px;
+        }
+        .stat2 .from {
+          display: block;
+          font-family: Inter, sans-serif;
+          font-weight: 700;
+          font-size: 34px;
+          color: var(--muted);
+          margin-top: 8px;
+        }
+        .site .scr2 {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 54px;
+          bottom: 0;
+          overflow: hidden;
+          background: #f4f2ee;
+          border-radius: 0 0 24px 24px;
+        }
+        .dash {
+          position: absolute;
+          left: 60px;
+          top: 190px;
+          width: 960px;
+          height: 480px;
+        }
+        .dash .total {
+          position: absolute;
+          left: 40px;
+          top: 30px;
+          font-family: Inter, sans-serif;
+          font-weight: 900;
+          font-size: 64px;
+          letter-spacing: -0.03em;
+          color: #fff;
+        }
+        .dash .pct {
+          position: absolute;
+          left: 420px;
+          top: 38px;
+        }
+        .dash .sub {
+          position: absolute;
+          left: 40px;
+          top: 108px;
+        }
+        .dash .legend {
+          position: absolute;
+          right: 40px;
+          top: 44px;
+          font-family: Inter, sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--muted);
+          text-align: right;
+          line-height: 1.6;
+        }
       </style>
       <div
         id="close-root"
@@ -353,11 +573,38 @@
             </div>
           </div>
         </div>
+        <div
+          id="close-sweep"
+          style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 420px;
+            height: 1920px;
+            pointer-events: none;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(208, 36, 58, 0.55),
+              rgba(255, 255, 255, 0.35),
+              transparent
+            );
+            transform: skewX(-18deg);
+            opacity: 0;
+          "
+        ></div>
       </div>
       <script>
         (() => {
           const L = (g) => g - 69.267;
           const tl = gsap.timeline({ paused: true });
+          tl.fromTo(
+            "#close-sweep",
+            { x: -700, opacity: 1 },
+            { x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut" },
+            0,
+          );
+          tl.set("#close-sweep", { opacity: 0 }, 0.46);
           tl.fromTo(
             "#cl-title .tw, #cl-title .l2 > span",
             { autoAlpha: 0, y: 10, filter: "blur(12px)" },

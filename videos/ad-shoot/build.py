@@ -339,66 +339,218 @@ def section_shark(S):
     return body, js
 
 
+CASES = ROOT / "assets" / "cases"
+
+# Daily sales (₹K) traced from the Shopify "Total sales over time" screenshots
+# (assets/cases/dashboard-*-ref.png). Sep 30 is a partial day and is left out.
+SALES_SEP = [237, 218, 228, 262, 228, 300, 258, 358, 325, 316, 305, 280, 335, 308, 222,
+             220, 175, 165, 172, 182, 190, 175, 240, 265, 198, 248, 332, 348, 258]
+SALES_AUG = [172, 62, 55, 165, 162, 188, 193, 225, 232, 172, 200, 150, 160, 240, 272, 125,
+             85, 82, 92, 125, 180, 193, 215, 223, 160, 198, 175, 155, 225, 255, 225]
+
+
+def sales_path(values, w=780, h=300, days=31, top=400):
+    """Smooth SVG path for a daily series on a 0..top (₹K) axis."""
+    pts = [(i * w / (days - 1), h - v / top * h) for i, v in enumerate(values)]
+    d = f"M{pts[0][0]:.1f} {pts[0][1]:.1f}"
+    for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+        cx = (x0 + x1) / 2
+        d += f" C{cx:.1f} {y0:.1f}, {cx:.1f} {y1:.1f}, {x1:.1f} {y1:.1f}"
+    return d
+
+
+def screen(brand, kind, rich=False):
+    """A PDP screen: the real capture if assets/cases/<brand>-<kind>.png exists,
+    otherwise a labelled placeholder PDP built from shapes."""
+    shot = CASES / f"{brand.lower()}-{kind}.png"
+    if shot.exists():
+        return f'<img class="shot" src="assets/cases/{shot.name}" alt="{brand} {kind}">'
+    extra = ""
+    if rich:
+        extra = ('<div class="ph-stars">★★★★★ <span>4.8 · 2,340 reviews</span></div>'
+                 '<div class="ph-badges"><i>Free shipping</i><i>COD</i><i>7-day returns</i></div>')
+    return (f'<div class="shot ph {"rich" if rich else ""}" data-layout-ignore="true">'
+            f'<div class="ph-nav">{brand}</div><div class="ph-img"></div>'
+            f'<div class="ph-line" style="width:80%"></div><div class="ph-line" style="width:55%"></div>'
+            f'<div class="ph-price">₹1,499</div>{extra}<div class="ph-btn">Add to cart</div>'
+            f'<div class="ph-line" style="width:90%"></div><div class="ph-line" style="width:70%"></div>'
+            f'<div class="ph-img small"></div><div class="ph-line" style="width:85%"></div>'
+            f'<div class="ph-tag">Placeholder · {brand} {kind} PDP</div></div>')
+
+
+PROOF_CSS = """
+.phone { position: absolute; width: 400px; height: 800px; border-radius: 56px; background: #000;
+  border: 10px solid #2a2a2e; box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+.phone .scr { position: absolute; inset: 0; border-radius: 46px; overflow: hidden; background: #f4f2ee; }
+.phone .scr.after { clip-path: inset(0 100% 0 0); }
+.phone .notch { position: absolute; top: 12px; left: 50%; width: 110px; height: 30px; margin-left: -55px;
+  border-radius: 20px; background: #000; z-index: 3; }
+.wipe { position: absolute; top: 0; bottom: 0; width: 6px; left: 0; background: var(--accent);
+  box-shadow: 0 0 24px var(--glow); z-index: 2; opacity: 0; }
+.shot { position: absolute; left: 0; top: 0; width: 100%; display: block; }
+.ph { padding: 64px 22px 22px; font-family: Inter, sans-serif; color: #1c1c1e; height: 1300px; }
+.ph-nav { font-weight: 800; font-size: 22px; letter-spacing: 0.02em; margin-bottom: 16px; }
+.ph-img { height: 330px; border-radius: 14px; background: linear-gradient(135deg, #d9d5cd, #bdb7ab); }
+.ph-img.small { height: 200px; margin-top: 14px; }
+.ph-line { height: 16px; border-radius: 8px; background: #d6d3cc; margin-top: 14px; }
+.ph-price { font-weight: 800; font-size: 30px; margin-top: 16px; }
+.ph-btn { margin-top: 18px; height: 58px; border-radius: 12px; background: #8a8a8e; color: #fff;
+  font-weight: 700; font-size: 22px; display: flex; align-items: center; justify-content: center; }
+.ph.rich .ph-btn { background: #d0243a; }
+.ph.rich .ph-img { background: linear-gradient(135deg, #f1c9c2, #d77a6d); }
+.ph-stars { margin-top: 12px; color: #d0243a; font-size: 20px; font-weight: 800; }
+.ph-stars span { color: #555; font-size: 16px; font-weight: 600; }
+.ph-badges { display: flex; gap: 8px; margin-top: 12px; }
+.ph-badges i { font-style: normal; font-size: 14px; font-weight: 700; padding: 6px 10px; border-radius: 8px;
+  background: #ece9e3; }
+.ph-tag { position: absolute; left: 14px; right: 14px; top: 300px; padding: 10px; border-radius: 10px;
+  background: rgba(208,36,58,0.92); color: #fff; font-size: 17px; font-weight: 700; text-align: center; }
+.phone-label { position: absolute; font-family: Inter, sans-serif; font-weight: 800; font-size: 26px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.brand-chip { position: absolute; }
+.stat2 { position: absolute; left: 540px; width: 460px; }
+.stat2 .label { display: block; }
+.stat2 .big { display: block; font-size: 120px; margin-top: 14px; margin-bottom: 18px; }
+.stat2 .from { display: block; font-family: Inter, sans-serif; font-weight: 700; font-size: 34px; color: var(--muted); margin-top: 8px; }
+.site .scr2 { position: absolute; left: 0; right: 0; top: 54px; bottom: 0; overflow: hidden; background: #f4f2ee;
+  border-radius: 0 0 24px 24px; }
+.dash { position: absolute; left: 60px; top: 190px; width: 960px; height: 480px; }
+.dash .total { position: absolute; left: 40px; top: 30px; font-family: Inter, sans-serif; font-weight: 900;
+  font-size: 64px; letter-spacing: -0.03em; color: #fff; }
+.dash .pct { position: absolute; left: 420px; top: 38px; }
+.dash .sub { position: absolute; left: 40px; top: 108px; }
+.dash .legend { position: absolute; right: 40px; top: 44px; font-family: Inter, sans-serif; font-size: 22px;
+  font-weight: 700; color: var(--muted); text-align: right; line-height: 1.6; }
+"""
+
+
 def section_proof(S):
-    def stat(i, top, label, init):
-        return (f'<div class="card" id="pf-s{i}" style="left:90px; top:{top}px; width:900px; height:210px">'
-                f'<div class="label" style="position:absolute; left:44px; top:34px">{label}</div>'
-                f'<div class="big" id="pf-v{i}" style="position:absolute; left:44px; top:88px; font-size:96px">{init}</div>'
-                f'<div class="big accent" id="pf-a{i}" style="position:absolute; right:48px; top:78px; font-size:96px">↑</div></div>')
+    sep = sales_path(SALES_SEP)
+    aug = sales_path(SALES_AUG)
+    grid = "".join(f'<line x1="0" x2="780" y1="{y}" y2="{y}" stroke="#2a2a2e" stroke-width="2"/>'
+                   for y in (0, 75, 150, 225, 300))
     body = f"""
 {title_html("pf-title", "No New Ads. No Extra Spend.", '<span class="tw">Just</span> <span class="tw">A</span> <span class="serif ul" id="pf-ul">Better Store</span>')}
 <div class="stage"><div class="cam" id="pf-cam">
-  <div id="pf-site-g">
-    <div class="card browser" id="pf-comp1" style="left:-40px; top:180px; transform: scale(0.7); opacity:0.35"></div>
-    <div class="card browser" id="pf-comp2" style="left:500px; top:180px; transform: scale(0.7); opacity:0.35"></div>
-    <div class="card browser glow" id="pf-browser" style="left:230px; top:110px">
+  <div id="pf-k-g">
+    <div class="card browser site" id="pf-kc1" style="left:-150px; top:230px; transform: scale(0.62); opacity:0.3"></div>
+    <div class="card browser site" id="pf-kc2" style="left:610px; top:230px; transform: scale(0.62); opacity:0.3"></div>
+    <div class="card browser site glow" id="pf-k" style="left:150px; top:120px; width:780px; height:520px">
       <div class="bar"><i></i><i></i><i></i></div>
-      <div class="hero"></div><div class="row" style="width:70%"></div><div class="row" style="width:50%"></div>
-      <div class="btn"></div>
+      <div class="scr2"><div id="pf-k-shot" style="position:absolute; inset:0">{screen("Kalyntika", "before")}</div></div>
     </div>
-    <div class="chip" id="pf-good" style="left:320px; top:620px"><span class="tick">✓</span> Already a good website</div>
+    <div class="chip red brand-chip" id="pf-k-name" style="left:150px; top:40px">Kalyntika</div>
+    <div class="chip" id="pf-good" style="left:300px; top:680px"><span class="tick">✓</span> Already a good website</div>
   </div>
-  <div id="pf-stats-g">
-    {stat(1, 20, "Conversion rate", "2%")}
-    {stat(2, 260, "Add to cart → checkout", "5%")}
-    <div class="card" id="pf-s3" style="left:90px; top:500px; width:900px; height:330px; border-color: rgba(208,36,58,0.6)">
-      <div class="label" style="position:absolute; left:44px; top:34px">Revenue</div>
-      <div class="big glow accent" id="pf-v3" style="position:absolute; left:44px; top:112px; font-size:180px">+0%</div>
+  <div id="pf-f-g">
+    <div class="phone" id="pf-f-phone" style="left:80px; top:30px">
+      <div class="scr"><div class="pf-scroll" id="pf-f-b">{screen("Fitfeast", "before")}</div></div>
+      <div class="scr after" id="pf-f-after"><div class="pf-scroll" id="pf-f-a">{screen("Fitfeast", "after", rich=True)}</div></div>
+      <div class="wipe" id="pf-f-wipe"></div><div class="notch"></div>
+    </div>
+    <div class="chip red brand-chip" id="pf-f-name" style="left:540px; top:60px">Fitfeast</div>
+    <div class="stat2" id="pf-f-stat" style="top:220px">
+      <span class="label">Conversion rate</span>
+      <span class="big" id="pf-v1">2%</span>
+      <span class="from" id="pf-f-from">PDP redesign</span>
+    </div>
+  </div>
+  <div id="pf-t-g">
+    <div class="phone" id="pf-t-phone" style="left:80px; top:30px">
+      <div class="scr"><div class="pf-scroll" id="pf-t-b">{screen("Toddlersart", "before")}</div></div>
+      <div class="scr after" id="pf-t-after"><div class="pf-scroll" id="pf-t-a">{screen("Toddlersart", "after", rich=True)}</div></div>
+      <div class="wipe" id="pf-t-wipe"></div><div class="notch"></div>
+    </div>
+    <div class="chip red brand-chip" id="pf-t-name" style="left:540px; top:60px">Toddlersart</div>
+    <div class="stat2" id="pf-t-stat" style="top:220px">
+      <span class="label">Add to cart → checkout</span>
+      <span class="big" id="pf-v2">5%</span>
+      <span class="from">PDP + cart optimisation</span>
+    </div>
+  </div>
+  <div id="pf-rev-g" style="position:absolute; inset:0">
+    <svg id="pf-ring" width="620" height="620" viewBox="0 0 620 620" style="position:absolute; left:230px; top:60px; overflow:visible">
+      <circle cx="310" cy="310" r="280" fill="none" stroke="#2a2a2e" stroke-width="18"/>
+      <circle id="pf-ring-arc" cx="310" cy="310" r="280" fill="none" stroke="#d0243a" stroke-width="18"
+        stroke-linecap="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"
+        transform="rotate(-90 310 310)" class="glow"/>
+    </svg>
+    <div style="position:absolute; left:0; right:0; top:250px; text-align:center">
+      <div class="big glow accent" id="pf-v3" style="font-size:200px">+0%</div>
+      <div class="label" style="margin-top:14px; font-size:36px">Revenue</div>
     </div>
   </div>
   <div id="pf-not-g">
-    <div class="chip" id="pf-n1" style="left:150px; top:60px; font-size:44px">Fixing their ads<span class="strike" id="pf-x1"></span></div>
-    <div class="chip" id="pf-n2" style="left:430px; top:210px; font-size:44px">More ad spend<span class="strike" id="pf-x2"></span></div>
-    <div class="label center-x" id="pf-just" style="position:absolute; top:380px">Just by improving</div>
-    <div class="chip red" id="pf-y1" style="left:170px; top:460px; font-size:46px">✓ Visual communication</div>
-    <div class="chip red" id="pf-y2" style="left:200px; top:610px; font-size:46px">✓ Conversion strategy</div>
+    <div class="chip" id="pf-n1" style="left:70px; top:40px; font-size:34px">Fixing their ads<span class="strike" id="pf-x1"></span></div>
+    <div class="chip" id="pf-n2" style="left:560px; top:40px; font-size:34px">More ad spend<span class="strike" id="pf-x2"></span></div>
+    <div class="card dash" id="pf-dash">
+      <div class="total" id="pf-total">₹0</div>
+      <div class="chip red pct" id="pf-pct" style="font-size:40px; padding:8px 22px">+48%</div>
+      <div class="label sub">Total sales · Sep vs Aug</div>
+      <div class="legend"><span style="color:#fff">━ Sep 2026</span><br>┅ Aug 2026</div>
+      <svg width="780" height="300" viewBox="0 0 780 300" style="position:absolute; left:90px; top:160px; overflow:visible">
+        {grid}
+        <path id="pf-aug" d="{aug}" fill="none" stroke="#6a6a70" stroke-width="5" stroke-dasharray="10 10"
+          stroke-linecap="round"/>
+        <path id="pf-sep" d="{sep}" fill="none" stroke="#d0243a" stroke-width="7" stroke-linecap="round"
+          pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" class="glow"/>
+      </svg>
+    </div>
+    <div class="chip red" id="pf-y1" style="left:70px; top:720px; font-size:36px">✓ Visual communication</div>
+    <div class="chip red" id="pf-y2" style="left:580px; top:720px; font-size:36px">✓ Conversion strategy</div>
   </div>
 </div></div>"""
     js = [
         title_in("pf-title", 0.05),
         'tl.fromTo("#pf-ul", {"--u": 0}, {"--u": 1, duration: 0.5, ease: "power2.inOut"}, 0.6);',
-        'tl.fromTo("#pf-cam", {scale: 1}, {scale: 1.03, duration: L(69.267), ease: "none"}, 0);',
-        enter("#pf-browser", L(44.70), 0.35),
+        'tl.fromTo("#pf-cam", {scale: 1}, {scale: 1.05, duration: L(69.267), ease: "none"}, 0);',
+        # Kalyntika: the store that already had a good website.
+        enter("#pf-k", L(44.70), 0.4),
+        enter("#pf-k-name", L(44.90), 0.25),
+        'tl.fromTo("#pf-k-shot .shot", {yPercent: 0}, {yPercent: -35, duration: 4.2, ease: "sine.inOut"}, L(44.90));',
         enter("#pf-good", L(46.62), 0.3),
-        'tl.fromTo(["#pf-comp1", "#pf-comp2"], {autoAlpha: 0, x: 0}, {autoAlpha: 0.35, duration: 0.3, stagger: 0.1}, L(47.39));',
-        'tl.to("#pf-browser", {scale: 1.06, duration: 0.4, ease: "power2.out"}, L(47.69));',
-        leave("#pf-site-g", L(49.05), 0.05),
-        enter("#pf-s1", L(50.77), 0.3),
-        count("#pf-v1", L(52.77), 0.55, 2, 3.5, 'p.v.toFixed(1).replace(".0", "") + "%"'),
-        'tl.fromTo("#pf-a1", {y: 20, autoAlpha: 0}, {y: 0, autoAlpha: 1, duration: 0.3, ease: "back.out(2)"}, L(52.77));',
-        enter("#pf-s2", L(54.12), 0.3),
-        count("#pf-v2", L(57.16), 0.55, 5, 15, 'p.v.toFixed(0) + "%"'),
-        'tl.fromTo("#pf-a2", {y: 20, autoAlpha: 0}, {y: 0, autoAlpha: 1, duration: 0.3, ease: "back.out(2)"}, L(57.40));',
-        enter("#pf-s3", L(58.47), 0.3),
-        count("#pf-v3", L(59.06), 1.1, 0, 75, '"+" + p.v.toFixed(0) + "%"'),
-        'tl.fromTo("#pf-s3", {scale: 1}, {scale: 1.04, duration: 0.2, yoyo: true, repeat: 1}, L(60.20));',
-        leave("#pf-stats-g", L(61.50), 0.05),
+        'tl.fromTo(["#pf-kc1", "#pf-kc2"], {autoAlpha: 0, y: 60}, {autoAlpha: 0.3, y: 0, duration: 0.35, stagger: 0.1}, L(47.39));',
+        'tl.to("#pf-k", {scale: 1.07, duration: 0.5, ease: "power2.out"}, L(47.69));',
+        leave("#pf-k-g", L(49.05), 0.05),
+        # Fitfeast: conversion rate, before -> after wipe on the PDP.
+        'tl.fromTo("#pf-f-phone", {autoAlpha: 0, x: -140, rotation: -6}, {autoAlpha: 1, x: 0, rotation: 0, duration: 0.45, ease: "expo.out"}, L(50.70));',
+        enter("#pf-f-name", L(50.77), 0.25),
+        enter("#pf-f-stat", L(50.90), 0.3),
+        'tl.fromTo("#pf-f-b .shot", {yPercent: 0}, {yPercent: -12, duration: 1.8, ease: "sine.inOut"}, L(50.80));',
+        'tl.fromTo("#pf-f-wipe", {x: 0, autoAlpha: 1}, {x: 380, duration: 0.55, ease: "power2.inOut"}, L(52.25));',
+        'tl.fromTo("#pf-f-after", {clipPath: "inset(0 100% 0 0)"}, {clipPath: "inset(0 0% 0 0)", duration: 0.55, ease: "power2.inOut"}, L(52.25));',
+        'tl.to("#pf-f-wipe", {autoAlpha: 0, duration: 0.1}, L(52.80));',
+        'tl.fromTo("#pf-f-a .shot", {yPercent: 0}, {yPercent: -30, duration: 1.3, ease: "sine.inOut"}, L(52.80));',
+        count("#pf-v1", L(52.77), 0.6, 2, 3.5, 'p.v.toFixed(1).replace(".0", "") + "%"'),
+        'tl.fromTo("#pf-v1", {color: "#ffffff"}, {color: "#d0243a", duration: 0.2}, L(53.30));',
+        # Whip to Toddlersart: cart-to-checkout.
+        'tl.to("#pf-f-g", {x: -900, filter: "blur(16px)", autoAlpha: 0, duration: 0.3, ease: "power3.in"}, L(53.85));',
+        'tl.fromTo("#pf-t-g", {x: 900, filter: "blur(16px)", autoAlpha: 0}, {x: 0, filter: "blur(0px)", autoAlpha: 1, duration: 0.35, ease: "power3.out"}, L(54.05));',
+        'tl.fromTo("#pf-t-b .shot", {yPercent: 0}, {yPercent: -20, duration: 2.8, ease: "sine.inOut"}, L(54.20));',
+        'tl.fromTo("#pf-t-wipe", {x: 0, autoAlpha: 1}, {x: 380, duration: 0.55, ease: "power2.inOut"}, L(56.70));',
+        'tl.fromTo("#pf-t-after", {clipPath: "inset(0 100% 0 0)"}, {clipPath: "inset(0 0% 0 0)", duration: 0.55, ease: "power2.inOut"}, L(56.70));',
+        'tl.to("#pf-t-wipe", {autoAlpha: 0, duration: 0.1}, L(57.25));',
+        'tl.fromTo("#pf-t-a .shot", {yPercent: 0}, {yPercent: -30, duration: 1.2, ease: "sine.inOut"}, L(57.25));',
+        count("#pf-v2", L(57.16), 0.6, 5, 15, 'p.v.toFixed(0) + "%"'),
+        'tl.fromTo("#pf-v2", {color: "#ffffff"}, {color: "#d0243a", duration: 0.2}, L(57.70));',
+        # +75% revenue hero.
+        'tl.to("#pf-t-g", {scale: 0.8, filter: "blur(16px)", autoAlpha: 0, duration: 0.3, ease: "power3.in"}, L(58.30));',
+        enter("#pf-rev-g", L(58.47), 0.3),
+        'tl.fromTo("#pf-ring-arc", {strokeDashoffset: 1}, {strokeDashoffset: 0.25, duration: 1.2, ease: "power2.out"}, L(59.06));',
+        count("#pf-v3", L(59.06), 1.2, 0, 75, '"+" + p.v.toFixed(0) + "%"'),
+        'tl.fromTo("#pf-rev-g", {scale: 1}, {scale: 1.06, duration: 0.2, yoyo: true, repeat: 1}, L(60.30));',
+        leave("#pf-rev-g", L(61.50), 0.05),
+        # Not ads, not spend: the store. Real sales curve (Sep over Aug).
         enter("#pf-n1", L(63.80), 0.25),
         'tl.fromTo("#pf-x1", {scaleX: 0}, {scaleX: 1, duration: 0.25, ease: "power2.out"}, L(63.95));',
         enter("#pf-n2", L(64.64), 0.25),
         'tl.fromTo("#pf-x2", {scaleX: 0}, {scaleX: 1, duration: 0.25, ease: "power2.out"}, L(65.10));',
         'tl.to(["#pf-n1", "#pf-n2"], {opacity: 0.45, duration: 0.3}, L(65.57));',
-        enter("#pf-just", L(65.57), 0.25),
+        enter("#pf-dash", L(65.57), 0.35),
+        'tl.fromTo("#pf-aug", {autoAlpha: 0}, {autoAlpha: 1, duration: 0.4}, L(65.80));',
+        'tl.fromTo("#pf-sep", {strokeDashoffset: 1}, {strokeDashoffset: 0, duration: 1.6, ease: "power1.inOut"}, L(66.00));',
+        count("#pf-total", L(66.00), 1.6, 0, 7372606, '"₹" + Math.round(p.v).toLocaleString("en-IN")'),
+        'tl.fromTo("#pf-pct", {autoAlpha: 0, scale: 0.5}, {autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(2.5)"}, L(67.60));',
         enter("#pf-y1", L(66.85), 0.3),
         enter("#pf-y2", L(68.05), 0.3),
     ]
@@ -471,14 +623,20 @@ def stage_file(sid, start, end):
         #{sid}-root {{ position: absolute; inset: 0; {PALETTE} }}
         #{sid}-root * {{ box-sizing: border-box; margin: 0; }}
         {SHARED_CSS}
+        {PROOF_CSS}
       </style>
       <div id="{sid}-root" data-composition-id="{sid}" data-width="{W}" data-height="{H}">
         {body}
+        <div id="{sid}-sweep" style="position:absolute; left:0; top:0; width:420px; height:{H}px; pointer-events:none;
+             background: linear-gradient(90deg, transparent, rgba(208,36,58,0.55), rgba(255,255,255,0.35), transparent);
+             transform: skewX(-18deg); opacity: 0"></div>
       </div>
       <script>
         (() => {{
         const L = (g) => g - {start:.3f};
         const tl = gsap.timeline({{ paused: true }});
+        tl.fromTo("#{sid}-sweep", {{x: -700, opacity: 1}}, {{x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut"}}, 0);
+        tl.set("#{sid}-sweep", {{opacity: 0}}, 0.46);
         {script}
         window.__timelines = window.__timelines || {{}};
         window.__timelines["{sid}"] = tl;
@@ -538,7 +696,8 @@ def index_file():
         return ", ".join(f'{k}: {v}' for k, v in d.items())
     full_card = dict(left=0, top=0, width=W, height=H)
     full_inner = dict(left=0, top=0, width=W, height=H)
-    js = [f'tl.set("#face", {{{px(CARD)}, borderRadius: 36}}, 0);',
+    js = [f'tl.fromTo("#bgglow", {{x: 0, y: 0}}, {{x: 500, y: 300, duration: {D / 4:.3f}, ease: "sine.inOut", yoyo: true, repeat: 3}}, 0);',
+          f'tl.set("#face", {{{px(CARD)}, borderRadius: 36}}, 0);',
           f'tl.set("#face-inner", {{{px(CARD_INNER)}}}, 0);']
     for a, b in FULL:
         js.append(f'tl.set("#face", {{{px(full_card)}, borderRadius: 0}}, {a:.3f});')
@@ -569,6 +728,8 @@ def index_file():
       html, body {{ width: {W}px; height: {H}px; overflow: hidden; background: #0b0b0c; }}
       #stage {{ position: relative; width: {W}px; height: {H}px; overflow: hidden; {PALETTE}
         background: radial-gradient(circle, var(--dot) 1.2px, transparent 1.6px) 0 0 / 24px 24px, var(--bg); }}
+      #bgglow {{ position: absolute; left: -300px; top: 100px; width: 1100px; height: 1100px; z-index: 0;
+        background: radial-gradient(circle, rgba(208, 36, 58, 0.16), transparent 65%); pointer-events: none; }}
       #vignette {{ position: absolute; inset: 0; pointer-events: none; z-index: 1;
         background: radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(0, 0, 0, 0.65) 100%); }}
       #stage > .clip {{ z-index: 2; }}
@@ -583,6 +744,7 @@ def index_file():
   <body>
     <div id="stage" data-composition-id="main" data-start="0" data-duration="{D:.3f}"
          data-width="{W}" data-height="{H}">
+      <div id="bgglow"></div>
       <div id="vignette"></div>
 {stages}
       <div id="face" data-layout-allow-overflow="true">

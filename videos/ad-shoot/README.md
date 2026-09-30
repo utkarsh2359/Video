@@ -33,3 +33,27 @@ Copy IDs are in the `cut` array of footage-review.md. Keep raw footage out of gi
 5. Loudness-normalise to about -14 LUFS, render, verify with ffprobe.
 
 Still needed from the client: script, reference screenshots, brand name/logo.
+
+## Build (current)
+
+```bash
+(cd work && python3 edl.py)      # takes -> edl.json (needs footage/ + tx/)
+python3 build.py                 # edl.json -> index.html + compositions/
+npx hyperframes@0.8.91 check .
+npx hyperframes@0.8.91 render . -q high -o renders/raw.mp4
+ffmpeg -i renders/raw.mp4 -af loudnorm=I=-14:TP=-1.5:LRA=11 -c:v copy -c:a aac -b:a 256k renders/final.mp4
+```
+
+### Case-study screenshots (placeholders until provided)
+
+The proof section shows labelled placeholder PDPs until these files exist. Drop in
+full-page mobile screenshots (about 1170px wide, any height) and re-run `build.py`:
+
+| File | Used for |
+|---|---|
+| `assets/cases/kalyntika-before.png` | "Here's a brand that already had a good website" (browser mockup) |
+| `assets/cases/fitfeast-before.png`, `fitfeast-after.png` | Conversion rate 2% → 3.5% (phone, wipe before → after) |
+| `assets/cases/toddlersart-before.png`, `toddlersart-after.png` | Add to cart → checkout 5% → 15% |
+
+The sales chart is rebuilt from `assets/cases/dashboard-*-ref.png` (values in `build.py`,
+`SALES_SEP` / `SALES_AUG`).

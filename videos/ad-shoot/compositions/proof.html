@@ -215,6 +215,226 @@
           border-radius: 14px;
           background: var(--accent);
         }
+
+        .phone {
+          position: absolute;
+          width: 400px;
+          height: 800px;
+          border-radius: 56px;
+          background: #000;
+          border: 10px solid #2a2a2e;
+          box-shadow:
+            0 30px 80px rgba(0, 0, 0, 0.6),
+            0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .phone .scr {
+          position: absolute;
+          inset: 0;
+          border-radius: 46px;
+          overflow: hidden;
+          background: #f4f2ee;
+        }
+        .phone .scr.after {
+          clip-path: inset(0 100% 0 0);
+        }
+        .phone .notch {
+          position: absolute;
+          top: 12px;
+          left: 50%;
+          width: 110px;
+          height: 30px;
+          margin-left: -55px;
+          border-radius: 20px;
+          background: #000;
+          z-index: 3;
+        }
+        .wipe {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 6px;
+          left: 0;
+          background: var(--accent);
+          box-shadow: 0 0 24px var(--glow);
+          z-index: 2;
+          opacity: 0;
+        }
+        .shot {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          display: block;
+        }
+        .ph {
+          padding: 64px 22px 22px;
+          font-family: Inter, sans-serif;
+          color: #1c1c1e;
+          height: 1300px;
+        }
+        .ph-nav {
+          font-weight: 800;
+          font-size: 22px;
+          letter-spacing: 0.02em;
+          margin-bottom: 16px;
+        }
+        .ph-img {
+          height: 330px;
+          border-radius: 14px;
+          background: linear-gradient(135deg, #d9d5cd, #bdb7ab);
+        }
+        .ph-img.small {
+          height: 200px;
+          margin-top: 14px;
+        }
+        .ph-line {
+          height: 16px;
+          border-radius: 8px;
+          background: #d6d3cc;
+          margin-top: 14px;
+        }
+        .ph-price {
+          font-weight: 800;
+          font-size: 30px;
+          margin-top: 16px;
+        }
+        .ph-btn {
+          margin-top: 18px;
+          height: 58px;
+          border-radius: 12px;
+          background: #8a8a8e;
+          color: #fff;
+          font-weight: 700;
+          font-size: 22px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .ph.rich .ph-btn {
+          background: #d0243a;
+        }
+        .ph.rich .ph-img {
+          background: linear-gradient(135deg, #f1c9c2, #d77a6d);
+        }
+        .ph-stars {
+          margin-top: 12px;
+          color: #d0243a;
+          font-size: 20px;
+          font-weight: 800;
+        }
+        .ph-stars span {
+          color: #555;
+          font-size: 16px;
+          font-weight: 600;
+        }
+        .ph-badges {
+          display: flex;
+          gap: 8px;
+          margin-top: 12px;
+        }
+        .ph-badges i {
+          font-style: normal;
+          font-size: 14px;
+          font-weight: 700;
+          padding: 6px 10px;
+          border-radius: 8px;
+          background: #ece9e3;
+        }
+        .ph-tag {
+          position: absolute;
+          left: 14px;
+          right: 14px;
+          top: 300px;
+          padding: 10px;
+          border-radius: 10px;
+          background: rgba(208, 36, 58, 0.92);
+          color: #fff;
+          font-size: 17px;
+          font-weight: 700;
+          text-align: center;
+        }
+        .phone-label {
+          position: absolute;
+          font-family: Inter, sans-serif;
+          font-weight: 800;
+          font-size: 26px;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          color: var(--muted);
+        }
+        .brand-chip {
+          position: absolute;
+        }
+        .stat2 {
+          position: absolute;
+          left: 540px;
+          width: 460px;
+        }
+        .stat2 .label {
+          display: block;
+        }
+        .stat2 .big {
+          display: block;
+          font-size: 120px;
+          margin-top: 14px;
+          margin-bottom: 18px;
+        }
+        .stat2 .from {
+          display: block;
+          font-family: Inter, sans-serif;
+          font-weight: 700;
+          font-size: 34px;
+          color: var(--muted);
+          margin-top: 8px;
+        }
+        .site .scr2 {
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 54px;
+          bottom: 0;
+          overflow: hidden;
+          background: #f4f2ee;
+          border-radius: 0 0 24px 24px;
+        }
+        .dash {
+          position: absolute;
+          left: 60px;
+          top: 190px;
+          width: 960px;
+          height: 480px;
+        }
+        .dash .total {
+          position: absolute;
+          left: 40px;
+          top: 30px;
+          font-family: Inter, sans-serif;
+          font-weight: 900;
+          font-size: 64px;
+          letter-spacing: -0.03em;
+          color: #fff;
+        }
+        .dash .pct {
+          position: absolute;
+          left: 420px;
+          top: 38px;
+        }
+        .dash .sub {
+          position: absolute;
+          left: 40px;
+          top: 108px;
+        }
+        .dash .legend {
+          position: absolute;
+          right: 40px;
+          top: 44px;
+          font-family: Inter, sans-serif;
+          font-size: 22px;
+          font-weight: 700;
+          color: var(--muted);
+          text-align: right;
+          line-height: 1.6;
+        }
       </style>
       <div
         id="proof-root"
@@ -234,143 +454,241 @@
         </div>
         <div class="stage">
           <div class="cam" id="pf-cam">
-            <div id="pf-site-g">
+            <div id="pf-k-g">
               <div
-                class="card browser"
-                id="pf-comp1"
+                class="card browser site"
+                id="pf-kc1"
                 style="
-                  left: -40px;
-                  top: 180px;
-                  transform: scale(0.7);
-                  opacity: 0.35;
+                  left: -150px;
+                  top: 230px;
+                  transform: scale(0.62);
+                  opacity: 0.3;
                 "
               ></div>
               <div
-                class="card browser"
-                id="pf-comp2"
+                class="card browser site"
+                id="pf-kc2"
                 style="
-                  left: 500px;
-                  top: 180px;
-                  transform: scale(0.7);
-                  opacity: 0.35;
+                  left: 610px;
+                  top: 230px;
+                  transform: scale(0.62);
+                  opacity: 0.3;
                 "
               ></div>
               <div
-                class="card browser glow"
-                id="pf-browser"
-                style="left: 230px; top: 110px"
+                class="card browser site glow"
+                id="pf-k"
+                style="left: 150px; top: 120px; width: 780px; height: 520px"
               >
                 <div class="bar"><i></i><i></i><i></i></div>
-                <div class="hero"></div>
-                <div class="row" style="width: 70%"></div>
-                <div class="row" style="width: 50%"></div>
-                <div class="btn"></div>
+                <div class="scr2">
+                  <div id="pf-k-shot" style="position: absolute; inset: 0">
+                    <div class="shot ph" data-layout-ignore="true">
+                      <div class="ph-nav">Kalyntika</div>
+                      <div class="ph-img"></div>
+                      <div class="ph-line" style="width: 80%"></div>
+                      <div class="ph-line" style="width: 55%"></div>
+                      <div class="ph-price">₹1,499</div>
+                      <div class="ph-btn">Add to cart</div>
+                      <div class="ph-line" style="width: 90%"></div>
+                      <div class="ph-line" style="width: 70%"></div>
+                      <div class="ph-img small"></div>
+                      <div class="ph-line" style="width: 85%"></div>
+                      <div class="ph-tag">
+                        Placeholder · Kalyntika before PDP
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="chip" id="pf-good" style="left: 320px; top: 620px">
+              <div
+                class="chip red brand-chip"
+                id="pf-k-name"
+                style="left: 150px; top: 40px"
+              >
+                Kalyntika
+              </div>
+              <div class="chip" id="pf-good" style="left: 300px; top: 680px">
                 <span class="tick">✓</span> Already a good website
               </div>
             </div>
-            <div id="pf-stats-g">
-              <div
-                class="card"
-                id="pf-s1"
-                style="left: 90px; top: 20px; width: 900px; height: 210px"
-              >
-                <div
-                  class="label"
-                  style="position: absolute; left: 44px; top: 34px"
-                >
-                  Conversion rate
+            <div id="pf-f-g">
+              <div class="phone" id="pf-f-phone" style="left: 80px; top: 30px">
+                <div class="scr">
+                  <div class="pf-scroll" id="pf-f-b">
+                    <div class="shot ph" data-layout-ignore="true">
+                      <div class="ph-nav">Fitfeast</div>
+                      <div class="ph-img"></div>
+                      <div class="ph-line" style="width: 80%"></div>
+                      <div class="ph-line" style="width: 55%"></div>
+                      <div class="ph-price">₹1,499</div>
+                      <div class="ph-btn">Add to cart</div>
+                      <div class="ph-line" style="width: 90%"></div>
+                      <div class="ph-line" style="width: 70%"></div>
+                      <div class="ph-img small"></div>
+                      <div class="ph-line" style="width: 85%"></div>
+                      <div class="ph-tag">
+                        Placeholder · Fitfeast before PDP
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="big"
-                  id="pf-v1"
-                  style="
-                    position: absolute;
-                    left: 44px;
-                    top: 88px;
-                    font-size: 96px;
-                  "
-                >
-                  2%
+                <div class="scr after" id="pf-f-after">
+                  <div class="pf-scroll" id="pf-f-a">
+                    <div class="shot ph rich" data-layout-ignore="true">
+                      <div class="ph-nav">Fitfeast</div>
+                      <div class="ph-img"></div>
+                      <div class="ph-line" style="width: 80%"></div>
+                      <div class="ph-line" style="width: 55%"></div>
+                      <div class="ph-price">₹1,499</div>
+                      <div class="ph-stars">
+                        ★★★★★ <span>4.8 · 2,340 reviews</span>
+                      </div>
+                      <div class="ph-badges">
+                        <i>Free shipping</i><i>COD</i><i>7-day returns</i>
+                      </div>
+                      <div class="ph-btn">Add to cart</div>
+                      <div class="ph-line" style="width: 90%"></div>
+                      <div class="ph-line" style="width: 70%"></div>
+                      <div class="ph-img small"></div>
+                      <div class="ph-line" style="width: 85%"></div>
+                      <div class="ph-tag">Placeholder · Fitfeast after PDP</div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="big accent"
-                  id="pf-a1"
-                  style="
-                    position: absolute;
-                    right: 48px;
-                    top: 78px;
-                    font-size: 96px;
-                  "
-                >
-                  ↑
-                </div>
+                <div class="wipe" id="pf-f-wipe"></div>
+                <div class="notch"></div>
               </div>
               <div
-                class="card"
-                id="pf-s2"
-                style="left: 90px; top: 260px; width: 900px; height: 210px"
+                class="chip red brand-chip"
+                id="pf-f-name"
+                style="left: 540px; top: 60px"
               >
-                <div
-                  class="label"
-                  style="position: absolute; left: 44px; top: 34px"
-                >
-                  Add to cart → checkout
+                Fitfeast
+              </div>
+              <div class="stat2" id="pf-f-stat" style="top: 220px">
+                <span class="label">Conversion rate</span>
+                <span class="big" id="pf-v1">2%</span>
+                <span class="from" id="pf-f-from">PDP redesign</span>
+              </div>
+            </div>
+            <div id="pf-t-g">
+              <div class="phone" id="pf-t-phone" style="left: 80px; top: 30px">
+                <div class="scr">
+                  <div class="pf-scroll" id="pf-t-b">
+                    <div class="shot ph" data-layout-ignore="true">
+                      <div class="ph-nav">Toddlersart</div>
+                      <div class="ph-img"></div>
+                      <div class="ph-line" style="width: 80%"></div>
+                      <div class="ph-line" style="width: 55%"></div>
+                      <div class="ph-price">₹1,499</div>
+                      <div class="ph-btn">Add to cart</div>
+                      <div class="ph-line" style="width: 90%"></div>
+                      <div class="ph-line" style="width: 70%"></div>
+                      <div class="ph-img small"></div>
+                      <div class="ph-line" style="width: 85%"></div>
+                      <div class="ph-tag">
+                        Placeholder · Toddlersart before PDP
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="big"
-                  id="pf-v2"
-                  style="
-                    position: absolute;
-                    left: 44px;
-                    top: 88px;
-                    font-size: 96px;
-                  "
-                >
-                  5%
+                <div class="scr after" id="pf-t-after">
+                  <div class="pf-scroll" id="pf-t-a">
+                    <div class="shot ph rich" data-layout-ignore="true">
+                      <div class="ph-nav">Toddlersart</div>
+                      <div class="ph-img"></div>
+                      <div class="ph-line" style="width: 80%"></div>
+                      <div class="ph-line" style="width: 55%"></div>
+                      <div class="ph-price">₹1,499</div>
+                      <div class="ph-stars">
+                        ★★★★★ <span>4.8 · 2,340 reviews</span>
+                      </div>
+                      <div class="ph-badges">
+                        <i>Free shipping</i><i>COD</i><i>7-day returns</i>
+                      </div>
+                      <div class="ph-btn">Add to cart</div>
+                      <div class="ph-line" style="width: 90%"></div>
+                      <div class="ph-line" style="width: 70%"></div>
+                      <div class="ph-img small"></div>
+                      <div class="ph-line" style="width: 85%"></div>
+                      <div class="ph-tag">
+                        Placeholder · Toddlersart after PDP
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div
-                  class="big accent"
-                  id="pf-a2"
-                  style="
-                    position: absolute;
-                    right: 48px;
-                    top: 78px;
-                    font-size: 96px;
-                  "
-                >
-                  ↑
-                </div>
+                <div class="wipe" id="pf-t-wipe"></div>
+                <div class="notch"></div>
               </div>
               <div
-                class="card"
-                id="pf-s3"
+                class="chip red brand-chip"
+                id="pf-t-name"
+                style="left: 540px; top: 60px"
+              >
+                Toddlersart
+              </div>
+              <div class="stat2" id="pf-t-stat" style="top: 220px">
+                <span class="label">Add to cart → checkout</span>
+                <span class="big" id="pf-v2">5%</span>
+                <span class="from">PDP + cart optimisation</span>
+              </div>
+            </div>
+            <div id="pf-rev-g" style="position: absolute; inset: 0">
+              <svg
+                id="pf-ring"
+                width="620"
+                height="620"
+                viewBox="0 0 620 620"
                 style="
-                  left: 90px;
-                  top: 500px;
-                  width: 900px;
-                  height: 330px;
-                  border-color: rgba(208, 36, 58, 0.6);
+                  position: absolute;
+                  left: 230px;
+                  top: 60px;
+                  overflow: visible;
+                "
+              >
+                <circle
+                  cx="310"
+                  cy="310"
+                  r="280"
+                  fill="none"
+                  stroke="#2a2a2e"
+                  stroke-width="18"
+                />
+                <circle
+                  id="pf-ring-arc"
+                  cx="310"
+                  cy="310"
+                  r="280"
+                  fill="none"
+                  stroke="#d0243a"
+                  stroke-width="18"
+                  stroke-linecap="round"
+                  pathLength="1"
+                  stroke-dasharray="1"
+                  stroke-dashoffset="1"
+                  transform="rotate(-90 310 310)"
+                  class="glow"
+                />
+              </svg>
+              <div
+                style="
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  top: 250px;
+                  text-align: center;
                 "
               >
                 <div
-                  class="label"
-                  style="position: absolute; left: 44px; top: 34px"
-                >
-                  Revenue
-                </div>
-                <div
                   class="big glow accent"
                   id="pf-v3"
-                  style="
-                    position: absolute;
-                    left: 44px;
-                    top: 112px;
-                    font-size: 180px;
-                  "
+                  style="font-size: 200px"
                 >
                   +0%
+                </div>
+                <div class="label" style="margin-top: 14px; font-size: 36px">
+                  Revenue
                 </div>
               </div>
             </div>
@@ -378,46 +696,153 @@
               <div
                 class="chip"
                 id="pf-n1"
-                style="left: 150px; top: 60px; font-size: 44px"
+                style="left: 70px; top: 40px; font-size: 34px"
               >
                 Fixing their ads<span class="strike" id="pf-x1"></span>
               </div>
               <div
                 class="chip"
                 id="pf-n2"
-                style="left: 430px; top: 210px; font-size: 44px"
+                style="left: 560px; top: 40px; font-size: 34px"
               >
                 More ad spend<span class="strike" id="pf-x2"></span>
               </div>
-              <div
-                class="label center-x"
-                id="pf-just"
-                style="position: absolute; top: 380px"
-              >
-                Just by improving
+              <div class="card dash" id="pf-dash">
+                <div class="total" id="pf-total">₹0</div>
+                <div
+                  class="chip red pct"
+                  id="pf-pct"
+                  style="font-size: 40px; padding: 8px 22px"
+                >
+                  +48%
+                </div>
+                <div class="label sub">Total sales · Sep vs Aug</div>
+                <div class="legend">
+                  <span style="color: #fff">━ Sep 2026</span><br />┅ Aug 2026
+                </div>
+                <svg
+                  width="780"
+                  height="300"
+                  viewBox="0 0 780 300"
+                  style="
+                    position: absolute;
+                    left: 90px;
+                    top: 160px;
+                    overflow: visible;
+                  "
+                >
+                  <line
+                    x1="0"
+                    x2="780"
+                    y1="0"
+                    y2="0"
+                    stroke="#2a2a2e"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="0"
+                    x2="780"
+                    y1="75"
+                    y2="75"
+                    stroke="#2a2a2e"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="0"
+                    x2="780"
+                    y1="150"
+                    y2="150"
+                    stroke="#2a2a2e"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="0"
+                    x2="780"
+                    y1="225"
+                    y2="225"
+                    stroke="#2a2a2e"
+                    stroke-width="2"
+                  />
+                  <line
+                    x1="0"
+                    x2="780"
+                    y1="300"
+                    y2="300"
+                    stroke="#2a2a2e"
+                    stroke-width="2"
+                  />
+                  <path
+                    id="pf-aug"
+                    d="M0.0 171.0 C13.0 171.0, 13.0 253.5, 26.0 253.5 C39.0 253.5, 39.0 258.8, 52.0 258.8 C65.0 258.8, 65.0 176.2, 78.0 176.2 C91.0 176.2, 91.0 178.5, 104.0 178.5 C117.0 178.5, 117.0 159.0, 130.0 159.0 C143.0 159.0, 143.0 155.2, 156.0 155.2 C169.0 155.2, 169.0 131.2, 182.0 131.2 C195.0 131.2, 195.0 126.0, 208.0 126.0 C221.0 126.0, 221.0 171.0, 234.0 171.0 C247.0 171.0, 247.0 150.0, 260.0 150.0 C273.0 150.0, 273.0 187.5, 286.0 187.5 C299.0 187.5, 299.0 180.0, 312.0 180.0 C325.0 180.0, 325.0 120.0, 338.0 120.0 C351.0 120.0, 351.0 96.0, 364.0 96.0 C377.0 96.0, 377.0 206.2, 390.0 206.2 C403.0 206.2, 403.0 236.2, 416.0 236.2 C429.0 236.2, 429.0 238.5, 442.0 238.5 C455.0 238.5, 455.0 231.0, 468.0 231.0 C481.0 231.0, 481.0 206.2, 494.0 206.2 C507.0 206.2, 507.0 165.0, 520.0 165.0 C533.0 165.0, 533.0 155.2, 546.0 155.2 C559.0 155.2, 559.0 138.8, 572.0 138.8 C585.0 138.8, 585.0 132.8, 598.0 132.8 C611.0 132.8, 611.0 180.0, 624.0 180.0 C637.0 180.0, 637.0 151.5, 650.0 151.5 C663.0 151.5, 663.0 168.8, 676.0 168.8 C689.0 168.8, 689.0 183.8, 702.0 183.8 C715.0 183.8, 715.0 131.2, 728.0 131.2 C741.0 131.2, 741.0 108.8, 754.0 108.8 C767.0 108.8, 767.0 131.2, 780.0 131.2"
+                    fill="none"
+                    stroke="#6a6a70"
+                    stroke-width="5"
+                    stroke-dasharray="10 10"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    id="pf-sep"
+                    d="M0.0 122.2 C13.0 122.2, 13.0 136.5, 26.0 136.5 C39.0 136.5, 39.0 129.0, 52.0 129.0 C65.0 129.0, 65.0 103.5, 78.0 103.5 C91.0 103.5, 91.0 129.0, 104.0 129.0 C117.0 129.0, 117.0 75.0, 130.0 75.0 C143.0 75.0, 143.0 106.5, 156.0 106.5 C169.0 106.5, 169.0 31.5, 182.0 31.5 C195.0 31.5, 195.0 56.2, 208.0 56.2 C221.0 56.2, 221.0 63.0, 234.0 63.0 C247.0 63.0, 247.0 71.2, 260.0 71.2 C273.0 71.2, 273.0 90.0, 286.0 90.0 C299.0 90.0, 299.0 48.8, 312.0 48.8 C325.0 48.8, 325.0 69.0, 338.0 69.0 C351.0 69.0, 351.0 133.5, 364.0 133.5 C377.0 133.5, 377.0 135.0, 390.0 135.0 C403.0 135.0, 403.0 168.8, 416.0 168.8 C429.0 168.8, 429.0 176.2, 442.0 176.2 C455.0 176.2, 455.0 171.0, 468.0 171.0 C481.0 171.0, 481.0 163.5, 494.0 163.5 C507.0 163.5, 507.0 157.5, 520.0 157.5 C533.0 157.5, 533.0 168.8, 546.0 168.8 C559.0 168.8, 559.0 120.0, 572.0 120.0 C585.0 120.0, 585.0 101.2, 598.0 101.2 C611.0 101.2, 611.0 151.5, 624.0 151.5 C637.0 151.5, 637.0 114.0, 650.0 114.0 C663.0 114.0, 663.0 51.0, 676.0 51.0 C689.0 51.0, 689.0 39.0, 702.0 39.0 C715.0 39.0, 715.0 106.5, 728.0 106.5"
+                    fill="none"
+                    stroke="#d0243a"
+                    stroke-width="7"
+                    stroke-linecap="round"
+                    pathLength="1"
+                    stroke-dasharray="1"
+                    stroke-dashoffset="1"
+                    class="glow"
+                  />
+                </svg>
               </div>
               <div
                 class="chip red"
                 id="pf-y1"
-                style="left: 170px; top: 460px; font-size: 46px"
+                style="left: 70px; top: 720px; font-size: 36px"
               >
                 ✓ Visual communication
               </div>
               <div
                 class="chip red"
                 id="pf-y2"
-                style="left: 200px; top: 610px; font-size: 46px"
+                style="left: 580px; top: 720px; font-size: 36px"
               >
                 ✓ Conversion strategy
               </div>
             </div>
           </div>
         </div>
+        <div
+          id="proof-sweep"
+          style="
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 420px;
+            height: 1920px;
+            pointer-events: none;
+            background: linear-gradient(
+              90deg,
+              transparent,
+              rgba(208, 36, 58, 0.55),
+              rgba(255, 255, 255, 0.35),
+              transparent
+            );
+            transform: skewX(-18deg);
+            opacity: 0;
+          "
+        ></div>
       </div>
       <script>
         (() => {
           const L = (g) => g - 44.633;
           const tl = gsap.timeline({ paused: true });
+          tl.fromTo(
+            "#proof-sweep",
+            { x: -700, opacity: 1 },
+            { x: 1400, opacity: 1, duration: 0.45, ease: "power2.inOut" },
+            0,
+          );
+          tl.set("#proof-sweep", { opacity: 0 }, 0.46);
           tl.fromTo(
             "#pf-title .tw, #pf-title .l2 > span",
             { autoAlpha: 0, y: 10, filter: "blur(12px)" },
@@ -440,20 +865,38 @@
           tl.fromTo(
             "#pf-cam",
             { scale: 1 },
-            { scale: 1.03, duration: L(69.267), ease: "none" },
+            { scale: 1.05, duration: L(69.267), ease: "none" },
             0,
           );
           tl.fromTo(
-            "#pf-browser",
+            "#pf-k",
             { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
             {
               autoAlpha: 1,
               scale: 1,
               filter: "blur(0px)",
-              duration: 0.35,
+              duration: 0.4,
               ease: "power3.out",
             },
             L(44.7),
+          );
+          tl.fromTo(
+            "#pf-k-name",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.25,
+              ease: "power3.out",
+            },
+            L(44.9),
+          );
+          tl.fromTo(
+            "#pf-k-shot .shot",
+            { yPercent: 0 },
+            { yPercent: -35, duration: 4.2, ease: "sine.inOut" },
+            L(44.9),
           );
           tl.fromTo(
             "#pf-good",
@@ -468,18 +911,18 @@
             L(46.62),
           );
           tl.fromTo(
-            ["#pf-comp1", "#pf-comp2"],
-            { autoAlpha: 0, x: 0 },
-            { autoAlpha: 0.35, duration: 0.3, stagger: 0.1 },
+            ["#pf-kc1", "#pf-kc2"],
+            { autoAlpha: 0, y: 60 },
+            { autoAlpha: 0.3, y: 0, duration: 0.35, stagger: 0.1 },
             L(47.39),
           );
           tl.to(
-            "#pf-browser",
-            { scale: 1.06, duration: 0.4, ease: "power2.out" },
+            "#pf-k",
+            { scale: 1.07, duration: 0.5, ease: "power2.out" },
             L(47.69),
           );
           tl.to(
-            "#pf-site-g",
+            "#pf-k-g",
             {
               autoAlpha: 0,
               filter: "blur(10px)",
@@ -490,7 +933,31 @@
             L(49.05),
           );
           tl.fromTo(
-            "#pf-s1",
+            "#pf-f-phone",
+            { autoAlpha: 0, x: -140, rotation: -6 },
+            {
+              autoAlpha: 1,
+              x: 0,
+              rotation: 0,
+              duration: 0.45,
+              ease: "expo.out",
+            },
+            L(50.7),
+          );
+          tl.fromTo(
+            "#pf-f-name",
+            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              filter: "blur(0px)",
+              duration: 0.25,
+              ease: "power3.out",
+            },
+            L(50.77),
+          );
+          tl.fromTo(
+            "#pf-f-stat",
             { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
             {
               autoAlpha: 1,
@@ -499,7 +966,36 @@
               duration: 0.3,
               ease: "power3.out",
             },
-            L(50.77),
+            L(50.9),
+          );
+          tl.fromTo(
+            "#pf-f-b .shot",
+            { yPercent: 0 },
+            { yPercent: -12, duration: 1.8, ease: "sine.inOut" },
+            L(50.8),
+          );
+          tl.fromTo(
+            "#pf-f-wipe",
+            { x: 0, autoAlpha: 1 },
+            { x: 380, duration: 0.55, ease: "power2.inOut" },
+            L(52.25),
+          );
+          tl.fromTo(
+            "#pf-f-after",
+            { clipPath: "inset(0 100% 0 0)" },
+            {
+              clipPath: "inset(0 0% 0 0)",
+              duration: 0.55,
+              ease: "power2.inOut",
+            },
+            L(52.25),
+          );
+          tl.to("#pf-f-wipe", { autoAlpha: 0, duration: 0.1 }, L(52.8));
+          tl.fromTo(
+            "#pf-f-a .shot",
+            { yPercent: 0 },
+            { yPercent: -30, duration: 1.3, ease: "sine.inOut" },
+            L(52.8),
           );
           (() => {
             const el = document.querySelector("#pf-v1");
@@ -508,7 +1004,7 @@
               p,
               {
                 v: 3.5,
-                duration: 0.55,
+                duration: 0.6,
                 ease: "power2.out",
                 onUpdate: () => {
                   el.textContent = p.v.toFixed(1).replace(".0", "") + "%";
@@ -518,22 +1014,62 @@
             );
           })();
           tl.fromTo(
-            "#pf-a1",
-            { y: 20, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 0.3, ease: "back.out(2)" },
-            L(52.77),
+            "#pf-v1",
+            { color: "#ffffff" },
+            { color: "#d0243a", duration: 0.2 },
+            L(53.3),
+          );
+          tl.to(
+            "#pf-f-g",
+            {
+              x: -900,
+              filter: "blur(16px)",
+              autoAlpha: 0,
+              duration: 0.3,
+              ease: "power3.in",
+            },
+            L(53.85),
           );
           tl.fromTo(
-            "#pf-s2",
-            { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
+            "#pf-t-g",
+            { x: 900, filter: "blur(16px)", autoAlpha: 0 },
             {
-              autoAlpha: 1,
-              scale: 1,
+              x: 0,
               filter: "blur(0px)",
-              duration: 0.3,
+              autoAlpha: 1,
+              duration: 0.35,
               ease: "power3.out",
             },
-            L(54.12),
+            L(54.05),
+          );
+          tl.fromTo(
+            "#pf-t-b .shot",
+            { yPercent: 0 },
+            { yPercent: -20, duration: 2.8, ease: "sine.inOut" },
+            L(54.2),
+          );
+          tl.fromTo(
+            "#pf-t-wipe",
+            { x: 0, autoAlpha: 1 },
+            { x: 380, duration: 0.55, ease: "power2.inOut" },
+            L(56.7),
+          );
+          tl.fromTo(
+            "#pf-t-after",
+            { clipPath: "inset(0 100% 0 0)" },
+            {
+              clipPath: "inset(0 0% 0 0)",
+              duration: 0.55,
+              ease: "power2.inOut",
+            },
+            L(56.7),
+          );
+          tl.to("#pf-t-wipe", { autoAlpha: 0, duration: 0.1 }, L(57.25));
+          tl.fromTo(
+            "#pf-t-a .shot",
+            { yPercent: 0 },
+            { yPercent: -30, duration: 1.2, ease: "sine.inOut" },
+            L(57.25),
           );
           (() => {
             const el = document.querySelector("#pf-v2");
@@ -542,7 +1078,7 @@
               p,
               {
                 v: 15,
-                duration: 0.55,
+                duration: 0.6,
                 ease: "power2.out",
                 onUpdate: () => {
                   el.textContent = p.v.toFixed(0) + "%";
@@ -552,13 +1088,24 @@
             );
           })();
           tl.fromTo(
-            "#pf-a2",
-            { y: 20, autoAlpha: 0 },
-            { y: 0, autoAlpha: 1, duration: 0.3, ease: "back.out(2)" },
-            L(57.4),
+            "#pf-v2",
+            { color: "#ffffff" },
+            { color: "#d0243a", duration: 0.2 },
+            L(57.7),
+          );
+          tl.to(
+            "#pf-t-g",
+            {
+              scale: 0.8,
+              filter: "blur(16px)",
+              autoAlpha: 0,
+              duration: 0.3,
+              ease: "power3.in",
+            },
+            L(58.3),
           );
           tl.fromTo(
-            "#pf-s3",
+            "#pf-rev-g",
             { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
             {
               autoAlpha: 1,
@@ -569,6 +1116,12 @@
             },
             L(58.47),
           );
+          tl.fromTo(
+            "#pf-ring-arc",
+            { strokeDashoffset: 1 },
+            { strokeDashoffset: 0.25, duration: 1.2, ease: "power2.out" },
+            L(59.06),
+          );
           (() => {
             const el = document.querySelector("#pf-v3");
             const p = { v: 0 };
@@ -576,7 +1129,7 @@
               p,
               {
                 v: 75,
-                duration: 1.1,
+                duration: 1.2,
                 ease: "power2.out",
                 onUpdate: () => {
                   el.textContent = "+" + p.v.toFixed(0) + "%";
@@ -586,13 +1139,13 @@
             );
           })();
           tl.fromTo(
-            "#pf-s3",
+            "#pf-rev-g",
             { scale: 1 },
-            { scale: 1.04, duration: 0.2, yoyo: true, repeat: 1 },
-            L(60.2),
+            { scale: 1.06, duration: 0.2, yoyo: true, repeat: 1 },
+            L(60.3),
           );
           tl.to(
-            "#pf-stats-g",
+            "#pf-rev-g",
             {
               autoAlpha: 0,
               filter: "blur(10px)",
@@ -644,16 +1197,51 @@
             L(65.57),
           );
           tl.fromTo(
-            "#pf-just",
+            "#pf-dash",
             { autoAlpha: 0, scale: 0.9, filter: "blur(10px)" },
             {
               autoAlpha: 1,
               scale: 1,
               filter: "blur(0px)",
-              duration: 0.25,
+              duration: 0.35,
               ease: "power3.out",
             },
             L(65.57),
+          );
+          tl.fromTo(
+            "#pf-aug",
+            { autoAlpha: 0 },
+            { autoAlpha: 1, duration: 0.4 },
+            L(65.8),
+          );
+          tl.fromTo(
+            "#pf-sep",
+            { strokeDashoffset: 1 },
+            { strokeDashoffset: 0, duration: 1.6, ease: "power1.inOut" },
+            L(66.0),
+          );
+          (() => {
+            const el = document.querySelector("#pf-total");
+            const p = { v: 0 };
+            tl.to(
+              p,
+              {
+                v: 7372606,
+                duration: 1.6,
+                ease: "power2.out",
+                onUpdate: () => {
+                  el.textContent =
+                    "₹" + Math.round(p.v).toLocaleString("en-IN");
+                },
+              },
+              L(66.0),
+            );
+          })();
+          tl.fromTo(
+            "#pf-pct",
+            { autoAlpha: 0, scale: 0.5 },
+            { autoAlpha: 1, scale: 1, duration: 0.35, ease: "back.out(2.5)" },
+            L(67.6),
           );
           tl.fromTo(
             "#pf-y1",
